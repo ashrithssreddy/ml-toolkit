@@ -9,11 +9,11 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 
 ## 🧩 What's Inside
 
-| Category                 | Notebooks                                                                 |
-|--------------------------|---------------------------------------------------------------------------|
-| **Supervised Learning**  | [Classification](./Classification/Classification.ipynb)  •  [Regression](./Regression/regression.ipynb) |
-| **Semi-Supervised**      | [Semi-Supervised Learning](./Semi_Supervised_Learning/semi_supervised_learning.ipynb) |
-| **Unsupervised Learning**| [Clustering](./Unsupervised_Learning/Clustering/Clustering.ipynb)  •  [Dimensionality Reduction](./Unsupervised_Learning/Dimensionality_Reduction/Dimensionality_Reduction.ipynb)  •  [Association Rules](./Unsupervised_Learning/Apriori_Association_Rules/association_rule_learning.ipynb) |
+| Category                  | Notebook(s)                                                                 |
+|---------------------------|------------------------------------------------------------------------------|
+| **Supervised Learning**   | [classification.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/classification.html)  <br> [regression.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/regression.html) |
+| **Unsupervised Learning** | [clustering.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/clustering.html) <br> [dimensionality_reduction.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/dimensionality_reduction.html) <br> [association_rule_learning.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/association_rule_learning.html) |
+| **Semi-Supervised Learning** | [label_propagation.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/label_propagation.html) <br> [pseudo_labeling.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/pseudo_labeling.html) |
 
 ---
 
