@@ -8,18 +8,11 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 ---
 
 ## 🧩 What's Inside
-
-## 📚 Notebook Index
-
-| Category                  | Notebook |
-|---------------------------|----------|
-| **Supervised Learning**   | [classification.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/classification.html) |
-|                           | [regression.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/regression.html) |
-| **Unsupervised Learning** | [clustering.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/clustering.html) |
-|                           | [dimensionality_reduction.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/dimensionality_reduction.html) |
-|                           | [association_rule_learning.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/association_rule_learning.html) |
-| **Semi-Supervised Learning** | [label_propagation.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/label_propagation.html) |
-|                           | [pseudo_labeling.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/pseudo_labeling.html) |
+| Category                  | Notebooks |
+|---------------------------|-----------|
+| **Supervised Learning**   | [classification.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/classification.html), [regression.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/regression.html) |
+| **Unsupervised Learning** | [clustering.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/clustering.html), [dimensionality_reduction.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/dimensionality_reduction.html), [association_rule_learning.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/association_rule_learning.html) |
+| **Semi-Supervised Learning** | [label_propagation.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/label_propagation.html), [pseudo_labeling.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/pseudo_labeling.html) |
 
 ---
 
