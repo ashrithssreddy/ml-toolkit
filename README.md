@@ -1,13 +1,28 @@
-# ML Toolkit
+# 🧠 Machine Learning Toolkit [Under Construction]
 
-ML Toolkit is a collection of machine learning codes, examples, and tools designed to streamline the development, testing, and deployment of ML models. It covers a wide range of machine learning techniques and implementations, from data preprocessing and feature engineering to advanced model training and evaluation.
+A curated, **hands-on collection of Machine Learning methods** with clear explanations, minimal code wrappers, and dual-level insights:
+- 🔬 **For technical users**: see internal mechanics, diagnostics, and decision logic
+- 📊 **For business users**: skim final insights, performance highlights, and takeaway summaries
 
-## Features
-- Sample datasets and data processing scripts
-- Implementations of supervised and unsupervised algorithms
-- Tools for feature engineering and selection
-- Model evaluation and tuning utilities
-- Experiment tracking and logging
-- Deployment scripts for various platforms
+> 🎯 Built to help you understand, reuse, and communicate ML workflows with confidence.
+---
 
-This repository is intended for educational purposes and personal projects, and it serves as a growing toolkit for machine learning practitioners.
+## 🧩 What's Inside
+
+| Category                 | Notebooks                                                                 |
+|--------------------------|---------------------------------------------------------------------------|
+| **Supervised Learning**  | [Classification](./Classification/Classification.ipynb)  •  [Regression](./Regression/regression.ipynb) |
+| **Semi-Supervised**      | [Semi-Supervised Learning](./Semi_Supervised_Learning/semi_supervised_learning.ipynb) |
+| **Unsupervised Learning**| [Clustering](./Unsupervised_Learning/Clustering/Clustering.ipynb)  •  [Dimensionality Reduction](./Unsupervised_Learning/Dimensionality_Reduction/Dimensionality_Reduction.ipynb)  •  [Association Rules](./Unsupervised_Learning/Apriori_Association_Rules/association_rule_learning.ipynb) |
+
+---
+
+## 🛠️ Design Principles
+
+- **Minimal magic**: Code-first approach with visible logic
+- **Tutorial-style**: Key theory as collapsible notes, not distractions
+- **Config-ready**: Structure encourages reusability across datasets and tasks
+- **Business-minded**: Final cell outputs explain *what it means* — not just *what it does*
+
+---
+
