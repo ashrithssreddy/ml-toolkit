@@ -7,12 +7,41 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 > 🎯 Built to help you understand, reuse, and communicate ML workflows with confidence.
 ---
 
-## 🧩 What's Inside
-| Category                  | Notebooks |
-|---------------------------|-----------|
-| **Supervised Learning**   | [classification.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/classification.html), [regression.html](https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/regression.html) |
-| **Unsupervised Learning** | [clustering.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/clustering.html), [dimensionality_reduction.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/dimensionality_reduction.html), [association_rule_learning.html](https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/association_rule_learning.html) |
-| **Semi-Supervised Learning** | [label_propagation.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/label_propagation.html), [pseudo_labeling.html](https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/pseudo_labeling.html) |
+<h2>🧩 What's Inside</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Notebooks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Supervised Learning</strong></td>
+      <td>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/classification.html">classification.html</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/regression.html">regression.html</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Unsupervised Learning</strong></td>
+      <td>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/clustering.html">clustering.html</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/dimensionality_reduction.html">dimensionality_reduction.html</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/association_rule_learning.html">association_rule_learning.html</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Semi-Supervised Learning</strong></td>
+      <td>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/label_propagation.html">label_propagation.html</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/pseudo_labeling.html">pseudo_labeling.html</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 ---
 
