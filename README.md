@@ -22,6 +22,7 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
       <td>
         <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/classification.html">classification.html</a>,
         <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/regression.html">regression.html</a>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/time_series_forecasting.html">time_series_forecasting.html</a>
       </td>
     </tr>
     <tr>
