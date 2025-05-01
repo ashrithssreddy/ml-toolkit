@@ -1,4 +1,4 @@
-# Machine Learning Toolkit 
+# Machine Learning Toolkit [Migration Pending]
 
 A curated, **hands-on collection of Machine Learning methods** with clear explanations, minimal code wrappers, and dual-level insights:
 - 🔬 **For technical users**: see internal mechanics, diagnostics, and decision logic
