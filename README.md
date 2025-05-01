@@ -4,8 +4,6 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 - 🔬 **For technical users**: see internal mechanics, diagnostics, and decision logic
 - 📊 **For business users**: skim final insights, performance highlights, and takeaway summaries
 
-> 🎯 Built to help you understand, reuse, and communicate ML workflows with confidence.
-
 ---
 
 <h2>🧩 What's Inside</h2>
