@@ -1,10 +1,11 @@
-🧠 Machine Learning Toolkit 
+# Machine Learning Toolkit 
 
 A curated, **hands-on collection of Machine Learning methods** with clear explanations, minimal code wrappers, and dual-level insights:
 - 🔬 **For technical users**: see internal mechanics, diagnostics, and decision logic
 - 📊 **For business users**: skim final insights, performance highlights, and takeaway summaries
 
 > 🎯 Built to help you understand, reuse, and communicate ML workflows with confidence.
+
 ---
 
 <h2>🧩 What's Inside</h2>
@@ -12,7 +13,7 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 <table>
   <thead>
     <tr>
-      <th>Category</th>
+      <th>Topic</th>
       <th>Notebooks</th>
     </tr>
   </thead>
@@ -54,4 +55,3 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 - **Business-minded**: Final cell outputs explain *what it means* — not just *what it does*
 
 ---
-
