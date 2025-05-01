@@ -47,11 +47,12 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 
 ---
 
-## 🛠️ Design Principles
-
-- **Minimal magic**: Code-first approach with visible logic
-- **Tutorial-style**: Key theory as collapsible notes, not distractions
-- **Config-ready**: Structure encourages reusability across datasets and tasks
-- **Business-minded**: Final cell outputs explain *what it means* — not just *what it does*
+<h2>🛠️ Design Principles</h2>
+<ul>
+  <li><strong>Minimal magic</strong>: Code-first approach with visible logic</li>
+  <li><strong>Tutorial-style</strong>: Key theory as collapsible notes, not distractions</li>
+  <li><strong>Config-ready</strong>: Structure encourages reusability across datasets and tasks</li>
+  <li><strong>Business-minded</strong>: Final cell outputs explain <em>what it means</em> — not just <em>what it does</em></li>
+</ul>
 
 ---
