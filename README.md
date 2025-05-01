@@ -4,8 +4,6 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 - 🔬 **For technical users**: see internal mechanics, diagnostics, and decision logic
 - 📊 **For business users**: skim final insights, performance highlights, and takeaway summaries
 
----
-
 <h2>🧩 What's Inside</h2>
 
 <table>
@@ -43,8 +41,6 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 </table>
 
 
----
-
 <h2>🛠️ Design Principles</h2>
 <ul>
   <li><strong>Minimal magic</strong>: Code-first approach with visible logic</li>
@@ -52,5 +48,3 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
   <li><strong>Config-ready</strong>: Structure encourages reusability across datasets and tasks</li>
   <li><strong>Business-minded</strong>: Final cell outputs explain <em>what it means</em> — not just <em>what it does</em></li>
 </ul>
-
----
