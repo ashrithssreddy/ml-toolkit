@@ -30,13 +30,13 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
         <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/html_exports/association_rule_learning.html">Association Rule Learning</a>
       </td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td><strong>Semi-Supervised Learning</strong></td>
       <td>
         <a href="https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/html_exports/label_propagation.html">Label Propagation</a>,
         <a href="https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/html_exports/pseudo_labeling.html">Pseudo Labeling</a>
       </td>
-    </tr>
+    </tr> -->
     <tr>
       <td><strong>Preprocessing</strong></td>
       <td>
@@ -51,10 +51,10 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
 </table>
 
 
-<h2>🛠️ Design Principles</h2>
+<!-- <h2>🛠️ Design Principles</h2>
 <ul>
   <li><strong>Minimal magic</strong>: Code-first approach with visible logic</li>
   <li><strong>Tutorial-style</strong>: Key theory as collapsible notes, not distractions</li>
   <li><strong>Config-ready</strong>: Structure encourages reusability across datasets and tasks</li>
   <li><strong>Business-minded</strong>: Final cell outputs explain <em>what it means</em> — not just <em>what it does</em></li>
-</ul>
+</ul> -->
