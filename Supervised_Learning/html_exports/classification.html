@@ -7532,14 +7532,14 @@ a.anchor-link {
 <li><a href="#-data-characteristics-dictionary">📊 Data Characteristics Dictionary</a></li>
 <li><a href="#-preprocessing">🧹 Preprocessing</a></li>
 </ul>
-<p><a href="#-baseline-classifier-model">🧪 Baseline Classifier Model</a></p>
-<p><a href="#-model-evaluation">📊 Model Evaluation</a></p>
+<p><a href="#-baseline-model">🧪 Baseline Classifier Model</a></p>
 <ul>
+<li><a href="#-evaluation">📊 Model Evaluation</a></li>
 <li><a href="#-confusion-matrix">📉 Confusion Matrix</a></li>
-<li><a href="#-roc-curve--auc">📈 ROC Curve / AUC</a></li>
-<li><a href="#-precision--recall--f1">📏 Precision / Recall / F1</a></li>
+<li><a href="#-roc-auc">📈 ROC Curve / AUC</a></li>
+<li><a href="#-prf-metrics">📏 Precision / Recall / F1</a></li>
 </ul>
-<p><a href="#-models">🔍 Models</a></p>
+<p><a href="#-models">🔍 Algorithms</a></p>
 <ul>
 <li><a href="#-logistic-regression">📊 Logistic Regression</a></li>
 <li><a href="#-naive-bayes">🧮 Naive Bayes</a></li>
@@ -7556,7 +7556,7 @@ a.anchor-link {
 <li><a href="#-feature-importance">📊 Feature Importance</a></li>
 <li><a href="#-shap-values">🧬 SHAP Values</a></li>
 </ul>
-<p><a href="#-fine-tune-the-winner">🛠️ Fine-Tune the Winner</a></p>
+<p><a href="#-tuning">🛠️ Fine-Tune</a></p>
 <ul>
 <li><a href="#-grid-search">🔎 Grid Search</a></li>
 <li><a href="#-randomized-search">🎲 Randomized Search</a></li>
@@ -8048,7 +8048,7 @@ Train size: 800, Test size: 200
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="evaluation"></a></p>
-<h1 id="%F0%9F%93%8A-Model-Evaluation">📊 Model Evaluation<a class="anchor-link" href="#%F0%9F%93%8A-Model-Evaluation">¶</a></h1>
+<h4 id="%F0%9F%93%8A-Model-Evaluation">📊 Model Evaluation<a class="anchor-link" href="#%F0%9F%93%8A-Model-Evaluation">¶</a></h4>
 </div>
 </div>
 </div>
@@ -8488,7 +8488,7 @@ Each cell represents the count of:</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="models"></a></p>
-<h1 id="%F0%9F%94%8D-Models">🔍 Models<a class="anchor-link" href="#%F0%9F%94%8D-Models">¶</a></h1>
+<h1 id="%F0%9F%94%8D-Algorithms">🔍 Algorithms<a class="anchor-link" href="#%F0%9F%94%8D-Algorithms">¶</a></h1>
 </div>
 </div>
 </div>
@@ -9043,6 +9043,18 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 <li><strong>Tip</strong>: Standardize inputs and tune learning rate; training can otherwise stall or explode</li>
 </ul>
 </details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bd443df2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="#table-of-contents">Back to the top</a></p>
+<hr/>
 </div>
 </div>
 </div>
@@ -9692,7 +9704,18 @@ It’s like asking, “What factors influenced the decision the most?”</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="tuning"></a></p>
-<h1 id="%F0%9F%9B%A0%EF%B8%8F-Fine-Tune-the-Winner">🛠️ Fine-Tune the Winner<a class="anchor-link" href="#%F0%9F%9B%A0%EF%B8%8F-Fine-Tune-the-Winner">¶</a></h1><details>
+<h1 id="%F0%9F%9B%A0%EF%B8%8F-Fine-Tune">🛠️ Fine-Tune<a class="anchor-link" href="#%F0%9F%9B%A0%EF%B8%8F-Fine-Tune">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=291f9333">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
 <summary><strong>📖 Click to Expand</strong></summary>
 <ul>
 <li>Fine-tuning helps unlock the model’s full potential by finding better hyperparameter values.</li>
