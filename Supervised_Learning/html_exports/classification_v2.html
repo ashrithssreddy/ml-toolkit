@@ -14585,52 +14585,62 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <img src="https://img.shields.io/badge/coverage-90%25-green" alt="Coverage">
 <img src="https://img.shields.io/badge/license-MIT-green" alt="License"></p>
 <p><a id="table-of-contents"></a></p>
-<h1 id="%F0%9F%93%96-Classification">&#128214; Classification<a class="anchor-link" href="#%F0%9F%93%96-Classification">&#182;</a></h1><p><a href="#-objective">🧭 Problem Statement</a></p>
+<h1 id="%F0%9F%93%96-Classification">&#128214; Classification<a class="anchor-link" href="#%F0%9F%93%96-Classification">&#182;</a></h1><p><a href="#objective">🧭 Problem Statement</a></p>
 <ul>
-<li><a href="#-what-is-classification">📌 What is Classification?</a></li>
+<li><a href="#what-is-classification">📌 What is Classification?</a></li>
 </ul>
-<p><a href="#-data-setup">📂 Data Setup</a></p>
+<p><a href="#data-setup">📂 Data Setup</a></p>
 <ul>
-<li><a href="#-load-dataset">📥 Load Dataset</a></li>
-<li><a href="#-preprocessing">🧹 Preprocessing</a></li>
+<li><a href="#load-dataset">📥 Load Dataset</a>  </li>
+<li><a href="#data-characteristics-dictionary">📊 Data Characteristics Dictionary</a>  </li>
+<li><a href="#eda">🔎 EDA</a>  </li>
+<li><a href="#feature-engineering">🛠️ Feature Engineering</a>  </li>
+<li><a href="#preprocessing">🧹 Preprocessing</a></li>
 </ul>
-<p><a href="#-baseline-model">🧪 Baseline Classifier Model</a></p>
+<p><a href="#baseline-model">🧪 Baseline Classifier Model</a></p>
 <ul>
-<li><a href="#-evaluation-baseline">📊 Model Evaluation</a>    </li>
-<li><a href="#-confusion-matrix-baseline">📉 Confusion Matrix</a>    </li>
-<li><a href="#-roc-auc-baseline">📈 ROC Curve / AUC</a>    </li>
-<li><a href="#-prf-metrics-baseline">📏 Precision / Recall / F1</a>    </li>
+<li><a href="#evaluation-baseline">📊 Model Evaluation</a>  </li>
+<li><a href="#confusion-matrix-baseline">📉 Confusion Matrix</a>  </li>
+<li><a href="#roc-auc-baseline">📈 ROC Curve / AUC</a>  </li>
+<li><a href="#update-best-model">🧮 Update Best Model Info</a></li>
 </ul>
-<p><a href="#-models">🔍 Algorithms</a></p>
+<p><a href="#models">🔍 Algorithms</a></p>
 <ul>
-<li><a href="#-logistic-regression">📊 Logistic Regression</a></li>
-<li><a href="#-naive-bayes">🧮 Naive Bayes</a></li>
-<li><a href="#-decision-tree">🌳 Decision Tree</a></li>
-<li><a href="#-random-forest">🌲 Random Forest</a></li>
-<li><a href="#-knn">🎯 KNN (K-Nearest Neighbors)</a></li>
-<li><a href="#-svm">📈 SVM (Support Vector Machines)</a></li>
-<li><a href="#-xgboost">🚀 XGBoost</a></li>
-<li><a href="#-neural-network">🧠 Neural Network</a></li>
+<li><a href="#logistic-regression">📊 Logistic Regression</a>  </li>
+<li><a href="#naive-bayes">🧮 Naive Bayes</a>  </li>
+<li><a href="#decision-tree">🌳 Decision Tree</a>  </li>
+<li><a href="#random-forest">🌲 Random Forest</a>  </li>
+<li><a href="#knn">🎯 KNN (K-Nearest Neighbors)</a>  </li>
+<li><a href="#svm">📈 SVM (Support Vector Machines)</a>  </li>
+<li><a href="#xgboost">🚀 XGBoost</a>  </li>
+<li><a href="#neural-net">🧠 Neural Network</a></li>
 </ul>
-<p><a href="#-model-exploration">📊 Model Selection</a></p>
+<p><a href="#model-exploration">📊 Model Selection</a></p>
 <ul>
-<li><a href="#-model-comparison">📈 Model Comparison</a></li>
-<li><a href="#-feature-importance">📊 Feature Importance</a></li>
-<li><a href="#-shap-values">🧬 SHAP Values</a></li>
+<li><a href="#recommend-models">🧠 Recommend Models</a>  </li>
+<li><a href="#model-comparison">📈 Model Comparison</a>  </li>
+<li><a href="#feature-importance">📊 Feature Importance</a>  </li>
+<li><a href="#shap-values">🧬 SHAP Values</a></li>
 </ul>
-<p><a href="#-tuning">🛠️ Fine-Tune</a></p>
+<p><a href="#tuning">🛠️ Fine-Tune</a></p>
 <ul>
-<li><a href="#-grid-search">🔎 Grid Search</a></li>
-<li><a href="#-randomized-search">🎲 Randomized Search</a></li>
+<li><a href="#feature-selection-rfe">🧪 Feature Selection – RFE</a>  </li>
+<li><a href="#feature-selection-rfe-shap">🧪 Feature Selection – RFE + SHAP</a>  </li>
+<li><a href="#grid-search">🔎 Grid Search</a>  </li>
+<li><a href="#random-search">🎲 Randomized Search</a></li>
 </ul>
-<p><a href="#-ensemble-methods">🔀 Ensemble Methods</a></p>
+<p><a href="#ensemble">🔀 Ensemble Methods</a></p>
 <ul>
-<li><a href="#-voting-classifier">🗳️ Voting Classifier</a></li>
-<li><a href="#-stacking-classifier">🧬 Stacking Classifier</a></li>
-<li><a href="#-bagging">🪵 Bagging</a></li>
-<li><a href="#-boosting">🚀 Boosting</a></li>
+<li><a href="#voting-ensemble">🗳️ Voting Classifier</a>  </li>
+<li><a href="#stacking-ensemble">🧬 Stacking Classifier</a>  </li>
+<li><a href="#bagging">🪵 Bagging</a>  </li>
+<li><a href="#boosting">🚀 Boosting</a></li>
 </ul>
-<p><a href="#-export--deployment-optional">📦 Export &amp; Deployment</a></p>
+<p><a href="#export-deploy">📦 Export &amp; Deployment</a></p>
+<ul>
+<li><a href="#pickling">🧊 Pickling</a></li>
+<li><a href="#monitoring-hooks">📊 Monitoring Hooks</a></li>
+</ul>
 <hr style="border: none; height: 1px; background-color: #ddd;" />
 </div>
 </div>
@@ -14710,6 +14720,28 @@ In classification, the output is discrete (e.g., 'spam' vs 'not spam', 'churn' v
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
+In this section, we will begin by preparing the dataset. For simplicity, we'll use a simulated classification dataset generated using the `make_classification` function from `sklearn`. This allows us to create a synthetic dataset that is suitable for practicing classification tasks.
+
+We will simulate a dataset with the following properties:
+- 1000 samples (observations)
+- 10 features (predictors)
+- 2 informative features (ones that help in prediction)
+- 2 classes (binary classification problem)
+
+Let's generate and take a look at the data.
+
+</details>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14742,28 +14774,6 @@ In classification, the output is discrete (e.g., 'spam' vs 'not spam', 'churn' v
 </div>
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
-In this section, we will begin by preparing the dataset. For simplicity, we'll use a simulated classification dataset generated using the `make_classification` function from `sklearn`. This allows us to create a synthetic dataset that is suitable for practicing classification tasks.
-
-We will simulate a dataset with the following properties:
-- 1000 samples (observations)
-- 10 features (predictors)
-- 2 informative features (ones that help in prediction)
-- 2 classes (binary classification problem)
-
-Let's generate and take a look at the data.
-
-</details>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15011,7 +15021,8 @@ This dictionary will be updated dynamically as we analyze the dataset in subsequ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="EDA">EDA<a class="anchor-link" href="#EDA">&#182;</a></h4>
+<p><a id="eda"></a></p>
+<h4 id="%F0%9F%94%8E-EDA">&#128270; EDA<a class="anchor-link" href="#%F0%9F%94%8E-EDA">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -15216,7 +15227,11 @@ This dictionary will be updated dynamically as we analyze the dataset in subsequ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Feature-Engineering">Feature Engineering<a class="anchor-link" href="#Feature-Engineering">&#182;</a></h4>
+<p><a id="feature-engineering"></a></p>
+<h4 id="%F0%9F%9B%A0%EF%B8%8F-Feature-Engineering">&#128736;&#65039; Feature Engineering<a class="anchor-link" href="#%F0%9F%9B%A0%EF%B8%8F-Feature-Engineering">&#182;</a></h4><ul>
+<li><em>Ommitted Here</em></li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -15939,7 +15954,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Update-Best-Model-Info">Update Best Model Info<a class="anchor-link" href="#Update-Best-Model-Info">&#182;</a></h4>
+<p><a id="update-best-model"></a></p>
+<h4 id="%F0%9F%A7%AE-Update-Best-Model-Info">&#129518; Update Best Model Info<a class="anchor-link" href="#%F0%9F%A7%AE-Update-Best-Model-Info">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -16622,7 +16638,8 @@ Use Neural Networks when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Recommend-Models">Recommend Models<a class="anchor-link" href="#Recommend-Models">&#182;</a></h4>
+<p><a id="recommend-models"></a></p>
+<h4 id="%F0%9F%A7%A0-Recommend-Models">&#129504; Recommend Models<a class="anchor-link" href="#%F0%9F%A7%A0-Recommend-Models">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -17621,7 +17638,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Feature-Selection---RFE">Feature Selection - RFE<a class="anchor-link" href="#Feature-Selection---RFE">&#182;</a></h4>
+<p><a id="feature-selection-rfe"></a></p>
+<h4 id="%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE">&#129514; Feature Selection &#8211; RFE<a class="anchor-link" href="#%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -17664,7 +17682,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Feature-Selection---RFE-+-SHAP">Feature Selection - RFE + SHAP<a class="anchor-link" href="#Feature-Selection---RFE-+-SHAP">&#182;</a></h4>
+<p><a id="feature-selection-rfe-shap"></a></p>
+<h4 id="%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE-+-SHAP">&#129514; Feature Selection &#8211; RFE + SHAP<a class="anchor-link" href="#%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE-+-SHAP">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -17768,7 +17787,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[129]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">final_features</span><span class="p">,</span> <span class="n">history</span> <span class="o">=</span> <span class="n">shap_guided_backward_elimination</span><span class="p">(</span>
@@ -17778,7 +17797,6 @@ class="
     <span class="n">shap_ranked</span><span class="o">=</span><span class="n">shap_ranked</span>
 <span class="p">)</span>
 <span class="n">final_features</span>
-
 
 <span class="n">X_train_full</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># retaining copies for future reference</span>
 <span class="n">X_test_full</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># retaining copies for future reference</span>
@@ -18660,6 +18678,18 @@ Think of it as building knowledge step by step, learning from past failures to g
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="pickling"></a></p>
+<h4 id="%F0%9F%A7%8A-Pickling-(Model-Export)">&#129482; Pickling (Model Export)<a class="anchor-link" href="#%F0%9F%A7%8A-Pickling-(Model-Export)">&#182;</a></h4>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -18693,6 +18723,36 @@ Think of it as building knowledge step by step, learning from past failures to g
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="monitoring-hooks"></a></p>
+<h4 id="%F0%9F%93%8A-Monitoring-Hooks-(Production-Logging)">&#128202; Monitoring Hooks (Production Logging)<a class="anchor-link" href="#%F0%9F%93%8A-Monitoring-Hooks-(Production-Logging)">&#182;</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+
+In real-world deployments, it’s crucial to track how your model behaves once it’s live.
+
+**What to log in production:**
+- ✅ Number of predictions served
+- ✅ Confidence scores / prediction probabilities
+- ✅ Class distribution over time
+- ✅ Drift in input features
+- ✅ Model response latency
+- ❌ Ground truth (usually delayed or unavailable)
+
+You can integrate this with tools like:
+- Prometheus + Grafana
+- AWS CloudWatch
+- Datadog
+- MLflow, EvidentlyAI, or WhyLabs
+
+</details>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">

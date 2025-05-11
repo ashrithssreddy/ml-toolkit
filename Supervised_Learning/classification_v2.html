@@ -14636,7 +14636,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li><a href="#bagging">🪵 Bagging</a>  </li>
 <li><a href="#boosting">🚀 Boosting</a></li>
 </ul>
-<p><a href="#export-deploy">📦 Export &amp; Deployment (Optional)</a></p>
+<p><a href="#export-deploy">📦 Export &amp; Deployment</a></p>
+<ul>
+<li><a href="#pickling">🧊 Pickling</a></li>
+<li><a href="#monitoring-hooks">📊 Monitoring Hooks</a></li>
+</ul>
 <hr style="border: none; height: 1px; background-color: #ddd;" />
 </div>
 </div>
@@ -14661,19 +14665,26 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="what-is-classification"></a></p>
-<h4 id="%F0%9F%93%8C-What-is-Classification?">&#128204; What is Classification?<a class="anchor-link" href="#%F0%9F%93%8C-What-is-Classification?">&#182;</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
-Classification is a type of supervised machine learning where the goal is to predict a categorical label for an observation. Given a set of features (input data), the model tries to assign the observation to one of several predefined classes. Common examples of classification problems include:
-- **Spam detection**: Classifying emails as spam or not.
-- **Customer churn prediction**: Classifying customers as likely to leave (churn) or stay based on their activity.
-- **Image recognition**: Classifying images into categories, like identifying animals, vehicles, etc.
+<h4>📌 What is Classification?</h4><details><summary><strong>📖 Click to Expand</strong></summary>
 
-In classification, the output is discrete (e.g., 'spam' vs 'not spam', 'churn' vs 'no churn'). This contrasts with regression, where the output is continuous (e.g., predicting a house price).
+<p>Classification is a type of supervised machine learning where the goal is to predict a categorical label for an observation. Given a set of features (input data), the model tries to assign the observation to one of several predefined classes.</p>
 
-##### Key Points
-- Supervised learning approach.
-- Used for predicting categories.
-- Output is discrete (binary or multiclass).
-- Examples: email classification, disease diagnosis, fraud detection.
+<p>Common examples of classification problems include:</p>
+<ul>
+  <li><strong>Spam detection</strong>: Classifying emails as spam or not.</li>
+  <li><strong>Customer churn prediction</strong>: Classifying customers as likely to leave (churn) or stay based on their activity.</li>
+  <li><strong>Image recognition</strong>: Classifying images into categories, like identifying animals, vehicles, etc.</li>
+</ul>
+
+<p>In classification, the output is discrete (e.g., 'spam' vs 'not spam', 'churn' vs 'no churn'). This contrasts with regression, where the output is continuous (e.g., predicting a house price).</p>
+
+<h5>Key Points</h5>
+<ul>
+  <li>Supervised learning approach.</li>
+  <li>Used for predicting categories.</li>
+  <li>Output is discrete (binary or multiclass).</li>
+  <li>Examples: email classification, disease diagnosis, fraud detection.</li>
+</ul>
 
 </details>
 </div>
@@ -14724,15 +14735,18 @@ In classification, the output is discrete (e.g., 'spam' vs 'not spam', 'churn' v
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
-In this section, we will begin by preparing the dataset. For simplicity, we'll use a simulated classification dataset generated using the `make_classification` function from `sklearn`. This allows us to create a synthetic dataset that is suitable for practicing classification tasks.
 
-We will simulate a dataset with the following properties:
-- 1000 samples (observations)
-- 10 features (predictors)
-- 2 informative features (ones that help in prediction)
-- 2 classes (binary classification problem)
+<p>In this section, we will begin by preparing the dataset. For simplicity, we'll use a simulated classification dataset generated using the <code>make_classification</code> function from <code>sklearn</code>. This allows us to create a synthetic dataset that is suitable for practicing classification tasks.</p>
 
-Let's generate and take a look at the data.
+<p>We will simulate a dataset with the following properties:</p>
+<ul>
+  <li>1000 samples (observations)</li>
+  <li>10 features (predictors)</li>
+  <li>2 informative features (ones that help in prediction)</li>
+  <li>2 classes (binary classification problem)</li>
+</ul>
+
+<p>Let's generate and take a look at the data.</p>
 
 </details>
 </div>
@@ -14950,30 +14964,41 @@ Let's generate and take a look at the data.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="data-characteristics-dictionary"></a></p>
-<h4 id="%F0%9F%93%8A-Data-Characteristics-Dictionary">&#128202; Data Characteristics Dictionary<a class="anchor-link" href="#%F0%9F%93%8A-Data-Characteristics-Dictionary">&#182;</a></h4><details><summary><strong>📖 Click to Expand </strong></summary>
+<h4>📊 Data Characteristics Dictionary</h4><details><summary><strong>📖 Click to Expand</strong></summary>
 
-This section initializes the **data characteristics dictionary**, which will store various metadata about the dataset, including details about the target variable, features, data size, and linear separability.
+<p>This section initializes the <strong>data characteristics dictionary</strong>, which will store various metadata about the dataset, including details about the target variable, features, data size, and linear separability.</p>
 
-The dictionary contains the following key sections:
+<p>The dictionary contains the following key sections:</p>
 
-1. **🎯 Target Variable**:
-   - **Type**: Specifies whether the target variable is **binary** or **multiclass**.
-   - **Imbalance**: Indicates whether the target variable has **class imbalance**.
-   - **Class Imbalance Severity**: Specifies the severity of the imbalance (e.g., **high**, **low**).
+<ol>
+  <li><strong>🎯 Target Variable</strong>:
+    <ul>
+      <li><strong>Type</strong>: Specifies whether the target variable is <strong>binary</strong> or <strong>multiclass</strong>.</li>
+      <li><strong>Imbalance</strong>: Indicates whether the target variable has <strong>class imbalance</strong>.</li>
+      <li><strong>Class Imbalance Severity</strong>: Specifies the severity of the imbalance (e.g., <strong>high</strong>, <strong>low</strong>).</li>
+    </ul>
+  </li>
+  <li><strong>🔧 Features</strong>:
+    <ul>
+      <li><strong>Type</strong>: Describes the type of features in the dataset (e.g., <strong>categorical</strong>, <strong>continuous</strong>, or <strong>mixed</strong>).</li>
+      <li><strong>Correlation</strong>: Indicates the correlation between features (e.g., <strong>low</strong>, <strong>medium</strong>, <strong>high</strong>).</li>
+      <li><strong>Outliers</strong>: Flag to indicate whether <strong>outliers</strong> are detected in the features.</li>
+      <li><strong>Missing Data</strong>: Tracks the percentage of <strong>missing data</strong> or flags missing values.</li>
+    </ul>
+  </li>
+  <li><strong>📈 Data Size</strong>:
+    <ul>
+      <li><strong>Size</strong>: Contains the <strong>number of samples</strong> (rows) and <strong>number of features</strong> (columns).</li>
+    </ul>
+  </li>
+  <li><strong>🔍 Linear Separability</strong>:
+    <ul>
+      <li><strong>Linear Separability</strong>: States whether the classes are <strong>linearly separable</strong> (True or False).</li>
+    </ul>
+  </li>
+</ol>
 
-2. **🔧 Features**:
-   - **Type**: Describes the type of features in the dataset (e.g., **categorical**, **continuous**, or **mixed**).
-   - **Correlation**: Indicates the correlation between features (e.g., **low**, **medium**, **high**).
-   - **Outliers**: Flag to indicate whether **outliers** are detected in the features.
-   - **Missing Data**: Tracks the percentage of **missing data** or flags missing values.
-
-3. **📈 Data Size**:
-   - **Size**: Contains the **number of samples** (rows) and **number of features** (columns).
-
-4. **🔍 Linear Separability**:
-   - **Linear Separability**: States whether the classes are **linearly separable** (True or False).
-
-This dictionary will be updated dynamically as we analyze the dataset in subsequent steps. It serves as a **summary of key dataset properties** to help guide further analysis and modeling decisions.
+<p>This dictionary will be updated dynamically as we analyze the dataset in subsequent steps. It serves as a <strong>summary of key dataset properties</strong> to help guide further analysis and modeling decisions.</p>
 
 </details>
 </div>
@@ -15327,11 +15352,11 @@ Train size: 800, Test size: 200
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand </strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-In this section, we define the **baseline model** for the classification task. The baseline model is typically a **dummy model** that can be used to compare against more sophisticated models. Here, we use the **DummyClassifier**, which predicts the majority class, to set a baseline performance.
+<p>In this section, we define the <strong>baseline model</strong> for the classification task. The baseline model is typically a <strong>dummy model</strong> that can be used to compare against more sophisticated models. Here, we use the <strong>DummyClassifier</strong>, which predicts the majority class, to set a baseline performance.</p>
 
-The baseline model will help us assess if more advanced models (e.g., Random Forest, SVM) are making meaningful improvements over a simple strategy.
+<p>The baseline model will help us assess if more advanced models (e.g., Random Forest, SVM) are making meaningful improvements over a simple strategy.</p>
 
 </details>
 </div>
@@ -15509,27 +15534,33 @@ The baseline model will help us assess if more advanced models (e.g., Random For
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **Accuracy**: Overall correctness. Misleading when classes are imbalanced.
-- **Precision**: Of predicted positives, how many are truly positive? Important when false positives are costly.
-- **Recall**: Of actual positives, how many did we catch? Crucial when missing positives is expensive.
-- **F1 Score**: Harmonic mean of precision and recall. Useful when you care about balance.
-- **ROC AUC**: Probability a random positive ranks above a random negative. Good for probability-based classifiers.
+<ul>
+  <li><strong>Accuracy</strong>: Overall correctness. Misleading when classes are imbalanced.</li>
+  <li><strong>Precision</strong>: Of predicted positives, how many are truly positive? Important when false positives are costly.</li>
+  <li><strong>Recall</strong>: Of actual positives, how many did we catch? Crucial when missing positives is expensive.</li>
+  <li><strong>F1 Score</strong>: Harmonic mean of precision and recall. Useful when you care about balance.</li>
+  <li><strong>ROC AUC</strong>: Probability a random positive ranks above a random negative. Good for probability-based classifiers.</li>
+</ul>
 
-</details><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+</details><details><summary><strong>📖 Click to Expand</strong></summary>
 
-**Precision, Recall, and F1 Score** are classification metrics that help us understand model performance beyond just accuracy:
+<p><strong>Precision, Recall, and F1 Score</strong> are classification metrics that help us understand model performance beyond just accuracy:</p>
 
-- **Precision**: Of all predicted positives, how many were actually correct? (Low precision = many false alarms)
-- **Recall**: Of all actual positives, how many did we catch? (Low recall = missed positives)
-- **F1 Score**: Harmonic mean of precision and recall — useful when classes are imbalanced.
+<ul>
+  <li><strong>Precision</strong>: Of all predicted positives, how many were actually correct? (Low precision = many false alarms)</li>
+  <li><strong>Recall</strong>: Of all actual positives, how many did we catch? (Low recall = missed positives)</li>
+  <li><strong>F1 Score</strong>: Harmonic mean of precision and recall — useful when classes are imbalanced.</li>
+</ul>
 
-**Business Perspective**:
-- If false positives are costly (e.g., spam filters, fraud flags), precision matters more.
-- If missing positives is risky (e.g., cancer detection), recall is critical.
-- F1 balances both and gives a single, interpretable metric.
+<p><strong>Business Perspective</strong>:</p>
+<ul>
+  <li>If false positives are costly (e.g., spam filters, fraud flags), precision matters more.</li>
+  <li>If missing positives is risky (e.g., cancer detection), recall is critical.</li>
+  <li>F1 balances both and gives a single, interpretable metric.</li>
+</ul>
 
-These metrics are vital when accuracy is misleading — especially in skewed datasets.
+<p>These metrics are vital when accuracy is misleading — especially in skewed datasets.</p>
+
 </details>
 </div>
 </div>
@@ -15702,18 +15733,19 @@ Precision and F-score are ill-defined and being set to 0.0 in labels with no pre
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-The confusion matrix is a NxN table that helps us visualize the performance of a classification model.  
+<p>The confusion matrix is a NxN table that helps us visualize the performance of a classification model.</p>
 
-📖 Confusion Matrix Terminology:
-- **True Positive (TP)**: Actual = Positive, Predicted = True-ly 
-- **False Positive (FP)**: Actual = Negative, Predicted = False-ly  
-- **True Negative (TN)**: Actual = Negative, Predicted = True-ly
-- **False Negative (FN)**: Actual = Positive, Predicted = False-ly
+<p>📖 <strong>Confusion Matrix Terminology:</strong></p>
+<ul>
+  <li><strong>True Positive (TP)</strong>: Actual = Positive, Predicted = True-ly</li>
+  <li><strong>False Positive (FP)</strong>: Actual = Negative, Predicted = False-ly</li>
+  <li><strong>True Negative (TN)</strong>: Actual = Negative, Predicted = True-ly</li>
+  <li><strong>False Negative (FN)</strong>: Actual = Positive, Predicted = False-ly</li>
+</ul>
 
-```
+<pre>
                   Predicted
                 ┌───────────────┐
                 │     0   │   1 │
@@ -15723,7 +15755,8 @@ Actual   │  0   │   TN    │  FP │  ← Specificity = TN / (TN + FP) = Tr
          └──────┴─────────┴─────┘
                               ↑
                               └─ Precision = TP / (TP + FP) = Positive Predictive Value 
-```
+</pre>
+
 </details>
 </div>
 </div>
@@ -15835,16 +15868,21 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-**ROC Curve** (Receiver Operating Characteristic) plots the True Positive Rate (TPR) vs False Positive Rate (FPR) across different threshold values.
+<p><strong>ROC Curve</strong> (Receiver Operating Characteristic) plots the True Positive Rate (TPR) vs False Positive Rate (FPR) across different threshold values.</p>
 
-- A model that randomly guesses would fall along the diagonal (AUC = 0.5)
-- A perfect model hugs the top-left corner (AUC = 1.0)
+<ul>
+  <li>A model that randomly guesses would fall along the diagonal (AUC = 0.5)</li>
+  <li>A perfect model hugs the top-left corner (AUC = 1.0)</li>
+</ul>
 
-**AUC (Area Under the Curve)** quantifies overall separability between the two classes:
-- **Technical Insight**: Higher AUC means better discrimination between positive and negative cases.
-- **Business Relevance**: Especially useful when false positives and false negatives have different costs — like fraud detection, churn prediction, etc.
+<p><strong>AUC (Area Under the Curve)</strong> quantifies overall separability between the two classes:</p>
+<ul>
+  <li><strong>Technical Insight</strong>: Higher AUC means better discrimination between positive and negative cases.</li>
+  <li><strong>Business Relevance</strong>: Especially useful when false positives and false negatives have different costs — like fraud detection, churn prediction, etc.</li>
+</ul>
 
-This plot lets stakeholders quickly gauge how good the model is — regardless of classification threshold.
+<p>This plot lets stakeholders quickly gauge how good the model is — regardless of classification threshold.</p>
+
 </details>
 </div>
 </div>
@@ -16154,41 +16192,65 @@ Precision and F-score are ill-defined and being set to 0.0 in labels with no pre
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is Logistic Regression?
+<h5>🔍 What is Logistic Regression?</h5>
 
-Despite the name, **Logistic Regression** is used for classification — not regression.  
-It predicts the **probability** that an observation belongs to a certain class (e.g., 0 or 1).  
-Under the hood, it fits a weighted formula to the input features, applies a sigmoid function, and outputs a value between 0 and 1.
+<p>Despite the name, <strong>Logistic Regression</strong> is used for classification — not regression.<br>
+It predicts the <strong>probability</strong> that an observation belongs to a certain class (e.g., 0 or 1).<br>
+Under the hood, it fits a weighted formula to the input features, applies a sigmoid function, and outputs a value between 0 and 1.</p>
 
-> Example:  
-> A model might say there's a **78% chance** this customer will churn.  
-> If that crosses a certain threshold (say, 50%), we classify it as “Yes.”
+<blockquote>
+  <p><strong>Example:</strong><br>
+  A model might say there's a <strong>78% chance</strong> this customer will churn.<br>
+  If that crosses a certain threshold (say, 50%), we classify it as “Yes.”</p>
+</blockquote>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                              | Cons                                  |
-|-----------------------------------|---------------------------------------|
-| Fast and efficient                | Assumes linear relationship (log-odds) |
-| Easy to interpret (feature weights) | Doesn’t handle complex patterns well  |
-| Works well with small datasets    | Sensitive to multicollinearity        |
-| Outputs probabilities             | May underperform on nonlinear data    |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fast and efficient</td>
+      <td>Assumes linear relationship (log-odds)</td>
+    </tr>
+    <tr>
+      <td>Easy to interpret (feature weights)</td>
+      <td>Doesn’t handle complex patterns well</td>
+    </tr>
+    <tr>
+      <td>Works well with small datasets</td>
+      <td>Sensitive to multicollinearity</td>
+    </tr>
+    <tr>
+      <td>Outputs probabilities</td>
+      <td>May underperform on nonlinear data</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use Logistic Regression when:
-- You want a **quick baseline** with interpretable output
-- You care about **probabilities**, not just labels
-- Your data is fairly **linearly separable**
-- The number of features is small to medium
+<ul>
+  <li>You want a <strong>quick baseline</strong> with interpretable output</li>
+  <li>You care about <strong>probabilities</strong>, not just labels</li>
+  <li>Your data is fairly <strong>linearly separable</strong></li>
+  <li>The number of features is small to medium</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: If features are highly correlated (multicollinearity), the model may become unstable. Use regularization (e.g., L2 penalty).
-- **Hack**: For imbalanced datasets, adjust the threshold or use `class_weight='balanced'` to avoid bias toward the majority class.
-- **Tip**: Standardize features before training, especially if using regularization.
+<ul>
+  <li><strong>Pitfall</strong>: If features are highly correlated (multicollinearity), the model may become unstable. Use regularization (e.g., L2 penalty).</li>
+  <li><strong>Hack</strong>: For imbalanced datasets, adjust the threshold or use <code>class_weight='balanced'</code> to avoid bias toward the majority class.</li>
+  <li><strong>Tip</strong>: Standardize features before training, especially if using regularization.</li>
+</ul>
 
 </details>
 </div>
@@ -16213,41 +16275,65 @@ Use Logistic Regression when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is Naive Bayes?
+<h5>🔍 What is Naive Bayes?</h5>
 
-Naive Bayes is a family of **probabilistic classifiers** based on Bayes’ Theorem.  
-It assumes that all features are **independent** of each other — which is rarely true in practice, but the model still performs surprisingly well.
+<p>Naive Bayes is a family of <strong>probabilistic classifiers</strong> based on Bayes’ Theorem.<br>
+It assumes that all features are <strong>independent</strong> of each other — which is rarely true in practice, but the model still performs surprisingly well.</p>
 
-It calculates the probability of each class given the input features and picks the class with the highest likelihood.
+<p>It calculates the probability of each class given the input features and picks the class with the highest likelihood.</p>
 
-> Example:  
-> “Given these symptoms, what’s the most probable disease?” — Naive Bayes is widely used in text classification, spam detection, and medical diagnosis.
+<blockquote>
+  <p><strong>Example:</strong><br>
+  “Given these symptoms, what’s the most probable disease?” — Naive Bayes is widely used in text classification, spam detection, and medical diagnosis.</p>
+</blockquote>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                               | Cons                                  |
-|------------------------------------|---------------------------------------|
-| Very fast and scalable             | Assumes feature independence (naive)  |
-| Handles high-dimensional data well | May underperform with correlated inputs |
-| Simple and interpretable           | Struggles with numeric feature scaling |
-| Works well with text data          | Outputs are often overconfident       |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Very fast and scalable</td>
+      <td>Assumes feature independence (naive)</td>
+    </tr>
+    <tr>
+      <td>Handles high-dimensional data well</td>
+      <td>May underperform with correlated inputs</td>
+    </tr>
+    <tr>
+      <td>Simple and interpretable</td>
+      <td>Struggles with numeric feature scaling</td>
+    </tr>
+    <tr>
+      <td>Works well with text data</td>
+      <td>Outputs are often overconfident</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use Naive Bayes when:
-- You’re working with **text** (e.g., spam filters, sentiment)
-- You want a **fast baseline**
-- You’re dealing with **high-dimensional**, sparse features (like TF-IDF)
-- You have clean categorical or binary features
+<ul>
+  <li>You’re working with <strong>text</strong> (e.g., spam filters, sentiment)</li>
+  <li>You want a <strong>fast baseline</strong></li>
+  <li>You’re dealing with <strong>high-dimensional</strong>, sparse features (like TF-IDF)</li>
+  <li>You have clean categorical or binary features</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: Doesn’t handle continuous features naturally — convert them to bins or use GaussianNB.
-- **Hack**: Apply **Laplace smoothing** to handle zero probabilities in unseen combinations.
-- **Tip**: Don’t expect high accuracy on raw numeric data — it shines in text-like scenarios.
+<ul>
+  <li><strong>Pitfall</strong>: Doesn’t handle continuous features naturally — convert them to bins or use GaussianNB.</li>
+  <li><strong>Hack</strong>: Apply <strong>Laplace smoothing</strong> to handle zero probabilities in unseen combinations.</li>
+  <li><strong>Tip</strong>: Don’t expect high accuracy on raw numeric data — it shines in text-like scenarios.</li>
+</ul>
 
 </details>
 </div>
@@ -16272,40 +16358,62 @@ Use Naive Bayes when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is a Decision Tree?
+<h5>🔍 What is a Decision Tree?</h5>
 
-A Decision Tree splits data into branches based on feature values, creating a flowchart-like structure.  
-Each split is chosen to maximize class separation (typically using Gini impurity or entropy).  
-The result is a set of human-readable rules — like:  
-“If age < 30 and income > 50K → likely to churn.”
+<p>A Decision Tree splits data into branches based on feature values, creating a flowchart-like structure.<br>
+Each split is chosen to maximize class separation (typically using Gini impurity or entropy).<br>
+The result is a set of human-readable rules — like:<br>
+“If age &lt; 30 and income &gt; 50K → likely to churn.”</p>
 
-It’s intuitive and easy to explain, even to non-technical stakeholders.
+<p>It’s intuitive and easy to explain, even to non-technical stakeholders.</p>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                             | Cons                                 |
-|----------------------------------|--------------------------------------|
-| Easy to visualize and interpret  | Prone to overfitting on noisy data   |
-| No need for feature scaling      | Can create unstable splits           |
-| Captures non-linear relationships | Doesn’t generalize well on small data |
-| Works for both numeric and categorical | Can be biased toward dominant features |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Easy to visualize and interpret</td>
+      <td>Prone to overfitting on noisy data</td>
+    </tr>
+    <tr>
+      <td>No need for feature scaling</td>
+      <td>Can create unstable splits</td>
+    </tr>
+    <tr>
+      <td>Captures non-linear relationships</td>
+      <td>Doesn’t generalize well on small data</td>
+    </tr>
+    <tr>
+      <td>Works for both numeric and categorical</td>
+      <td>Can be biased toward dominant features</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use Decision Trees when:
-- You need a model that’s **explainable** (e.g., in regulated domains)
-- Your data has **mixed types** (numeric + categorical)
-- You want to **prototype quickly** and understand feature importance
-- You’re okay with less predictive power in favor of interpretability
+<ul>
+  <li>You need a model that’s <strong>explainable</strong> (e.g., in regulated domains)</li>
+  <li>Your data has <strong>mixed types</strong> (numeric + categorical)</li>
+  <li>You want to <strong>prototype quickly</strong> and understand feature importance</li>
+  <li>You’re okay with less predictive power in favor of interpretability</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: Deep trees can memorize the training data — always prune or set `max_depth`.
-- **Hack**: Use as a weak learner inside ensembles (like Random Forest or XGBoost) to improve performance.
-- **Tip**: Use feature importance from trees to guide feature selection for other models.
+<ul>
+  <li><strong>Pitfall</strong>: Deep trees can memorize the training data — always prune or set <code>max_depth</code>.</li>
+  <li><strong>Hack</strong>: Use as a weak learner inside ensembles (like Random Forest or XGBoost) to improve performance.</li>
+  <li><strong>Tip</strong>: Use feature importance from trees to guide feature selection for other models.</li>
+</ul>
 
 </details>
 </div>
@@ -16330,40 +16438,64 @@ Use Decision Trees when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is a Random Forest?
+<h5>🔍 What is a Random Forest?</h5>
 
-Random Forest is an **ensemble method** that builds many decision trees and combines their outputs.  
-Each tree sees a random subset of the data and features, making the forest **diverse and robust**.
+<p>Random Forest is an <strong>ensemble method</strong> that builds many decision trees and combines their outputs.<br>
+Each tree sees a random subset of the data and features, making the forest <strong>diverse and robust</strong>.</p>
 
-It works by aggregating the predictions of multiple trees (majority vote for classification), reducing the overfitting risk of a single decision tree.
+<p>It works by aggregating the predictions of multiple trees (majority vote for classification), reducing the overfitting risk of a single decision tree.</p>
 
-> Think of it as a crowd of weak models working together to make better predictions.
+<blockquote>
+  <p>Think of it as a crowd of weak models working together to make better predictions.</p>
+</blockquote>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                                  | Cons                                   |
-|---------------------------------------|----------------------------------------|
-| Strong performance out of the box     | Less interpretable than a single tree  |
-| Handles non-linearities and interactions | Slower for real-time predictions     |
-| Resistant to overfitting              | May require tuning to perform well     |
-| Works well with large feature spaces  | Not ideal when interpretability is key |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Strong performance out of the box</td>
+      <td>Less interpretable than a single tree</td>
+    </tr>
+    <tr>
+      <td>Handles non-linearities and interactions</td>
+      <td>Slower for real-time predictions</td>
+    </tr>
+    <tr>
+      <td>Resistant to overfitting</td>
+      <td>May require tuning to perform well</td>
+    </tr>
+    <tr>
+      <td>Works well with large feature spaces</td>
+      <td>Not ideal when interpretability is key</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use Random Forest when:
-- You need a **reliable general-purpose model** with minimal tuning
-- You want to **improve stability** over a single decision tree
-- Your data is **tabular and structured**
-- You care more about **performance** than full interpretability
+<ul>
+  <li>You need a <strong>reliable general-purpose model</strong> with minimal tuning</li>
+  <li>You want to <strong>improve stability</strong> over a single decision tree</li>
+  <li>Your data is <strong>tabular and structured</strong></li>
+  <li>You care more about <strong>performance</strong> than full interpretability</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: May become large and slow — tune `n_estimators` and `max_depth` if needed
-- **Hack**: Use `feature_importances_` to find influential variables
-- **Tip**: Avoid one-hot encoding with high-cardinality features — use label encoding instead
+<ul>
+  <li><strong>Pitfall</strong>: May become large and slow — tune <code>n_estimators</code> and <code>max_depth</code> if needed</li>
+  <li><strong>Hack</strong>: Use <code>feature_importances_</code> to find influential variables</li>
+  <li><strong>Tip</strong>: Avoid one-hot encoding with high-cardinality features — use label encoding instead</li>
+</ul>
 
 </details>
 </div>
@@ -16388,42 +16520,66 @@ Use Random Forest when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is K-Nearest Neighbors?
+<h5>🔍 What is K-Nearest Neighbors?</h5>
 
-KNN is a **non-parametric**, instance-based learning method.  
-It doesn’t learn a model during training — instead, it stores the data.  
-At prediction time, it looks at the **K most similar observations** (neighbors) and assigns the class based on majority vote.
+<p>KNN is a <strong>non-parametric</strong>, instance-based learning method.<br>
+It doesn’t learn a model during training — instead, it stores the data.<br>
+At prediction time, it looks at the <strong>K most similar observations</strong> (neighbors) and assigns the class based on majority vote.</p>
 
-Similarity is usually measured using **Euclidean distance** (or other distance metrics for different data types).
+<p>Similarity is usually measured using <strong>Euclidean distance</strong> (or other distance metrics for different data types).</p>
 
-> Example:  
-> “To predict a label for this point, look at its 5 closest data points and choose the most common class.”
+<blockquote>
+  <p><strong>Example:</strong><br>
+  “To predict a label for this point, look at its 5 closest data points and choose the most common class.”</p>
+</blockquote>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                                 | Cons                                      |
-|--------------------------------------|-------------------------------------------|
-| Simple and intuitive                 | Slow at prediction time (no training step) |
-| No training required                 | Struggles with high-dimensional data       |
-| Captures local patterns              | Requires feature scaling                  |
-| Flexible distance metrics            | Memory-intensive with large datasets      |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple and intuitive</td>
+      <td>Slow at prediction time (no training step)</td>
+    </tr>
+    <tr>
+      <td>No training required</td>
+      <td>Struggles with high-dimensional data</td>
+    </tr>
+    <tr>
+      <td>Captures local patterns</td>
+      <td>Requires feature scaling</td>
+    </tr>
+    <tr>
+      <td>Flexible distance metrics</td>
+      <td>Memory-intensive with large datasets</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use KNN when:
-- You have **low-dimensional**, clean data
-- You want to **prototype quickly** with minimal assumptions
-- You care about **local behavior** rather than global rules
-- Interpretability is less important than flexibility
+<ul>
+  <li>You have <strong>low-dimensional</strong>, clean data</li>
+  <li>You want to <strong>prototype quickly</strong> with minimal assumptions</li>
+  <li>You care about <strong>local behavior</strong> rather than global rules</li>
+  <li>Interpretability is less important than flexibility</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: Distance metrics break down in high-dimensional space (curse of dimensionality)
-- **Hack**: Use `StandardScaler` or `MinMaxScaler` to normalize features before fitting
-- **Tip**: Tune `k` using cross-validation; odd numbers help avoid ties in binary classification
+<ul>
+  <li><strong>Pitfall</strong>: Distance metrics break down in high-dimensional space (curse of dimensionality)</li>
+  <li><strong>Hack</strong>: Use <code>StandardScaler</code> or <code>MinMaxScaler</code> to normalize features before fitting</li>
+  <li><strong>Tip</strong>: Tune <code>k</code> using cross-validation; odd numbers help avoid ties in binary classification</li>
+</ul>
 
 </details>
 </div>
@@ -16448,40 +16604,64 @@ Use KNN when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is SVM?
+<h5>🔍 What is SVM?</h5>
 
-Support Vector Machines (SVM) are **margin-based classifiers** that try to find the best boundary (hyperplane) that separates classes.  
-SVM focuses on **support vectors** — the critical data points closest to the boundary — to maximize the margin between classes.
+<p>Support Vector Machines (SVM) are <strong>margin-based classifiers</strong> that try to find the best boundary (hyperplane) that separates classes.<br>
+SVM focuses on <strong>support vectors</strong> — the critical data points closest to the boundary — to maximize the margin between classes.</p>
 
-It can handle **non-linear patterns** using kernel tricks (e.g., RBF kernel), making it flexible for complex data.
+<p>It can handle <strong>non-linear patterns</strong> using kernel tricks (e.g., RBF kernel), making it flexible for complex data.</p>
 
-> Think of it as drawing the widest possible gap between two classes while avoiding overlap.
+<blockquote>
+  <p>Think of it as drawing the widest possible gap between two classes while avoiding overlap.</p>
+</blockquote>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                                 | Cons                                   |
-|--------------------------------------|----------------------------------------|
-| Works well in high-dimensional spaces | Slow on large datasets                 |
-| Effective for non-linear boundaries   | Requires careful parameter tuning      |
-| Robust to overfitting (with regularization) | Not intuitive to interpret         |
-| Supports different kernels            | Doesn’t scale well with noisy data     |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Works well in high-dimensional spaces</td>
+      <td>Slow on large datasets</td>
+    </tr>
+    <tr>
+      <td>Effective for non-linear boundaries</td>
+      <td>Requires careful parameter tuning</td>
+    </tr>
+    <tr>
+      <td>Robust to overfitting (with regularization)</td>
+      <td>Not intuitive to interpret</td>
+    </tr>
+    <tr>
+      <td>Supports different kernels</td>
+      <td>Doesn’t scale well with noisy data</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use SVM when:
-- Your data is **high-dimensional**, but you want a **non-linear model**
-- You need a **strong classifier** and have time to tune hyperparameters
-- Dataset is **moderate in size** and reasonably clean
-- You care about maximizing **margin of separation**
+<ul>
+  <li>Your data is <strong>high-dimensional</strong>, but you want a <strong>non-linear model</strong></li>
+  <li>You need a <strong>strong classifier</strong> and have time to tune hyperparameters</li>
+  <li>Dataset is <strong>moderate in size</strong> and reasonably clean</li>
+  <li>You care about maximizing <strong>margin of separation</strong></li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: Doesn't output probabilities by default — use `probability=True` in `SVC` if needed
-- **Hack**: Use **RBF kernel** as a good starting point for non-linear problems
-- **Tip**: Always standardize features — SVM is sensitive to feature scale
+<ul>
+  <li><strong>Pitfall</strong>: Doesn't output probabilities by default — use <code>probability=True</code> in <code>SVC</code> if needed</li>
+  <li><strong>Hack</strong>: Use <strong>RBF kernel</strong> as a good starting point for non-linear problems</li>
+  <li><strong>Tip</strong>: Always standardize features — SVM is sensitive to feature scale</li>
+</ul>
 
 </details>
 </div>
@@ -16506,39 +16686,61 @@ Use SVM when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is XGBoost?
+<h5>🔍 What is XGBoost?</h5>
 
-XGBoost (Extreme Gradient Boosting) is a powerful **boosted tree ensemble** method.  
-Unlike Random Forest (which builds trees in parallel), XGBoost builds trees **sequentially** — each new tree tries to fix the errors of the previous one.
+<p>XGBoost (Extreme Gradient Boosting) is a powerful <strong>boosted tree ensemble</strong> method.<br>
+Unlike Random Forest (which builds trees in parallel), XGBoost builds trees <strong>sequentially</strong> — each new tree tries to fix the errors of the previous one.</p>
 
-It uses **gradient descent** to minimize loss, with regularization to prevent overfitting.  
-XGBoost is known for its **speed, accuracy, and efficiency**, making it a go-to model in many Kaggle competitions and production systems.
+<p>It uses <strong>gradient descent</strong> to minimize loss, with regularization to prevent overfitting.<br>
+XGBoost is known for its <strong>speed, accuracy, and efficiency</strong>, making it a go-to model in many Kaggle competitions and production systems.</p>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                                 | Cons                                   |
-|--------------------------------------|----------------------------------------|
-| High predictive accuracy             | Harder to interpret                    |
-| Built-in regularization (less overfitting) | More complex than basic tree models |
-| Fast and scalable                    | Requires tuning for best performance   |
-| Handles missing data automatically   | May overfit small/noisy datasets       |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>High predictive accuracy</td>
+      <td>Harder to interpret</td>
+    </tr>
+    <tr>
+      <td>Built-in regularization (less overfitting)</td>
+      <td>More complex than basic tree models</td>
+    </tr>
+    <tr>
+      <td>Fast and scalable</td>
+      <td>Requires tuning for best performance</td>
+    </tr>
+    <tr>
+      <td>Handles missing data automatically</td>
+      <td>May overfit small/noisy datasets</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use XGBoost when:
-- You need **top-tier performance** on structured/tabular data
-- You’re working with **noisy or complex relationships**
-- You’re okay with a black-box model in exchange for results
-- You want built-in tools for **feature importance**, early stopping, etc.
+<ul>
+  <li>You need <strong>top-tier performance</strong> on structured/tabular data</li>
+  <li>You’re working with <strong>noisy or complex relationships</strong></li>
+  <li>You’re okay with a black-box model in exchange for results</li>
+  <li>You want built-in tools for <strong>feature importance</strong>, early stopping, etc.</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: Easy to overfit if `n_estimators` is too high — always monitor with validation
-- **Hack**: Use `early_stopping_rounds` during training to auto-pick optimal iteration
-- **Tip**: Start with basic settings and use `GridSearchCV` or `Optuna` for tuning
+<ul>
+  <li><strong>Pitfall</strong>: Easy to overfit if <code>n_estimators</code> is too high — always monitor with validation</li>
+  <li><strong>Hack</strong>: Use <code>early_stopping_rounds</code> during training to auto-pick optimal iteration</li>
+  <li><strong>Tip</strong>: Start with basic settings and use <code>GridSearchCV</code> or <code>Optuna</code> for tuning</li>
+</ul>
 
 </details>
 </div>
@@ -16563,40 +16765,64 @@ Use XGBoost when:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is a Neural Network?
+<h5>🔍 What is a Neural Network?</h5>
 
-A Neural Network is a layered structure of interconnected "neurons" inspired by the human brain.  
-Each neuron applies a weighted transformation followed by a non-linear activation, allowing the model to learn **complex, non-linear patterns** in the data.
+<p>A Neural Network is a layered structure of interconnected "neurons" inspired by the human brain.<br>
+Each neuron applies a weighted transformation followed by a non-linear activation, allowing the model to learn <strong>complex, non-linear patterns</strong> in the data.</p>
 
-Even a basic feedforward neural network (also called Multi-Layer Perceptron or MLP) can approximate intricate decision boundaries — making it powerful but harder to interpret.
+<p>Even a basic feedforward neural network (also called Multi-Layer Perceptron or MLP) can approximate intricate decision boundaries — making it powerful but harder to interpret.</p>
 
-> Think of it as a flexible function builder that learns patterns layer by layer.
+<blockquote>
+  <p>Think of it as a flexible function builder that learns patterns layer by layer.</p>
+</blockquote>
 
-##### ✅ Pros vs ❌ Cons
+<h5>✅ Pros vs ❌ Cons</h5>
 
-| Pros                                  | Cons                                   |
-|---------------------------------------|----------------------------------------|
-| Can model complex, non-linear relationships | Requires lots of data and tuning     |
-| Works well on both tabular and image/text data | Not interpretable out of the box |
-| Scales with data and compute          | Can overfit if not regularized        |
-| Highly customizable architectures     | Slower to train, harder to debug      |
+<table>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Can model complex, non-linear relationships</td>
+      <td>Requires lots of data and tuning</td>
+    </tr>
+    <tr>
+      <td>Works well on both tabular and image/text data</td>
+      <td>Not interpretable out of the box</td>
+    </tr>
+    <tr>
+      <td>Scales with data and compute</td>
+      <td>Can overfit if not regularized</td>
+    </tr>
+    <tr>
+      <td>Highly customizable architectures</td>
+      <td>Slower to train, harder to debug</td>
+    </tr>
+  </tbody>
+</table>
 
-##### 🧠 When to Use
+<h5>🧠 When to Use</h5>
 
-Use Neural Networks when:
-- You have **enough data** and want to model **complex interactions**
-- You're comfortable with longer training and tuning
-- You care more about **predictive power** than explainability
-- You're building pipelines that could benefit from **deep learning extensions** later
+<ul>
+  <li>You have <strong>enough data</strong> and want to model <strong>complex interactions</strong></li>
+  <li>You're comfortable with longer training and tuning</li>
+  <li>You care more about <strong>predictive power</strong> than explainability</li>
+  <li>You're building pipelines that could benefit from <strong>deep learning extensions</strong> later</li>
+</ul>
 
-##### ⚠️ Pitfalls & Hacks
+<h5>⚠️ Pitfalls & Hacks</h5>
 
-- **Pitfall**: Prone to overfitting — always use dropout, regularization, or early stopping
-- **Hack**: Use a simple architecture (1–2 hidden layers) for structured/tabular data
-- **Tip**: Standardize inputs and tune learning rate; training can otherwise stall or explode
+<ul>
+  <li><strong>Pitfall</strong>: Prone to overfitting — always use dropout, regularization, or early stopping</li>
+  <li><strong>Hack</strong>: Use a simple architecture (1–2 hidden layers) for structured/tabular data</li>
+  <li><strong>Tip</strong>: Standardize inputs and tune learning rate; training can otherwise stall or explode</li>
+</ul>
 
 </details>
 </div>
@@ -17325,18 +17551,19 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="feature-importance"></a></p>
-<h4 id="%F0%9F%93%8A-Feature-Importance">&#128202; Feature Importance<a class="anchor-link" href="#%F0%9F%93%8A-Feature-Importance">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4>📊 Feature Importance</h4><details><summary><strong>📖 Click to Expand</strong></summary>
 
-Feature importance tells us **which variables the model relied on most** to make predictions.  
-It’s like asking, “What factors influenced the decision the most?”
+<p>Feature importance tells us <strong>which variables the model relied on most</strong> to make predictions.<br>
+It’s like asking, “What factors influenced the decision the most?”</p>
 
-In tree-based models like Random Forest or XGBoost, it’s calculated based on how often and how effectively a feature was used to split the data.
+<p>In tree-based models like Random Forest or XGBoost, it’s calculated based on how often and how effectively a feature was used to split the data.</p>
 
-This is useful for:
-- Understanding the model’s decision logic
-- Identifying key business drivers
-- Eliminating irrelevant features
+<p>This is useful for:</p>
+<ul>
+  <li>Understanding the model’s decision logic</li>
+  <li>Identifying key business drivers</li>
+  <li>Eliminating irrelevant features</li>
+</ul>
 
 </details>
 </div>
@@ -17452,20 +17679,21 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="shap-values"></a></p>
-<h4 id="%F0%9F%A7%AC-SHAP-Values">&#129516; SHAP Values<a class="anchor-link" href="#%F0%9F%A7%AC-SHAP-Values">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4>🧬 SHAP Values</h4><details><summary><strong>📖 Click to Expand</strong></summary>
 
-SHAP (SHapley Additive exPlanations) values explain **how much each feature contributed** to a specific prediction — positively or negatively.
+<p>SHAP (SHapley Additive exPlanations) values explain <strong>how much each feature contributed</strong> to a specific prediction — positively or negatively.</p>
 
-It’s like breaking down a credit score:  
-> “Age added +12 points, income removed -5 points…”
+<p>It’s like breaking down a credit score:<br>
+<em>“Age added +12 points, income removed -5 points…”</em></p>
 
-SHAP is model-agnostic and gives **local explanations** (for individual predictions) and **global insights** (feature impact across all predictions).
+<p>SHAP is model-agnostic and gives <strong>local explanations</strong> (for individual predictions) and <strong>global insights</strong> (feature impact across all predictions).</p>
 
-Useful for:
-- Auditing high-stakes predictions
-- Building trust with stakeholders
-- Diagnosing model behavior case-by-case
+<p>Useful for:</p>
+<ul>
+  <li>Auditing high-stakes predictions</li>
+  <li>Building trust with stakeholders</li>
+  <li>Diagnosing model behavior case-by-case</li>
+</ul>
 
 </details>
 </div>
@@ -17615,13 +17843,14 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-- Fine-tuning helps unlock the model’s full potential by finding better hyperparameter values.
-- It improves accuracy, recall, and other metrics without changing the model type.
-- We typically tune the best-performing model from the baseline round (Random Forest in our case).
-- Two common methods: Grid Search (exhaustive) and Randomized Search (faster, approximate).
+<ul>
+  <li>Fine-tuning helps unlock the model’s full potential by finding better hyperparameter values.</li>
+  <li>It improves accuracy, recall, and other metrics without changing the model type.</li>
+  <li>We typically tune the best-performing model from the baseline round (Random Forest in our case).</li>
+  <li>Two common methods: Grid Search (exhaustive) and Randomized Search (faster, approximate).</li>
+</ul>
 
 </details>
 </div>
@@ -17847,16 +18076,28 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="grid-search"></a></p>
-<h4 id="%F0%9F%94%8E-Grid-Search">&#128270; Grid Search<a class="anchor-link" href="#%F0%9F%94%8E-Grid-Search">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%94%8E-Grid-Search">&#128270; Grid Search<a class="anchor-link" href="#%F0%9F%94%8E-Grid-Search">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is Grid Search?
+<h5>🔍 What is Grid Search?</h5>
 
-Grid Search tests **all possible combinations** of hyperparameters across a fixed grid.  
-It’s exhaustive, simple, and works best when the number of hyperparameters is small.
+<p>Grid Search tests <strong>all possible combinations</strong> of hyperparameters across a fixed grid.<br>
+It’s exhaustive, simple, and works best when the number of hyperparameters is small.</p>
 
-- **Pros**: Comprehensive, easy to understand  
-- **Cons**: Very slow when search space is large
+<ul>
+  <li><strong>Pros</strong>: Comprehensive, easy to understand</li>
+  <li><strong>Cons</strong>: Very slow when search space is large</li>
+</ul>
 
 </details>
 </div>
@@ -18127,16 +18368,28 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="random-search"></a></p>
-<h4 id="%F0%9F%8E%B2-Randomized-Search">&#127922; Randomized Search<a class="anchor-link" href="#%F0%9F%8E%B2-Randomized-Search">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%8E%B2-Randomized-Search">&#127922; Randomized Search<a class="anchor-link" href="#%F0%9F%8E%B2-Randomized-Search">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is Randomized Search?
+<h5>🔍 What is Randomized Search?</h5>
 
-Randomized Search selects a **random subset of combinations** to test, rather than all of them.  
-It’s faster and often just as effective — especially when only a few hyperparameters really matter.
+<p>Randomized Search selects a <strong>random subset of combinations</strong> to test, rather than all of them.<br>
+It’s faster and often just as effective — especially when only a few hyperparameters really matter.</p>
 
-- **Pros**: Much faster than grid search, good for large spaces  
-- **Cons**: May miss optimal combo if unlucky
+<ul>
+  <li><strong>Pros</strong>: Much faster than grid search, good for large spaces</li>
+  <li><strong>Cons</strong>: May miss optimal combo if unlucky</li>
+</ul>
 
 </details>
 </div>
@@ -18338,18 +18591,30 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="ensemble"></a></p>
-<h1 id="%F0%9F%94%80-Ensemble-Methods">&#128256; Ensemble Methods<a class="anchor-link" href="#%F0%9F%94%80-Ensemble-Methods">&#182;</a></h1><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h1 id="%F0%9F%94%80-Ensemble-Methods">&#128256; Ensemble Methods<a class="anchor-link" href="#%F0%9F%94%80-Ensemble-Methods">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔀 When Should You Use Ensemble Methods?
+<h5>🔀 When Should You Use Ensemble Methods?</h5>
 
-Ensembles are useful when:
-- **Single models plateau** and can’t capture all patterns
-- You want to **boost performance** by combining strengths of multiple models
-- You observe **inconsistent results** across base models (e.g., one is good at recall, another at precision)
-- You need more **robust and stable** predictions across different datasets
+<p>Ensembles are useful when:</p>
+<ul>
+  <li><strong>Single models plateau</strong> and can’t capture all patterns</li>
+  <li>You want to <strong>boost performance</strong> by combining strengths of multiple models</li>
+  <li>You observe <strong>inconsistent results</strong> across base models (e.g., one is good at recall, another at precision)</li>
+  <li>You need more <strong>robust and stable</strong> predictions across different datasets</li>
+</ul>
 
-Use ensembles **after benchmarking individual models** — they add complexity but often yield better generalization.
+<p>Use ensembles <strong>after benchmarking individual models</strong> — they add complexity but often yield better generalization.</p>
 
 </details>
 </div>
@@ -18363,18 +18628,30 @@ Use ensembles **after benchmarking individual models** — they add complexity b
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="voting-ensemble"></a></p>
-<h4 id="%F0%9F%97%B3%EF%B8%8F-Voting-Classifier">&#128499;&#65039; Voting Classifier<a class="anchor-link" href="#%F0%9F%97%B3%EF%B8%8F-Voting-Classifier">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%97%B3%EF%B8%8F-Voting-Classifier">&#128499;&#65039; Voting Classifier<a class="anchor-link" href="#%F0%9F%97%B3%EF%B8%8F-Voting-Classifier">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🗳️ What is a Voting Classifier?
+<h5>🗳️ What is a Voting Classifier?</h5>
 
-A Voting Classifier combines predictions from multiple different models and makes a final decision based on **majority vote** (for classification) or **average prediction** (for regression).
+<p>A Voting Classifier combines predictions from multiple different models and makes a final decision based on <strong>majority vote</strong> (for classification) or <strong>average prediction</strong> (for regression).</p>
 
-There are two main types:
-- **Hard Voting**: Chooses the class predicted by the most models.
-- **Soft Voting**: Averages predicted probabilities and chooses the most likely class.
+<p>There are two main types:</p>
+<ul>
+  <li><strong>Hard Voting</strong>: Chooses the class predicted by the most models.</li>
+  <li><strong>Soft Voting</strong>: Averages predicted probabilities and chooses the most likely class.</li>
+</ul>
 
-It’s like consulting multiple doctors and going with the consensus.
+<p>It’s like consulting multiple doctors and going with the consensus.</p>
 
 </details>
 </div>
@@ -18436,18 +18713,30 @@ It’s like consulting multiple doctors and going with the consensus.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="stacking-ensemble"></a></p>
-<h4 id="%F0%9F%A7%AC-Stacking-Classifier">&#129516; Stacking Classifier<a class="anchor-link" href="#%F0%9F%A7%AC-Stacking-Classifier">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%A7%AC-Stacking-Classifier">&#129516; Stacking Classifier<a class="anchor-link" href="#%F0%9F%A7%AC-Stacking-Classifier">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🧬 What is Stacking?
+<h5>🧬 What is Stacking?</h5>
 
-Stacking involves training multiple models (called base models), and then using a **meta-model** to learn how to best combine their outputs.
+<p>Stacking involves training multiple models (called base models), and then using a <strong>meta-model</strong> to learn how to best combine their outputs.</p>
 
-Example:
-- Base models: logistic regression, decision tree, SVM
-- Meta-model: another model that learns which base model to trust more for each kind of input
+<p><strong>Example:</strong></p>
+<ul>
+  <li>Base models: logistic regression, decision tree, SVM</li>
+  <li>Meta-model: another model that learns which base model to trust more for each kind of input</li>
+</ul>
 
-It’s like having specialists give their opinions, and then a generalist makes the final call based on their inputs.
+<p>It’s like having specialists give their opinions, and then a generalist makes the final call based on their inputs.</p>
 
 </details>
 </div>
@@ -18510,18 +18799,28 @@ It’s like having specialists give their opinions, and then a generalist makes 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="bagging"></a></p>
-<h4 id="%F0%9F%AA%B5-Bagging">&#129717; Bagging<a class="anchor-link" href="#%F0%9F%AA%B5-Bagging">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%AA%B5-Bagging">&#129717; Bagging<a class="anchor-link" href="#%F0%9F%AA%B5-Bagging">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🪵 What is Bagging?
+<h5>🪵 What is Bagging?</h5>
 
-**Bagging** (Bootstrap Aggregating) builds multiple versions of the same model (e.g., decision trees), each trained on a different random sample of the data.
+<p><strong>Bagging</strong> (Bootstrap Aggregating) builds multiple versions of the same model (e.g., decision trees), each trained on a different random sample of the data.</p>
 
-Then it combines their outputs (usually by voting or averaging) to reduce overfitting and variance.
+<p>Then it combines their outputs (usually by voting or averaging) to reduce overfitting and variance.</p>
 
-**Random Forest** is a popular example of bagging.
+<p><strong>Random Forest</strong> is a popular example of bagging.</p>
 
-It’s like asking the same expert multiple times under different conditions and averaging their answers.
+<p>It’s like asking the same expert multiple times under different conditions and averaging their answers.</p>
 
 </details>
 </div>
@@ -18585,18 +18884,28 @@ It’s like asking the same expert multiple times under different conditions and
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="boosting"></a></p>
-<h4 id="%F0%9F%9A%80-Boosting">&#128640; Boosting<a class="anchor-link" href="#%F0%9F%9A%80-Boosting">&#182;</a></h4><details>
-<summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%9A%80-Boosting">&#128640; Boosting<a class="anchor-link" href="#%F0%9F%9A%80-Boosting">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🚀 What is Boosting?
+<h5>🚀 What is Boosting?</h5>
 
-Boosting trains models **sequentially** — each new model focuses on correcting the mistakes of the previous one.
+<p><strong>Boosting</strong> trains models <strong>sequentially</strong> — each new model focuses on correcting the mistakes of the previous one.</p>
 
-It gives more weight to errors and slowly builds a strong overall model by combining many weak ones.
+<p>It gives more weight to errors and slowly builds a strong overall model by combining many weak ones.</p>
 
-Popular examples: **XGBoost**, **AdaBoost**, **Gradient Boosting**
+<p>Popular examples: <strong>XGBoost</strong>, <strong>AdaBoost</strong>, <strong>Gradient Boosting</strong></p>
 
-Think of it as building knowledge step by step, learning from past failures to get better over time.
+<p>Think of it as building knowledge step by step, learning from past failures to get better over time.</p>
 
 </details>
 </div>
@@ -18663,14 +18972,39 @@ Think of it as building knowledge step by step, learning from past failures to g
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="export-deploy"></a></p>
-<h1 id="%F0%9F%93%A6-Export-&amp;-Deployment-(Optional)">&#128230; Export &amp; Deployment (Optional)<a class="anchor-link" href="#%F0%9F%93%A6-Export-&amp;-Deployment-(Optional)">&#182;</a></h1><details><summary><strong>📖 Click to Expand</strong></summary>
+<h1 id="%F0%9F%93%A6-Export-&amp;-Deployment-(Optional)">&#128230; Export &amp; Deployment (Optional)<a class="anchor-link" href="#%F0%9F%93%A6-Export-&amp;-Deployment-(Optional)">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-- Save the final trained model to disk (e.g., `.pkl`, `.joblib`)
-- Export final evaluation metrics (e.g., to `.json` or `.csv`)
-- Package preprocessing steps if applicable (e.g., scalers, encoders)
-- Useful for handing off, sharing, or production integration
+<ul>
+  <li>Save the final trained model to disk (e.g., <code>.pkl</code>, <code>.joblib</code>)</li>
+  <li>Export final evaluation metrics (e.g., to <code>.json</code> or <code>.csv</code>)</li>
+  <li>Package preprocessing steps if applicable (e.g., scalers, encoders)</li>
+  <li>Useful for handing off, sharing, or production integration</li>
+</ul>
 
 </details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="pickling"></a></p>
+<h4 id="%F0%9F%A7%8A-Pickling-(Model-Export)">&#129482; Pickling (Model Export)<a class="anchor-link" href="#%F0%9F%A7%8A-Pickling-(Model-Export)">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -18707,6 +19041,51 @@ Think of it as building knowledge step by step, learning from past failures to g
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id="monitoring-hooks"></a></p>
+<h4 id="%F0%9F%93%8A-Monitoring-Hooks-(Production-Logging)">&#128202; Monitoring Hooks (Production Logging)<a class="anchor-link" href="#%F0%9F%93%8A-Monitoring-Hooks-(Production-Logging)">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
+
+<p>In real-world deployments, it’s crucial to track how your model behaves once it’s live.</p>
+
+<p><strong>What to log in production:</strong></p>
+<ul>
+  <li>✅ Number of predictions served</li>
+  <li>✅ Confidence scores / prediction probabilities</li>
+  <li>✅ Class distribution over time</li>
+  <li>✅ Drift in input features</li>
+  <li>✅ Model response latency</li>
+  <li>❌ Ground truth (usually delayed or unavailable)</li>
+</ul>
+
+<p>You can integrate this with tools like:</p>
+<ul>
+  <li>Prometheus + Grafana</li>
+  <li>AWS CloudWatch</li>
+  <li>Datadog</li>
+  <li>MLflow, EvidentlyAI, or WhyLabs</li>
+</ul>
+
+</details>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
