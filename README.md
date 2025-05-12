@@ -17,17 +17,17 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
     <tr>
       <td><strong>Supervised Learning</strong></td>
       <td>
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/html_exports/classification.html">Classification</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/html_exports/regression.html">Regression</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/Supervised_Learning/html_exports/time_series.html">Time Series</a>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/classification.html">Classification</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/prediction.html">Prediction</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/time_series.html">Time Series</a>
       </td>
     </tr>
     <tr>
       <td><strong>Unsupervised Learning</strong></td>
       <td>
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/html_exports/clustering.html">Clustering</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/html_exports/dimensionality_reduction.html">Dimensionality Reduction</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/Unsupervised_Learning/html_exports/association_rule_learning.html">Association Rule Learning</a>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/clustering.html">Clustering</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/dimensionality_reduction.html">Dimensionality Reduction</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/association_rule_learning.html">Association Rule Learning</a>
       </td>
     </tr>
     <!-- <tr>
@@ -40,11 +40,11 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
     <tr>
       <td><strong>Preprocessing</strong></td>
       <td>
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/PreProcessing/html_exports/01_Categorical_Features.html">Categorical Features</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/PreProcessing/html_exports/02_Outliers.html">Outliers</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/PreProcessing/html_exports/03_Missing_Values.html">Missing Values</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/PreProcessing/html_exports/04_Scaling_Data.html">Scaling</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/PreProcessing/html_exports/06_Class_Imbalance.html">Class Imbalance</a>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/01_Categorical_Features.html">Categorical Features</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/02_Outliers.html">Outliers</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/03_Missing_Values.html">Missing Values</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Scaling_Data.html">Scaling</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/06_Class_Imbalance.html">Class Imbalance</a>
       </td>
     </tr>    
   </tbody>
