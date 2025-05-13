@@ -14680,19 +14680,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
+<details>
+  <summary><strong>📖 Click to Expand</strong></summary>
 
-- **MedInc**: Median income in block group  
-- **HouseAge**: Median house age in block group  
-- **AveRooms**: Average number of rooms per household  
-- **AveBedrms**: Average number of bedrooms per household  
-- **Population**: Block group population  
-- **AveOccup**: Average number of household members  
-- **Latitude**: Block group latitude  
-- **Longitude**: Block group longitude  
-- **Target**: Median house value (in $100,000s)
-
-
+  <ul>
+    <li><strong>MedInc</strong>: Median income in block group</li>
+    <li><strong>HouseAge</strong>: Median house age in block group</li>
+    <li><strong>AveRooms</strong>: Average number of rooms per household</li>
+    <li><strong>AveBedrms</strong>: Average number of bedrooms per household</li>
+    <li><strong>Population</strong>: Block group population</li>
+    <li><strong>AveOccup</strong>: Average number of household members</li>
+    <li><strong>Latitude</strong>: Block group latitude</li>
+    <li><strong>Longitude</strong>: Block group longitude</li>
+    <li><strong>Target</strong>: Median house value (in $100,000s)</li>
+  </ul>
 </details>
 </div>
 </div>
@@ -15192,13 +15193,15 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
+<details>
+  <summary><strong>📖 Click to Expand</strong></summary>
 
-- The **linearity assumption** states that the relationship between each predictor and the outcome is linear.
-- Violations mean the model may underfit or misestimate relationships.
-- A common diagnostic is a **scatter plot of predicted values vs residuals** — if the pattern is random (no curve), linearity holds.
-- You can also use **partial regression plots** or **added variable plots** to assess individual feature relationships.
-
+  <ul>
+    <li>The <strong>linearity assumption</strong> states that the relationship between each predictor and the outcome is linear.</li>
+    <li>Violations mean the model may underfit or misestimate relationships.</li>
+    <li>A common diagnostic is a <strong>scatter plot of predicted values vs residuals</strong> — if the pattern is random (no curve), linearity holds.</li>
+    <li>You can also use <strong>partial regression plots</strong> or <strong>added variable plots</strong> to assess individual feature relationships.</li>
+  </ul>
 </details>
 </div>
 </div>
@@ -15285,14 +15288,15 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
+<details>
+  <summary><strong>📖 Click to Expand</strong></summary>
 
-- **Homoscedasticity** means residuals have constant variance across all levels of predicted values.
-- If variance increases or decreases with prediction size, you have **heteroscedasticity**.
-- This violates OLS assumptions and leads to inefficient estimates.
-- To detect it, plot **residuals vs predicted values** after model fit.  
-  A fan or cone shape indicates heteroscedasticity.
-
+  <ul>
+    <li><strong>Homoscedasticity</strong> means residuals have constant variance across all levels of predicted values.</li>
+    <li>If variance increases or decreases with prediction size, you have <strong>heteroscedasticity</strong>.</li>
+    <li>This violates OLS assumptions and leads to inefficient estimates.</li>
+    <li>To detect it, plot <strong>residuals vs predicted values</strong> after model fit. A fan or cone shape indicates heteroscedasticity.</li>
+  </ul>
 </details>
 </div>
 </div>
@@ -15385,12 +15389,17 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- This assumption says that residuals (errors) should be **normally distributed**.
-- It’s especially important when constructing **confidence intervals** or conducting **hypothesis tests** on coefficients.
-- While model fit may still work with non-normal residuals, statistical inference will be less valid.
-- We check this using:
-  - A **histogram** or **KDE plot** of residuals
-  - A **Q-Q plot** to compare against a theoretical normal distribution
+<ul>
+  <li>This assumption says that residuals (errors) should be <strong>normally distributed</strong>.</li>
+  <li>It’s especially important when constructing <strong>confidence intervals</strong> or conducting <strong>hypothesis tests</strong> on coefficients.</li>
+  <li>While model fit may still work with non-normal residuals, statistical inference will be less valid.</li>
+  <li>We check this using:
+    <ul>
+      <li>A <strong>histogram</strong> or <strong>KDE plot</strong> of residuals</li>
+      <li>A <strong>Q-Q plot</strong> to compare against a theoretical normal distribution</li>
+    </ul>
+  </li>
+</ul>
 
 </details>
 </div>
@@ -15478,11 +15487,16 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **Multicollinearity** refers to high correlation between predictor variables.
-- It doesn't affect predictions but **destabilizes coefficient estimates**, making interpretation unreliable.
-- Common detection methods:
-  - **Variance Inflation Factor (VIF)**: Values > 5 (or 10) signal multicollinearity
-  - **Correlation matrix**: For quick pairwise checks
+<ul>
+  <li><strong>Multicollinearity</strong> refers to high correlation between predictor variables.</li>
+  <li>It doesn't affect predictions but <strong>destabilizes coefficient estimates</strong>, making interpretation unreliable.</li>
+  <li>Common detection methods:
+    <ul>
+      <li><strong>Variance Inflation Factor (VIF)</strong>: Values > 5 (or 10) signal multicollinearity</li>
+      <li><strong>Correlation matrix</strong>: For quick pairwise checks</li>
+    </ul>
+  </li>
+</ul>
 
 </details>
 </div>
@@ -15703,11 +15717,16 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- The **independence assumption** means that residuals should not be correlated with each other.
-- This mainly applies to **time series** or **clustered data** — it's usually not a concern for cross-sectional datasets like California Housing.
-- If applicable, test with:
-  - **Durbin-Watson test** (values close to 2 indicate no autocorrelation)
-  - **Plot residuals over observation index** to visually inspect patterns
+<ul>
+  <li>The <strong>independence assumption</strong> means that residuals should not be correlated with each other.</li>
+  <li>This mainly applies to <strong>time series</strong> or <strong>clustered data</strong> — it's usually not a concern for cross-sectional datasets like California Housing.</li>
+  <li>If applicable, test with:
+    <ul>
+      <li><strong>Durbin-Watson test</strong> (values close to 2 indicate no autocorrelation)</li>
+      <li><strong>Plot residuals over observation index</strong> to visually inspect patterns</li>
+    </ul>
+  </li>
+</ul>
 
 </details>
 </div>
@@ -15777,11 +15796,14 @@ class="
 <p><a id="feature-engineering"></a></p>
 <h4 id="%F0%9F%9B%A0%EF%B8%8F-Feature-Engineering">&#128736;&#65039; Feature Engineering<a class="anchor-link" href="#%F0%9F%9B%A0%EF%B8%8F-Feature-Engineering">&#182;</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### Why engineer features?
-
-- Raw features may not capture real-world relationships well.  
-- Ratios, interactions, or log transforms can reveal hidden patterns.  
-- Good feature engineering often matters more than model choice.
+<ul>
+  <li><strong>Why engineer features?</strong></li>
+  <ul>
+    <li>Raw features may not capture real-world relationships well.</li>
+    <li>Ratios, interactions, or log transforms can reveal hidden patterns.</li>
+    <li>Good feature engineering often matters more than model choice.</li>
+  </ul>
+</ul>
 
 </details><ul>
 <li><em>Ommitted Here</em></li>
@@ -15799,11 +15821,14 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Scaling</strong></summary>
 
-##### Why scale features?
-
-- Many models (like regression, SVM, KNN) assume features are on similar scales.  
-- Scaling avoids one large-valued feature dominating others.  
-- It's essential for gradient-based optimization and distance-based models.
+<ul>
+  <li><strong>Why scale features?</strong></li>
+  <ul>
+    <li>Many models (like regression, SVM, KNN) assume features are on similar scales.</li>
+    <li>Scaling avoids one large-valued feature dominating others.</li>
+    <li>It's essential for gradient-based optimization and distance-based models.</li>
+  </ul>
+</ul>
 
 </details>
 </div>
@@ -16047,12 +16072,17 @@ Name: MedHouseVal, Length: 4128, dtype: float64
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand </strong></summary>
-🧠 Why Track `best_model_info`?
 
-In real-world pipelines, it's critical to:
-- Compare models not just by accuracy, but a full suite of metrics.
-- Store the actual model object, hyperparameters, and diagnostics in one place.
-- Ensure only the **best-performing** model (based on a chosen metrics) is promoted forward.
+🧠 <strong>Why Track `best_model_info`?</strong>
+
+<ul>
+  <li>In real-world pipelines, it's critical to:</li>
+  <ul>
+    <li>Compare models not just by accuracy, but a full suite of metrics.</li>
+    <li>Store the actual model object, hyperparameters, and diagnostics in one place.</li>
+    <li>Ensure only the <strong>best-performing</strong> model (based on chosen metrics) is promoted forward.</li>
+  </ul>
+</ul>
 
 </details>
 </div>
@@ -16111,32 +16141,54 @@ In real-world pipelines, it's critical to:
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Success Metric </strong></summary>
 
-Metric to decide which model is "best"
+<p>Metric to decide which model is "best"</p>
 
-##### Common choices (ranked by practical usage):
-1. **"r2"** → R² score (higher is better, reflects model fit)  
-   **When to use**: Use when you want to understand how well the model explains the variance in the target variable.  
-   **Example**: Predicting house prices where you want to know how well the features explain the price variance.
+<ul>
+  <li><strong>Common choices (ranked by practical usage):</strong></li>
+  <ul>
+    <li><strong>"r2"</strong> → R² score (higher is better, reflects model fit)
+      <ul>
+        <li><strong>When to use</strong>: Use when you want to understand how well the model explains the variance in the target variable.</li>
+        <li><strong>Example</strong>: Predicting house prices where you want to know how well the features explain the price variance.</li>
+      </ul>
+    </li>
 
-2. **"adjusted_r2"** → Adjusted R² (corrects R² for number of predictors in model)  
-   **When to use**: When you have many predictors and want to compare models while accounting for model complexity.  
-   **Example**: Real estate pricing models where you have multiple features (square footage, neighborhood, etc.).
+    <li><strong>"adjusted_r2"</strong> → Adjusted R² (corrects R² for number of predictors in model)
+      <ul>
+        <li><strong>When to use</strong>: When you have many predictors and want to compare models while accounting for model complexity.</li>
+        <li><strong>Example</strong>: Real estate pricing models where you have multiple features (square footage, neighborhood, etc.).</li>
+      </ul>
+    </li>
 
-3. **"mape"** → Mean Absolute Percentage Error (lower is better, interpretable as % error)  
-   **When to use**: When you need a metric that expresses errors as a percentage, useful in business applications.  
-   **Example**: Forecasting sales where a 5% error is meaningful for decision-makers.
+    <li><strong>"mape"</strong> → Mean Absolute Percentage Error (lower is better, interpretable as % error)
+      <ul>
+        <li><strong>When to use</strong>: When you need a metric that expresses errors as a percentage, useful in business applications.</li>
+        <li><strong>Example</strong>: Forecasting sales where a 5% error is meaningful for decision-makers.</li>
+      </ul>
+    </li>
 
-4. **"rmse"** → Root Mean Squared Error (lower is better, penalizes large errors)  
-   **When to use**: When large errors are costly and need to be penalized more heavily than small errors.  
-   **Example**: Energy consumption forecasting, where large deviations are more problematic than small ones.
+    <li><strong>"rmse"</strong> → Root Mean Squared Error (lower is better, penalizes large errors)
+      <ul>
+        <li><strong>When to use</strong>: When large errors are costly and need to be penalized more heavily than small errors.</li>
+        <li><strong>Example</strong>: Energy consumption forecasting, where large deviations are more problematic than small ones.</li>
+      </ul>
+    </li>
 
-5. **"mse"** → Mean Squared Error (lower is better, penalizes large errors)  
-   **When to use**: Similar to RMSE but less interpretable. Use when you want to focus on reducing all errors.  
-   **Example**: Stock price prediction where any large error is undesirable.
+    <li><strong>"mse"</strong> → Mean Squared Error (lower is better, penalizes large errors)
+      <ul>
+        <li><strong>When to use</strong>: Similar to RMSE but less interpretable. Use when you want to focus on reducing all errors.</li>
+        <li><strong>Example</strong>: Stock price prediction where any large error is undesirable.</li>
+      </ul>
+    </li>
 
-6. **"mae"** → Mean Absolute Error (lower is better, easier to interpret)  
-   **When to use**: When you need an error metric in the same units as the target and want something easy to understand.  
-   **Example**: Predicting monthly household spending where the error needs to be understood in the same unit (e.g., dollars).
+    <li><strong>"mae"</strong> → Mean Absolute Error (lower is better, easier to interpret)
+      <ul>
+        <li><strong>When to use</strong>: When you need an error metric in the same units as the target and want something easy to understand.</li>
+        <li><strong>Example</strong>: Predicting monthly household spending where the error needs to be understood in the same unit (e.g., dollars).</li>
+      </ul>
+    </li>
+  </ul>
+</ul>
 
 </details>
 </div>
@@ -16884,26 +16936,28 @@ MSE: 1.31 → Mean squared error
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-A **linear regression model** estimates the outcome as a weighted sum of input features:
+A <strong>linear regression model</strong> estimates the outcome as a weighted sum of input features:
 
 &nbsp;
 
-**Equation:**  
+<strong>Equation:</strong>  
 $\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$
 
 &nbsp;
 
-**Where:**
-- $\hat{y}$: Predicted value  
-- $\beta_0$: Intercept  
-- $x_i$: Input feature  
-- $\beta_i$: Weight of each feature
+<strong>Where:</strong>
+<ul>
+  <li><strong>$\hat{y}$</strong>: Predicted value</li>
+  <li><strong>$\beta_0$</strong>: Intercept</li>
+  <li><strong>$x_i$</strong>: Input feature</li>
+  <li><strong>$\beta_i$</strong>: Weight of each feature</li>
+</ul>
 
-The model finds the best-fitting line by minimizing the **sum of squared errors**:
+The model finds the best-fitting line by minimizing the <strong>sum of squared errors</strong>:
 
 &nbsp;
 
-**Objective:**  
+<strong>Objective:</strong>  
 $\text{Minimize} \quad \sum (y_i - \hat{y}_i)^2$
 
 &nbsp;
@@ -17004,21 +17058,27 @@ Each feature has a consistent “price tag” — the model tells you how much a
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Leverage</strong></summary>
 
-##### 🧠 What is Leverage?
+<h5>🧠 What is Leverage?</h5>
 
-- **Leverage** measures how far an observation's feature values are from the mean of all observations.
-- It identifies points that sit on the edge of the predictor space — even if they don’t have large residuals.
-- In matrix terms, leverage comes from the **hat matrix** $H = X(X^TX)^{-1}X^T$.
+<ul>
+  <li><strong>Leverage</strong> measures how far an observation's feature values are from the mean of all observations.</li>
+  <li>It identifies points that sit on the edge of the predictor space — even if they don’t have large residuals.</li>
+  <li>In matrix terms, leverage comes from the <strong>hat matrix</strong> $H = X(X^TX)^{-1}X^T$.</li>
+</ul>
 
-##### 📐 Math:
+<h5>📐 Math:</h5>
 
-- The **leverage score** for point $i$ is $h_i = H_{ii}$ (the diagonal of the hat matrix).
-- $h_i$ ranges from $0$ to $1$, and high values mean the observation has strong influence on its own predicted value.
+<ul>
+  <li>The <strong>leverage score</strong> for point $i$ is $h_i = H_{ii}$ (the diagonal of the hat matrix).</li>
+  <li>$h_i$ ranges from $0$ to $1$, and high values mean the observation has strong influence on its own predicted value.</li>
+</ul>
 
-##### 💡 Intuition:
+<h5>💡 Intuition:</h5>
 
-- High leverage points may not be outliers in $y$, but they have unusual $X$ values.
-- Think of them as **data points in weird neighborhoods** — the model leans heavily on them to make predictions there.
+<ul>
+  <li>High leverage points may not be outliers in $y$, but they have unusual $X$ values.</li>
+  <li>Think of them as <strong>data points in weird neighborhoods</strong> — the model leans heavily on them to make predictions there.</li>
+</ul>
 
 </details>
 </div>
@@ -17033,22 +17093,28 @@ Each feature has a consistent “price tag” — the model tells you how much a
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - What if high leverage?</strong></summary>
 
-##### 🚨 What It Means
+<h5>🚨 What It Means</h5>
 
-- High leverage points have **unusual input values** — they sit far from the average data pattern.
-- The model relies heavily on them to define the shape of the regression line.
-- They're not necessarily outliers in the target, but they’re structurally extreme.
+<ul>
+  <li>High leverage points have <strong>unusual input values</strong> — they sit far from the average data pattern.</li>
+  <li>The model relies heavily on them to define the shape of the regression line.</li>
+  <li>They're not necessarily outliers in the target, but they’re structurally extreme.</li>
+</ul>
 
-##### 🧠 What You Can Do
+<h5>🧠 What You Can Do</h5>
 
-- **Inspect**: Are they legit or data glitches?
-- **Compare**: Refit the model without them — if results shift a lot, they're too influential.
-- **Mitigate**: Use robust models (Ridge, Trees), cap feature extremes, or reweight carefully.
+<ul>
+  <li><strong>Inspect</strong>: Are they legit or data glitches?</li>
+  <li><strong>Compare</strong>: Refit the model without them — if results shift a lot, they're too influential.</li>
+  <li><strong>Mitigate</strong>: Use robust models (Ridge, Trees), cap feature extremes, or reweight carefully.</li>
+</ul>
 
-##### 💡 Key Insight
+<h5>💡 Key Insight</h5>
 
-> High leverage = “this point is setting the rules.”  
-> Sometimes that’s okay. Sometimes it’s dangerous.
+<blockquote>
+  High leverage = “this point is setting the rules.”  
+  Sometimes that’s okay. Sometimes it’s dangerous.
+</blockquote>
 
 </details>
 </div>
@@ -17400,34 +17466,41 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔥 What It Measures
+<h5>🔥 What It Measures</h5>
 
-- **Cook’s Distance** combines both **leverage** and **residual size**.
-- It tells you how much the model's predictions would **change** if you removed a specific observation.
-- In short: **“How much does this point bend the model?”**
+<ul>
+  <li><strong>Cook’s Distance</strong> combines both <strong>leverage</strong> and <strong>residual size</strong>.</li>
+  <li>It tells you how much the model's predictions would <strong>change</strong> if you removed a specific observation.</li>
+  <li>In short: <strong>“How much does this point bend the model?”</strong></li>
+</ul>
 
-##### 📐 Math (Simplified)
+<h5>📐 Math (Simplified)</h5>
 
-For each point $i$:
-\
-$D_i = \frac{(y_i - \hat{y}_i)^2}{p \cdot MSE} \cdot \frac{h_i}{(1 - h_i)^2}$
+<p>For each point $i$:</p>
+<p>$D_i = \frac{(y_i - \hat{y}_i)^2}{p \cdot MSE} \cdot \frac{h_i}{(1 - h_i)^2}$</p>
 
-  where:
-  - $h_i$ = leverage
-  - $p$ = number of parameters
-  - $MSE$ = mean squared error
+<p>where:</p>
+<ul>
+  <li>$h_i$ = leverage</li>
+  <li>$p$ = number of parameters</li>
+  <li>$MSE$ = mean squared error</li>
+</ul>
 
-##### 🧠 What To Do With It
+<h5>🧠 What To Do With It</h5>
 
-- Points with **high Cook’s D** have both high leverage *and* large residuals → red flags.
-- They may be real edge cases or data issues — investigate.
-- Use a threshold like `4 / n` or compare to the top 5% of values.
+<ul>
+  <li>Points with <strong>high Cook’s D</strong> have both high leverage <em>and</em> large residuals → red flags.</li>
+  <li>They may be real edge cases or data issues — investigate.</li>
+  <li>Use a threshold like <code>4 / n</code> or compare to the top 5% of values.</li>
+</ul>
 
-##### 💡 Intuition
+<h5>💡 Intuition</h5>
 
-> Leverage = weird position.  
-> Residual = big error.  
-> **Cook’s Distance = both.**
+<blockquote>
+  Leverage = weird position.<br>
+  Residual = big error.<br>
+  <strong>Cook’s Distance = both.</strong>
+</blockquote>
 
 </details>
 </div>
@@ -18291,14 +18364,18 @@ Gap: 0.019
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **SHAP (SHapley Additive exPlanations)** helps explain how much each feature contributed to a specific prediction.
-- Unlike coefficients, SHAP accounts for interactions and context — making it more reliable for understanding **why** the model made a decision.
-- Think of it like **splitting the credit** (or blame) for each prediction across features.
+<ul>
+  <li><strong>SHAP (SHapley Additive exPlanations)</strong> helps explain how much each feature contributed to a specific prediction.</li>
+  <li>Unlike coefficients, SHAP accounts for interactions and context — making it more reliable for understanding <strong>why</strong> the model made a decision.</li>
+  <li>Think of it like <strong>splitting the credit</strong> (or blame) for each prediction across features.</li>
+</ul>
 
-- **PDP (Partial Dependence Plots)** show how a single feature affects predictions while holding others constant.
-- Useful to answer: *“As this feature increases, does the predicted outcome go up or down — and by how much?”*
+<ul>
+  <li><strong>PDP (Partial Dependence Plots)</strong> show how a single feature affects predictions while holding others constant.</li>
+  <li>Useful to answer: <em>“As this feature increases, does the predicted outcome go up or down — and by how much?”</em></li>
+</ul>
 
-Together, SHAP and PDP bridge the gap between complex models and human intuition.
+<p>Together, SHAP and PDP bridge the gap between complex models and human intuition.</p>
 
 </details>
 </div>
@@ -18411,13 +18488,21 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- A **Partial Dependence Plot (PDP)** shows how the model’s prediction changes as one feature changes, while keeping all other features constant.
-- It answers questions like:
-  - *“If income increases, how does predicted price change — assuming everything else stays the same?”*
-- This helps identify:
-  - Whether the relationship is **linear or non-linear**
-  - If there are **threshold effects** or diminishing returns
-- PDPs are useful for detecting effects that coefficients alone may hide — especially in more complex models.
+<ul>
+  <li>A <strong>Partial Dependence Plot (PDP)</strong> shows how the model’s prediction changes as one feature changes, while keeping all other features constant.</li>
+  <li>It answers questions like:
+    <ul>
+      <li><em>“If income increases, how does predicted price change — assuming everything else stays the same?”</em></li>
+    </ul>
+  </li>
+  <li>This helps identify:
+    <ul>
+      <li>Whether the relationship is <strong>linear or non-linear</strong></li>
+      <li>If there are <strong>threshold effects</strong> or diminishing returns</li>
+    </ul>
+  </li>
+  <li>PDPs are useful for detecting effects that coefficients alone may hide — especially in more complex models.</li>
+</ul>
 
 </details>
 </div>
@@ -18549,22 +18634,28 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Regularized Regression </strong></summary>
+<details><summary><strong>📖 Click to Expand - Regularized Regression</strong></summary>
 
-    - Regularized regression is like **linear regression with guardrails** — it helps prevent overfitting and improves generalization.
-    - It’s especially useful when:
-      - You have **many features**, some of which may be noisy or redundant.
-      - There's **multicollinearity** (features are correlated).
-      - The model performs **too well on training but poorly on test data**.
+<ul>
+  <li>Regularized regression is like <strong>linear regression with guardrails</strong> — it helps prevent overfitting and improves generalization.</li>
+  <li>It’s especially useful when:
+    <ul>
+      <li>You have <strong>many features</strong>, some of which may be noisy or redundant.</li>
+      <li>There's <strong>multicollinearity</strong> (features are correlated).</li>
+      <li>The model performs <strong>too well on training but poorly on test data</strong>.</li>
+    </ul>
+  </li>
+  <li>There are 3 main types:
+    <ul>
+      <li><strong>Ridge</strong>: Shrinks coefficients, but keeps all features</li>
+      <li><strong>Lasso</strong>: Shrinks some coefficients all the way to zero → does feature selection</li>
+      <li><strong>ElasticNet</strong>: A mix of both</li>
+    </ul>
+  </li>
+  <li>Use regularization when your model has <strong>high variance</strong> or you want to <strong>simplify</strong> the feature set.</li>
+</ul>
 
-    There are 3 main types:
-    - **Ridge**: Shrinks coefficients, but keeps all features
-    - **Lasso**: Shrinks some coefficients all the way to zero → does feature selection
-    - **ElasticNet**: A mix of both
-
-    Use regularization when your model has **high variance** or you want to **simplify** the feature set.
-
-    </details>
+</details>
 </div>
 </div>
 </div>
@@ -18577,19 +18668,20 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Ridge Regression</strong></summary>
 
-- **Ridge regression** adds a penalty that discourages large coefficients.  
-- It’s useful when all features are important but may be correlated.
+<ul>
+  <li><strong>Ridge regression</strong> adds a penalty that discourages large coefficients.</li>
+  <li>It’s useful when all features are important but may be correlated.</li>
+</ul>
 
-&nbsp;
+<p><strong>Objective function:</strong><br>
+  $\text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda \sum \beta_j^2$
+</p>
 
-**Objective function:**  
-$\text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda \sum \beta_j^2$
-
-&nbsp;
-
-- The penalty term $\lambda \sum \beta_j^2$ shrinks coefficients without zeroing them out.
-- This reduces overfitting but **keeps all features** in the model.
-- Works well when you want to **retain information** while controlling variance.
+<ul>
+  <li>The penalty term $\lambda \sum \beta_j^2$ shrinks coefficients without zeroing them out.</li>
+  <li>This reduces overfitting but <strong>keeps all features</strong> in the model.</li>
+  <li>Works well when you want to <strong>retain information</strong> while controlling variance.</li>
+</ul>
 
 </details>
 </div>
@@ -18669,20 +18761,21 @@ Test  MAE: 0.53
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="lasso-regression"></a></p>
-<h3 id="%F0%9F%94%A5-Algorithms---Lasso-Regression">&#128293; Algorithms - Lasso Regression<a class="anchor-link" href="#%F0%9F%94%A5-Algorithms---Lasso-Regression">&#182;</a></h3><details><summary><strong>📖 Click to Expand</strong></summary>
+<h3>🔥 Algorithms - Lasso Regression</h3><details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **Lasso regression** adds a penalty on the **absolute values** of coefficients.  
-- It helps with **feature selection** by shrinking some coefficients to exactly zero.
+<ul>
+  <li><strong>Lasso regression</strong> adds a penalty on the <strong>absolute values</strong> of coefficients.</li>
+  <li>It helps with <strong>feature selection</strong> by shrinking some coefficients to exactly zero.</li>
+</ul>
 
-&nbsp;
+<p><strong>Objective function:</strong><br>
+  $\text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda \sum |\beta_j|$
+</p>
 
-**Objective function:**  
-$\text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda \sum |\beta_j|$
-
-&nbsp;
-
-- The $L1$ penalty encourages **sparsity** — only the most important features survive.
-- Use Lasso when you suspect some features **don’t matter** or want a **simpler model**.
+<ul>
+  <li>The $L1$ penalty encourages <strong>sparsity</strong> — only the most important features survive.</li>
+  <li>Use Lasso when you suspect some features <strong>don’t matter</strong> or want a <strong>simpler model</strong>.</li>
+</ul>
 
 </details>
 </div>
@@ -18762,20 +18855,21 @@ Test  MAE: 0.58
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="elasticnet"></a></p>
-<h3 id="%F0%9F%A7%83-Algorithms---ElasticNet">&#129475; Algorithms - ElasticNet<a class="anchor-link" href="#%F0%9F%A7%83-Algorithms---ElasticNet">&#182;</a></h3><details><summary><strong>📖 Click to Expand</strong></summary>
+<h3>🧃 Algorithms - ElasticNet</h3><details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **ElasticNet** blends Ridge (L2) and Lasso (L1) penalties.  
-- It balances **stability and sparsity** — best when you're not sure which to use.
+<ul>
+  <li><strong>ElasticNet</strong> blends Ridge (L2) and Lasso (L1) penalties.</li>
+  <li>It balances <strong>stability and sparsity</strong> — best when you're not sure which to use.</li>
+</ul>
 
-&nbsp;
+<p><strong>Objective function:</strong><br>
+  $\text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda_1 \sum |\beta_j| + \lambda_2 \sum \beta_j^2$
+</p>
 
-**Objective function:**  
-$\text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda_1 \sum |\beta_j| + \lambda_2 \sum \beta_j^2$
-
-&nbsp;
-
-- The L1 part helps with **feature selection**, while L2 improves **stability**.
-- ElasticNet is often used as a **default choice** when working with many features.
+<ul>
+  <li>The L1 part helps with <strong>feature selection</strong>, while L2 improves <strong>stability</strong>.</li>
+  <li>ElasticNet is often used as a <strong>default choice</strong> when working with many features.</li>
+</ul>
 
 </details>
 </div>
@@ -18868,32 +18962,33 @@ Test  MAE: 0.55
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-A **Decision Tree** is a non-linear model that splits the data into subsets based on feature values. It recursively divides the dataset into branches, making decisions at each node based on a feature threshold.
+<ul>
+  <li>A <strong>Decision Tree</strong> is a non-linear model that splits the data into subsets based on feature values. It recursively divides the dataset into branches, making decisions at each node based on a feature threshold.</li>
+</ul>
 
-&nbsp;
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><strong>Splitting</strong>: The tree splits data into two groups based on a feature and its value. The objective is to find splits that result in the most homogeneous subsets.</li>
+  <li><strong>Node</strong>: Each node represents a decision rule (e.g., "Is `AveRooms` > 6?").</li>
+  <li><strong>Leaf</strong>: A leaf node represents the predicted value (for regression) or class label (for classification).</li>
+  <li><strong>Tree Construction</strong>: The tree is built by recursively finding the best feature and value to split the data, using metrics like <strong>Gini impurity</strong>, <strong>information gain</strong>, or <strong>mean squared error (MSE)</strong>.</li>
+</ul>
 
-**How it works:**
-- **Splitting**: The tree splits data into two groups based on a feature and its value. The objective is to find splits that result in the most homogeneous subsets.
-- **Node**: Each node represents a decision rule (e.g., "Is `AveRooms` > 6?").
-- **Leaf**: A leaf node represents the predicted value (for regression) or class label (for classification).
-- **Tree Construction**: The tree is built by recursively finding the best feature and value to split the data, using metrics like **Gini impurity**, **information gain**, or **mean squared error (MSE)**.
+<p><strong>Equation (Regression Tree):</strong><br>
+  For regression trees, the predicted value at a leaf node is the mean of the target values in that subset.
+</p>
 
-&nbsp;
+<p>
+  $\hat{y} = \frac{1}{n} \sum_{i=1}^{n} y_i$
+</p>
 
-**Equation (Regression Tree):**
-For regression trees, the predicted value at a leaf node is the mean of the target values in that subset.
+<p><strong>Objective:</strong><br>
+  Minimize the impurity at each split. For regression, the goal is to minimize the sum of squared errors within the branches.
+</p>
 
-$\hat{y} = \frac{1}{n} \sum_{i=1}^{n} y_i$
-
-&nbsp;
-
-**Objective:**
-Minimize the impurity at each split. For regression, the goal is to minimize the sum of squared errors within the branches.
-
-&nbsp;
-
-**In business terms:**  
-A decision tree breaks down a complex problem into simple, easy-to-understand decisions. It’s like following a series of “yes/no” questions that guide you to the right answer.
+<p><strong>In business terms:</strong><br>
+  A decision tree breaks down a complex problem into simple, easy-to-understand decisions. It’s like following a series of “yes/no” questions that guide you to the right answer.
+</p>
 
 </details>
 </div>
@@ -18920,35 +19015,31 @@ A decision tree breaks down a complex problem into simple, easy-to-understand de
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-A **Random Forest** is an ensemble learning method that creates multiple decision trees and combines their predictions to improve accuracy and reduce overfitting.
+<p>A <strong>Random Forest</strong> is an ensemble learning method that creates multiple decision trees and combines their predictions to improve accuracy and reduce overfitting.</p>
 
-&nbsp;
+<h5>How it works:</h5>
+<ul>
+  <li><strong>Bootstrap Aggregating (Bagging)</strong>: Random Forests use bootstrapping to create multiple subsets of the data. Each tree is trained on a random subset (with replacement) of the data, which introduces diversity in the models.</li>
+  <li><strong>Tree Construction</strong>: Each tree in the forest is trained independently, using a random subset of features for each split. This randomness helps prevent overfitting and ensures that trees do not correlate too much with each other.</li>
+  <li><strong>Voting/Averaging</strong>: For regression tasks, the final prediction is the <strong>average</strong> of all tree predictions. For classification tasks, it’s the <strong>mode</strong> (most frequent class) predicted by the trees.</li>
+</ul>
 
-**How it works:**
-- **Bootstrap Aggregating (Bagging)**: Random Forests use bootstrapping to create multiple subsets of the data. Each tree is trained on a random subset (with replacement) of the data, which introduces diversity in the models.
-- **Tree Construction**: Each tree in the forest is trained independently, using a random subset of features for each split. This randomness helps prevent overfitting and ensures that trees do not correlate too much with each other.
-- **Voting/Averaging**: For regression tasks, the final prediction is the **average** of all tree predictions. For classification tasks, it’s the **mode** (most frequent class) predicted by the trees.
+<h5>Equation (for Regression):</h5>
+<p>For regression, the predicted value is the average of the predictions from all trees.</p>
+<p>
+  $\hat{y} = \frac{1}{M} \sum_{i=1}^{M} \hat{y}_i$
+</p>
+<p>Where:</p>
+<ul>
+  <li><strong>$\hat{y}_i$</strong>: Prediction of the i-th tree</li>
+  <li><strong>$M$</strong>: Total number of trees in the forest</li>
+</ul>
 
-&nbsp;
+<h5>**Objective:**</h5>
+<p>Minimize the variance of the model’s predictions by averaging over many trees, each trained on a different subset of the data.</p>
 
-**Equation (for Regression):**
-For regression, the predicted value is the average of the predictions from all trees.
-
-$\hat{y} = \frac{1}{M} \sum_{i=1}^{M} \hat{y}_i$
-
-Where:
-- $\hat{y}_i$: Prediction of the i-th tree
-- $M$: Total number of trees in the forest
-
-&nbsp;
-
-**Objective:**
-Minimize the variance of the model’s predictions by averaging over many trees, each trained on a different subset of the data.
-
-&nbsp;
-
-**In business terms:**  
-Random Forests can be thought of as having a “crowd” of decision makers, where each one gives their opinion, and the final decision is made by taking the average or majority vote. This helps reduce the bias of individual decision trees.
+<h5>**In business terms:**</h5>
+<p>Random Forests can be thought of as having a “crowd” of decision makers, where each one gives their opinion, and the final decision is made by taking the average or majority vote. This helps reduce the bias of individual decision trees.</p>
 
 </details>
 </div>
@@ -18975,25 +19066,25 @@ Random Forests can be thought of as having a “crowd” of decision makers, whe
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-**Gradient Boosting** is an ensemble learning technique that builds models sequentially, where each model corrects the errors made by the previous one. The algorithm focuses on minimizing the **loss function** by adding trees that improve the model’s performance in areas where it’s struggling.
+<ul>
+  <li><strong>Gradient Boosting</strong> is an ensemble learning technique that builds models sequentially, where each model corrects the errors made by the previous one. The algorithm focuses on minimizing the <strong>loss function</strong> by adding trees that improve the model’s performance in areas where it’s struggling.</li>
+</ul>
 
-&nbsp;
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><strong>Boosting</strong>: Unlike Random Forests, which train trees independently, Gradient Boosting trains trees <strong>sequentially</strong>. Each tree corrects the residual errors of the previous one by focusing on the examples that were misclassified or poorly predicted.</li>
+  <li><strong>Gradient Descent</strong>: The model uses <strong>gradient descent</strong> to minimize the loss function, optimizing the model step-by-step. The error of the current model is propagated back through the model to update the next tree.</li>
+  <li><strong>Learning Rate</strong>: A key parameter in Gradient Boosting is the <strong>learning rate</strong>. It controls how much each new tree is allowed to influence the final model. A lower learning rate often results in better generalization but requires more trees to achieve the same level of performance.</li>
+  <li><strong>XGBoost/LightGBM</strong>: These are highly optimized versions of Gradient Boosting. <strong>XGBoost</strong> (Extreme Gradient Boosting) and <strong>LightGBM</strong> (Light Gradient Boosting Machine) offer faster training, better regularization, and enhanced performance, especially on large datasets.</li>
+</ul>
 
-**How it works:**
-- **Boosting**: Unlike Random Forests, which train trees independently, Gradient Boosting trains trees **sequentially**. Each tree corrects the residual errors of the previous one by focusing on the examples that were misclassified or poorly predicted.
-- **Gradient Descent**: The model uses **gradient descent** to minimize the loss function, optimizing the model step-by-step. The error of the current model is propagated back through the model to update the next tree.
-- **Learning Rate**: A key parameter in Gradient Boosting is the **learning rate**. It controls how much each new tree is allowed to influence the final model. A lower learning rate often results in better generalization but requires more trees to achieve the same level of performance.
-- **XGBoost/LightGBM**: These are highly optimized versions of Gradient Boosting. **XGBoost** (Extreme Gradient Boosting) and **LightGBM** (Light Gradient Boosting Machine) offer faster training, better regularization, and enhanced performance, especially on large datasets.
+<p><strong>Objective:</strong><br>
+  Minimize the <strong>loss function</strong> (such as mean squared error for regression) through iterative corrections. Each new tree learns from the residuals (errors) of the previous tree.
+</p>
 
-&nbsp;
-
-**Objective:**
-Minimize the **loss function** (such as mean squared error for regression) through iterative corrections. Each new tree learns from the residuals (errors) of the previous tree.
-
-&nbsp;
-
-**In business terms:**  
-Gradient Boosting works like hiring a new team member who focuses on fixing the mistakes made by the previous team member. Over time, as more team members are added, the overall performance improves dramatically by addressing areas of weakness.
+<p><strong>In business terms:</strong><br>
+  Gradient Boosting works like hiring a new team member who focuses on fixing the mistakes made by the previous team member. Over time, as more team members are added, the overall performance improves dramatically by addressing areas of weakness.
+</p>
 
 </details>
 </div>
@@ -19020,25 +19111,28 @@ Gradient Boosting works like hiring a new team member who focuses on fixing the 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-**Support Vector Machines (SVM)** for regression (SVR) is a powerful algorithm that attempts to find a **hyperplane** that best fits the data while allowing for some margin of error. The idea is to maximize the margin between the data points and the hyperplane while keeping the model complexity low.
+<ul>
+  <li><strong>Support Vector Machines (SVM)</strong> for regression (SVR) is a powerful algorithm that attempts to find a <strong>hyperplane</strong> that best fits the data while allowing for some margin of error. The idea is to maximize the margin between the data points and the hyperplane while keeping the model complexity low.</li>
+</ul>
 
-&nbsp;
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><strong>Maximizing the Margin</strong>: The SVR model searches for a hyperplane that not only separates the data points but also ensures that the margin between the data points and the hyperplane is maximized.</li>
+  <li><strong>Epsilon-Insensitive Loss</strong>: In SVR, the margin of error is controlled by a parameter called <strong>epsilon</strong>. Points that lie within this margin are considered as correctly predicted, while points outside the margin are penalized.</li>
+  <li><strong>Kernel Trick</strong>: SVR can be extended to non-linear regression by using the <strong>kernel trick</strong>. This allows SVR to operate in a high-dimensional space, making it capable of handling complex, non-linear relationships.
+    <ul>
+      <li>Common kernels include the <strong>linear</strong>, <strong>polynomial</strong>, and <strong>radial basis function (RBF)</strong> kernels.</li>
+    </ul>
+  </li>
+</ul>
 
-**How it works:**
-- **Maximizing the Margin**: The SVR model searches for a hyperplane that not only separates the data points but also ensures that the margin between the data points and the hyperplane is maximized.
-- **Epsilon-Insensitive Loss**: In SVR, the margin of error is controlled by a parameter called **epsilon**. Points that lie within this margin are considered as correctly predicted, while points outside the margin are penalized.
-- **Kernel Trick**: SVR can be extended to non-linear regression by using the **kernel trick**. This allows SVR to operate in a high-dimensional space, making it capable of handling complex, non-linear relationships.
-    - Common kernels include the **linear**, **polynomial**, and **radial basis function (RBF)** kernels.
+<p><strong>Objective:</strong><br>
+  Minimize the regularized loss function, which penalizes data points that lie outside the epsilon margin and tries to find the optimal hyperplane.
+</p>
 
-&nbsp;
-
-**Objective:**
-Minimize the regularized loss function, which penalizes data points that lie outside the epsilon margin and tries to find the optimal hyperplane.
-
-&nbsp;
-
-**In business terms:**  
-SVR works like finding the best-fit line (or hyperplane) that approximates the data while allowing some flexibility for errors. The goal is to minimize prediction errors while ensuring that the model is not overly sensitive to small variations.
+<p><strong>In business terms:</strong><br>
+  SVR works like finding the best-fit line (or hyperplane) that approximates the data while allowing some flexibility for errors. The goal is to minimize prediction errors while ensuring that the model is not overly sensitive to small variations.
+</p>
 
 </details>
 </div>
@@ -19065,26 +19159,29 @@ SVR works like finding the best-fit line (or hyperplane) that approximates the d
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-**K-Nearest Neighbors (KNN)** is a simple, non-parametric algorithm used for both classification and regression. The algorithm makes predictions based on the **k** closest training samples in the feature space. The idea is that similar data points are likely to have similar target values.
+<ul>
+  <li><strong>K-Nearest Neighbors (KNN)</strong> is a simple, non-parametric algorithm used for both classification and regression. The algorithm makes predictions based on the <strong>k</strong> closest training samples in the feature space. The idea is that similar data points are likely to have similar target values.</li>
+</ul>
 
-&nbsp;
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><strong>Distance Metric</strong>: KNN calculates the <strong>distance</strong> between the query point and all the points in the dataset. Common distance metrics include <strong>Euclidean</strong>, <strong>Manhattan</strong>, and <strong>Minkowski</strong> distances.</li>
+  <li><strong>Prediction for Regression</strong>: In <strong>KNN regression</strong>, the prediction is the <strong>average</strong> of the target values of the <strong>k</strong> nearest neighbors.
+    <ul>
+      <li>For example, if `k=3`, the prediction for a query point is the average of the target values of the three nearest points.</li>
+    </ul>
+  </li>
+  <li><strong>Prediction for Classification</strong>: In <strong>KNN classification</strong>, the prediction is determined by the <strong>majority vote</strong> from the k nearest neighbors.</li>
+  <li><strong>Choosing k</strong>: The value of <strong>k</strong> determines how many neighbors are considered. A small value of k can make the model sensitive to noise, while a larger k can smooth the prediction but may miss fine details.</li>
+</ul>
 
-**How it works:**
-- **Distance Metric**: KNN calculates the **distance** between the query point and all the points in the dataset. Common distance metrics include **Euclidean**, **Manhattan**, and **Minkowski** distances.
-- **Prediction for Regression**: In **KNN regression**, the prediction is the **average** of the target values of the **k** nearest neighbors.
-    - For example, if `k=3`, the prediction for a query point is the average of the target values of the three nearest points.
-- **Prediction for Classification**: In **KNN classification**, the prediction is determined by the **majority vote** from the k nearest neighbors.
-- **Choosing k**: The value of **k** determines how many neighbors are considered. A small value of k can make the model sensitive to noise, while a larger k can smooth the prediction but may miss fine details.
+<p><strong>Objective:</strong><br>
+  Minimize the <strong>prediction error</strong> by considering the closest data points and averaging or voting to generate predictions.
+</p>
 
-&nbsp;
-
-**Objective:**
-Minimize the **prediction error** by considering the closest data points and averaging or voting to generate predictions.
-
-&nbsp;
-
-**In business terms:**  
-KNN works like asking your closest neighbors for advice. The final decision is based on the majority opinion or average of your nearest peers. It's simple but effective when the data is well-structured and doesn't have too many dimensions (features).
+<p><strong>In business terms:</strong><br>
+  KNN works like asking your closest neighbors for advice. The final decision is based on the majority opinion or average of your nearest peers. It's simple but effective when the data is well-structured and doesn't have too many dimensions (features).
+</p>
 
 </details>
 </div>
@@ -19111,25 +19208,25 @@ KNN works like asking your closest neighbors for advice. The final decision is b
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-**Neural Networks (MLP Regressor)** are a class of machine learning algorithms inspired by the structure and functioning of the human brain. The **Multilayer Perceptron (MLP)** is a feedforward neural network that consists of multiple layers of neurons, including an input layer, one or more hidden layers, and an output layer.
+<ul>
+  <li><strong>Neural Networks (MLP Regressor)</strong> are a class of machine learning algorithms inspired by the structure and functioning of the human brain. The <strong>Multilayer Perceptron (MLP)</strong> is a feedforward neural network that consists of multiple layers of neurons, including an input layer, one or more hidden layers, and an output layer.</li>
+</ul>
 
-&nbsp;
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><strong>Neurons</strong>: Each neuron receives input from previous layers, applies a weighted sum of the inputs, adds a bias, and then passes the result through an <strong>activation function</strong> (e.g., ReLU, Sigmoid, Tanh).</li>
+  <li><strong>Forward Propagation</strong>: During training, data passes through the network from input to output. The predicted output is compared to the true target, and the error is computed.</li>
+  <li><strong>Backpropagation</strong>: The error is propagated back through the network to adjust the weights and biases of the neurons, using an optimization algorithm like <strong>Stochastic Gradient Descent (SGD)</strong> or <strong>Adam</strong>.</li>
+  <li><strong>Layers</strong>: The hidden layers allow the network to model complex, non-linear relationships between input features and the target variable.</li>
+</ul>
 
-**How it works:**
-- **Neurons**: Each neuron receives input from previous layers, applies a weighted sum of the inputs, adds a bias, and then passes the result through an **activation function** (e.g., ReLU, Sigmoid, Tanh).
-- **Forward Propagation**: During training, data passes through the network from input to output. The predicted output is compared to the true target, and the error is computed.
-- **Backpropagation**: The error is propagated back through the network to adjust the weights and biases of the neurons, using an optimization algorithm like **Stochastic Gradient Descent (SGD)** or **Adam**.
-- **Layers**: The hidden layers allow the network to model complex, non-linear relationships between input features and the target variable.
+<p><strong>Objective:</strong><br>
+  Minimize the <strong>loss function</strong> (e.g., Mean Squared Error for regression) by adjusting the weights and biases of the neurons through backpropagation, using optimization techniques.
+</p>
 
-&nbsp;
-
-**Objective:**
-Minimize the **loss function** (e.g., Mean Squared Error for regression) by adjusting the weights and biases of the neurons through backpropagation, using optimization techniques.
-
-&nbsp;
-
-**In business terms:**  
-Neural Networks can be thought of as a highly flexible system capable of learning complex patterns. The deeper the network (i.e., the more layers), the better it can capture intricate relationships in the data, much like how the human brain processes and learns from experience.
+<p><strong>In business terms:</strong><br>
+  Neural Networks can be thought of as a highly flexible system capable of learning complex patterns. The deeper the network (i.e., the more layers), the better it can capture intricate relationships in the data, much like how the human brain processes and learns from experience.
+</p>
 
 </details>
 </div>
@@ -19167,29 +19264,128 @@ Neural Networks can be thought of as a highly flexible system capable of learnin
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Model Choice </strong></summary>
+<details><summary><strong>📖 Click to Expand - Model Choice</strong></summary>
 
-##### 🧠 Regression Model Selection Table (Based on Data Characteristics)
+<h5>🧠 Regression Model Selection Table (Based on Data Characteristics)</h5>
 
-| Linearly Separable | Correlation | Multicollinearity | Outliers | Recommended Models                      | Notes                                                              |
-|---------------------|-------------|-------------------|----------|-----------------------------------------|---------------------------------------------------------------------|
-| ✅ True             | Low         | ✅ True           | ✅ True  | XGBoost > Random Forest > Gradient Boosting | Strong with multicollinearity, handles outliers well.               |
-| ✅ True             | Low         | ✅ True           | ✅ False | Ridge > Lasso > ElasticNet               | Regularization helps with collinearity, robust against outliers.     |
-| ✅ True             | Low         | ❌ False          | ✅ True  | Random Forest > Decision Tree           | Non-linear, robust to outliers.                                     |
-| ✅ True             | High        | ✅ True           | ✅ True  | XGBoost > Random Forest > Gradient Boosting | Handles correlation, outliers effectively.                          |
-| ✅ True             | High        | ✅ True           | ✅ False | Ridge > Lasso > ElasticNet               | Regularization works well with high correlation and collinearity.    |
-| ✅ True             | High        | ❌ False          | ✅ True  | Random Forest > Decision Tree           | Non-linear trees handle outliers well.                              |
-| ❌ False            | Low         | ✅ True           | ✅ True  | XGBoost > Random Forest > Gradient Boosting | Boosting trees handle complex relationships and outliers.           |
-| ❌ False            | Low         | ✅ True           | ✅ False | Ridge > Lasso > ElasticNet               | Regularization and feature selection work well for complex data.    |
-| ❌ False            | Low         | ❌ False          | ✅ True  | Decision Tree > Random Forest           | Handles non-linearity and outliers without heavy tuning.            |
-| ❌ False            | High        | ✅ True           | ✅ True  | XGBoost > Random Forest > Gradient Boosting | Best for complex relationships and outliers.                        |
-| ❌ False            | High        | ✅ True           | ✅ False | Random Forest > Decision Tree           | Non-linear, handles collinearity and outliers well.                  |
-| ❌ False            | High        | ❌ False          | ✅ True  | Random Forest > Decision Tree           | Handles non-linear relationships, robust to outliers.               |
-| ❌ False            | High        | ❌ False          | ✅ False | Decision Tree > Random Forest           | Simple trees work well for non-linear relationships.                |
-
-
-
-
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Linearly Separable</th>
+      <th>Correlation</th>
+      <th>Multicollinearity</th>
+      <th>Outliers</th>
+      <th>Recommended Models</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>✅ True</td>
+      <td>Low</td>
+      <td>✅ True</td>
+      <td>✅ True</td>
+      <td>XGBoost > Random Forest > Gradient Boosting</td>
+      <td>Strong with multicollinearity, handles outliers well.</td>
+    </tr>
+    <tr>
+      <td>✅ True</td>
+      <td>Low</td>
+      <td>✅ True</td>
+      <td>✅ False</td>
+      <td>Ridge > Lasso > ElasticNet</td>
+      <td>Regularization helps with collinearity, robust against outliers.</td>
+    </tr>
+    <tr>
+      <td>✅ True</td>
+      <td>Low</td>
+      <td>❌ False</td>
+      <td>✅ True</td>
+      <td>Random Forest > Decision Tree</td>
+      <td>Non-linear, robust to outliers.</td>
+    </tr>
+    <tr>
+      <td>✅ True</td>
+      <td>High</td>
+      <td>✅ True</td>
+      <td>✅ True</td>
+      <td>XGBoost > Random Forest > Gradient Boosting</td>
+      <td>Handles correlation, outliers effectively.</td>
+    </tr>
+    <tr>
+      <td>✅ True</td>
+      <td>High</td>
+      <td>✅ True</td>
+      <td>✅ False</td>
+      <td>Ridge > Lasso > ElasticNet</td>
+      <td>Regularization works well with high correlation and collinearity.</td>
+    </tr>
+    <tr>
+      <td>✅ True</td>
+      <td>High</td>
+      <td>❌ False</td>
+      <td>✅ True</td>
+      <td>Random Forest > Decision Tree</td>
+      <td>Non-linear trees handle outliers well.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>Low</td>
+      <td>✅ True</td>
+      <td>✅ True</td>
+      <td>XGBoost > Random Forest > Gradient Boosting</td>
+      <td>Boosting trees handle complex relationships and outliers.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>Low</td>
+      <td>✅ True</td>
+      <td>✅ False</td>
+      <td>Ridge > Lasso > ElasticNet</td>
+      <td>Regularization and feature selection work well for complex data.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>Low</td>
+      <td>❌ False</td>
+      <td>✅ True</td>
+      <td>Decision Tree > Random Forest</td>
+      <td>Handles non-linearity and outliers without heavy tuning.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>High</td>
+      <td>✅ True</td>
+      <td>✅ True</td>
+      <td>XGBoost > Random Forest > Gradient Boosting</td>
+      <td>Best for complex relationships and outliers.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>High</td>
+      <td>✅ True</td>
+      <td>✅ False</td>
+      <td>Random Forest > Decision Tree</td>
+      <td>Non-linear, handles collinearity and outliers well.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>High</td>
+      <td>❌ False</td>
+      <td>✅ True</td>
+      <td>Random Forest > Decision Tree</td>
+      <td>Handles non-linear relationships, robust to outliers.</td>
+    </tr>
+    <tr>
+      <td>❌ False</td>
+      <td>High</td>
+      <td>❌ False</td>
+      <td>✅ False</td>
+      <td>Decision Tree > Random Forest</td>
+      <td>Simple trees work well for non-linear relationships.</td>
+    </tr>
+  </tbody>
+</table>
 
 </details>
 </div>
@@ -19204,9 +19400,9 @@ Neural Networks can be thought of as a highly flexible system capable of learnin
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Model Choice FlowChart</strong></summary>
 
-##### 🧠 Model Selection Flowchart (Based on Data Characteristics)
+<h5>🧠 Model Selection Flowchart (Based on Data Characteristics)</h5>
 
-```text
+<pre>
 🎯 Linearly Separable?
   ├── ✅ Yes
   │   ├── 📉 Correlation = Low?
@@ -19240,10 +19436,7 @@ Neural Networks can be thought of as a highly flexible system capable of learnin
               ├── ✅ Outliers Present?
               │   ├── ✅ Yes → XGBoost > Random Forest > Gradient Boosting
               │   └── ❌ No → Random Forest > Decision Tree
-
-
-```
-
+</pre>
 
 </details>
 </div>
@@ -20321,21 +20514,30 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **Hyperparameters** are settings you choose *before* training a model (e.g., how much regularization to apply).
-- Unlike model coefficients, hyperparameters aren’t learned from the data — they need to be **tuned** manually or via search.
-- In regularized models:
-  - `alpha` controls how strong the penalty is
-  - A small alpha behaves like linear regression
-  - A large alpha shrinks everything too much → underfit
+<ul>
+  <li><strong>Hyperparameters</strong> are settings you choose <em>before</em> training a model (e.g., how much regularization to apply).</li>
+  <li>Unlike model coefficients, hyperparameters aren’t learned from the data — they need to be <strong>tuned</strong> manually or via search.</li>
+  <li>In regularized models:
+    <ul>
+      <li><code>alpha</code> controls how strong the penalty is</li>
+      <li>A small alpha behaves like linear regression</li>
+      <li>A large alpha shrinks everything too much → underfit</li>
+    </ul>
+  </li>
+</ul>
 
-**Why tune?**
-- Tuning finds the **best tradeoff** between bias and variance
-- Prevents both **underfitting** and **overfitting**
-- Improves model generalization on unseen data
+<p><strong>Why tune?</strong></p>
+<ul>
+  <li>Tuning finds the <strong>best tradeoff</strong> between bias and variance</li>
+  <li>Prevents both <strong>underfitting</strong> and <strong>overfitting</strong></li>
+  <li>Improves model generalization on unseen data</li>
+</ul>
 
-You typically use:
-- **GridSearchCV**: Tries every combo of values (good for small grids)
-- **RandomizedSearchCV**: Tries random combos (faster for large grids)
+<p>You typically use:</p>
+<ul>
+  <li><strong>GridSearchCV</strong>: Tries every combo of values (good for small grids)</li>
+  <li><strong>RandomizedSearchCV</strong>: Tries random combos (faster for large grids)</li>
+</ul>
 
 </details>
 </div>
@@ -20349,24 +20551,41 @@ You typically use:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="feature-selection-rfe"></a></p>
-<h4 id="%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE">&#129514; Feature Selection &#8211; RFE<a class="anchor-link" href="#%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE">&#182;</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE">&#129514; Feature Selection &#8211; RFE<a class="anchor-link" href="#%F0%9F%A7%AA-Feature-Selection-%E2%80%93-RFE">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 📊 **What is RFE (Recursive Feature Elimination)?**
-RFE is a feature selection technique that helps in identifying the most important features for model performance. It recursively removes the least important features, evaluating model performance at each step.
+<h5>📊 <strong>What is RFE (Recursive Feature Elimination)?</strong></h5>
+<p>RFE is a feature selection technique that helps in identifying the most important features for model performance. It recursively removes the least important features, evaluating model performance at each step.</p>
 
-##### 🔄 **How Does RFE Work?**
-- **Model Training**: Initially, the model is trained on **all features**.
-- **Feature Ranking**: Features are ranked based on their importance to the model’s performance. The least important ones are eliminated.
-- **Recursive Process**: This process continues by recursively removing the least important features and retraining the model.
+<h5>🔄 <strong>How Does RFE Work?</strong></h5>
+<ul>
+  <li><strong>Model Training</strong>: Initially, the model is trained on <strong>all features</strong>.</li>
+  <li><strong>Feature Ranking</strong>: Features are ranked based on their importance to the model’s performance. The least important ones are eliminated.</li>
+  <li><strong>Recursive Process</strong>: This process continues by recursively removing the least important features and retraining the model.</li>
+</ul>
 
-##### 🔧 **Performance Evaluation**
-- The model's performance is evaluated at each step using **R²** or another suitable metric.
-- If performance begins to **drop significantly**, the process stops. The number of selected features can be controlled by setting `n_features_to_select`.
+<h5>🔧 <strong>Performance Evaluation</strong></h5>
+<ul>
+  <li>The model's performance is evaluated at each step using <strong>R²</strong> or another suitable metric.</li>
+  <li>If performance begins to <strong>drop significantly</strong>, the process stops. The number of selected features can be controlled by setting <code>n_features_to_select</code>.</li>
+</ul>
 
-##### 🚀 **Why Use RFE?**
-- **Improves Model Generalization**: By removing irrelevant or redundant features, RFE helps prevent overfitting.
-- **Better Interpretability**: It makes the model more interpretable by focusing on the most important features.
-- **Increased Efficiency**: Reducing the number of features helps in building a simpler, faster model.
+<h5>🚀 <strong>Why Use RFE?</strong></h5>
+<ul>
+  <li><strong>Improves Model Generalization</strong>: By removing irrelevant or redundant features, RFE helps prevent overfitting.</li>
+  <li><strong>Better Interpretability</strong>: It makes the model more interpretable by focusing on the most important features.</li>
+  <li><strong>Increased Efficiency</strong>: Reducing the number of features helps in building a simpler, faster model.</li>
+</ul>
 
 </details>
 </div>
@@ -20638,38 +20857,64 @@ MSE: 0.21 → Mean squared error
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 📊 **What is RFE + SHAP?**
-**Recursive Feature Elimination (RFE)** combined with **SHAP (SHapley Additive exPlanations)** is an advanced feature selection method. It combines two techniques:
-1. **RFE** recursively eliminates the least important features based on model performance.
-2. **SHAP** provides feature importance scores that explain how each feature affects the model's predictions.
+<h5>📊 <strong>What is RFE + SHAP?</strong></h5>
+<p><strong>Recursive Feature Elimination (RFE)</strong> combined with <strong>SHAP (SHapley Additive exPlanations)</strong> is an advanced feature selection method. It combines two techniques:</p>
+<ul>
+  <li><strong>RFE</strong> recursively eliminates the least important features based on model performance.</li>
+  <li><strong>SHAP</strong> provides feature importance scores that explain how each feature affects the model's predictions.</li>
+</ul>
+<p>By integrating <strong>RFE</strong> with <strong>SHAP</strong>, we can prioritize features based on <strong>both performance</strong> (from RFE) and <strong>explanation</strong> (from SHAP), selecting features that are both <strong>important</strong> and <strong>informative</strong> for the model.</p>
 
-By integrating **RFE** with **SHAP**, we can prioritize features based on **both performance** (from RFE) and **explanation** (from SHAP), selecting features that are both **important** and **informative** for the model.
+<h5>🔄 <strong>How Does RFE + SHAP Work?</strong></h5>
+<ol>
+  <li><strong>SHAP Ranking</strong>:
+    <ul>
+      <li>First, <strong>SHAP values</strong> are computed for the dataset. This gives a ranking of the features based on their <strong>importance</strong> in driving the model's predictions.</li>
+    </ul>
+  </li>
+  <li><strong>RFE with SHAP</strong>:
+    <ul>
+      <li>RFE uses the <strong>SHAP ranking</strong> to iteratively remove the <strong>least important features</strong>. At each step, it evaluates the performance of the model using only the selected features.</li>
+    </ul>
+  </li>
+  <li><strong>Early Stopping</strong>:
+    <ul>
+      <li>The elimination process stops when performance <strong>drops significantly</strong> (e.g., based on <strong>R²</strong> or other metrics), or when the <strong>minimum number of features</strong> is reached.</li>
+    </ul>
+  </li>
+</ol>
 
-##### 🔄 **How Does RFE + SHAP Work?**
-1. **SHAP Ranking**:
-   - First, **SHAP values** are computed for the dataset. This gives a ranking of the features based on their **importance** in driving the model's predictions.
+<h5>🚀 <strong>Why Combine RFE and SHAP?</strong></h5>
+<ul>
+  <li><strong>RFE alone</strong> can be too simplistic, often removing important features without considering their <strong>true impact</strong>.</li>
+  <li><strong>SHAP alone</strong> can explain feature importance but doesn’t directly help in eliminating features iteratively.</li>
+  <li><strong>Combining RFE and SHAP</strong> ensures that we not only select <strong>important features</strong> but also maintain <strong>model performance</strong>, allowing us to <strong>optimize the feature set</strong>.</li>
+</ul>
 
-2. **RFE with SHAP**:
-   - RFE uses the **SHAP ranking** to iteratively remove the **least important features**. At each step, it evaluates the performance of the model using only the selected features.
-
-3. **Early Stopping**:
-   - The elimination process stops when performance **drops significantly** (e.g., based on **R²** or other metrics), or when the **minimum number of features** is reached.
-
-##### 🚀 **Why Combine RFE and SHAP?**
-- **RFE alone** can be too simplistic, often removing important features without considering their **true impact**.
-- **SHAP alone** can explain feature importance but doesn’t directly help in eliminating features iteratively.
-- **Combining RFE and SHAP** ensures that we not only select **important features** but also maintain **model performance**, allowing us to **optimize the feature set**.
-
-##### 🔧 **What Happens in the Code?**
-1. **SHAP Calculation**: 
-   - We first use **SHAP** to calculate the importance of each feature.
-2. **RFE**:
-   - We then use **RFE** to iteratively remove features based on **SHAP ranking**.
-3. **Performance Tracking**:
-   - We evaluate the model's performance after each feature elimination using a metric like **R²**.
-   - If performance drops significantly, we stop the feature elimination process early.
-4. **Final Selected Features**:
-   - The features that lead to the **best model performance** are selected, and the final set is used to retrain the model.
+<h5>🔧 <strong>What Happens in the Code?</strong></h5>
+<ol>
+  <li><strong>SHAP Calculation</strong>: 
+    <ul>
+      <li>We first use <strong>SHAP</strong> to calculate the importance of each feature.</li>
+    </ul>
+  </li>
+  <li><strong>RFE</strong>:
+    <ul>
+      <li>We then use <strong>RFE</strong> to iteratively remove features based on <strong>SHAP ranking</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Performance Tracking</strong>:
+    <ul>
+      <li>We evaluate the model's performance after each feature elimination using a metric like <strong>R²</strong>.</li>
+      <li>If performance drops significantly, we stop the feature elimination process early.</li>
+    </ul>
+  </li>
+  <li><strong>Final Selected Features</strong>:
+    <ul>
+      <li>The features that lead to the <strong>best model performance</strong> are selected, and the final set is used to retrain the model.</li>
+    </ul>
+  </li>
+</ol>
 
 </details>
 </div>
@@ -20972,51 +21217,90 @@ MSE: 0.22 → Mean squared error
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="gridsearch-linear"></a></p>
-<h4 id="%F0%9F%A7%AA-Grid-Search">&#129514; Grid Search<a class="anchor-link" href="#%F0%9F%A7%AA-Grid-Search">&#182;</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<h4 id="%F0%9F%A7%AA-Grid-Search">&#129514; Grid Search<a class="anchor-link" href="#%F0%9F%A7%AA-Grid-Search">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔄 **What is Grid Search?**
-**Grid Search** is a method used to **tune hyperparameters** of a machine learning model by searching through a **specified set of hyperparameters**. It evaluates the model's performance on each combination of hyperparameters and selects the one that performs the best based on a defined performance metric.
+<h5>🔄 <strong>What is Grid Search?</strong></h5>
+<p><strong>Grid Search</strong> is a method used to <strong>tune hyperparameters</strong> of a machine learning model by searching through a <strong>specified set of hyperparameters</strong>. It evaluates the model's performance on each combination of hyperparameters and selects the one that performs the best based on a defined performance metric.</p>
 
-##### 🔧 **Steps Taken Internally in Grid Search:**
+<h5>🔧 <strong>Steps Taken Internally in Grid Search:</strong></h5>
 
-1. **Define Hyperparameter Grid**:
-   - First, we define a **grid** of hyperparameters that we want to tune. These hyperparameters are typically the ones that influence model training, such as:
-     - **Number of estimators** (e.g., `n_estimators` for tree-based models)
-     - **Maximum depth** (e.g., `max_depth` for decision trees)
-     - **Regularization strength** (e.g., `alpha` for Ridge/Lasso)
-   - In this step, you also specify the possible values for each parameter.
+<ol>
+  <li><strong>Define Hyperparameter Grid</strong>:
+    <ul>
+      <li>First, we define a <strong>grid</strong> of hyperparameters that we want to tune. These hyperparameters are typically the ones that influence model training, such as:
+        <ul>
+          <li><strong>Number of estimators</strong> (e.g., <code>n_estimators</code> for tree-based models)</li>
+          <li><strong>Maximum depth</strong> (e.g., <code>max_depth</code> for decision trees)</li>
+          <li><strong>Regularization strength</strong> (e.g., <code>alpha</code> for Ridge/Lasso)</li>
+        </ul>
+      </li>
+      <li>In this step, you also specify the possible values for each parameter.</li>
+    </ul>
+  </li>
+  <li><strong>Model Initialization</strong>:
+    <ul>
+      <li>The <strong>model</strong> to be optimized (e.g., <strong>Linear Regression</strong>, <strong>RandomForest</strong>, <strong>XGBoost</strong>, etc.) is selected.</li>
+      <li>A <strong>base model</strong> is created using the chosen hyperparameters, which is the starting point for the search.</li>
+    </ul>
+  </li>
+  <li><strong>Exhaustive Search</strong>:
+    <ul>
+      <li>Grid Search <strong>iterates over all combinations</strong> of the specified hyperparameters in the grid.
+        <ul>
+          <li>For example, if you're tuning 2 hyperparameters with 3 possible values each, Grid Search will evaluate <strong>3 × 3 = 9 combinations</strong>.</li>
+        </ul>
+      </li>
+      <li>It <strong>fits the model</strong> on the training data for each combination of hyperparameters and <strong>evaluates performance</strong> using cross-validation (CV).
+        <ul>
+          <li><strong>Cross-validation</strong> splits the training data into multiple folds, training the model on some folds and validating on the others, to reduce the risk of overfitting.</li>
+        </ul>
+      </li>
+      <li>The <strong>performance</strong> is measured using a <strong>scoring metric</strong> (like <strong>R²</strong>, <strong>MSE</strong>, or <strong>accuracy</strong> depending on the task). The <strong>score</strong> is calculated for each combination.</li>
+    </ul>
+  </li>
+  <li><strong>Model Evaluation</strong>:
+    <ul>
+      <li>After fitting and evaluating all possible combinations, Grid Search identifies the <strong>combination of hyperparameters</strong> that results in the best performance (e.g., highest <strong>R²</strong> or lowest <strong>MSE</strong>).</li>
+      <li>This step ensures that the <strong>model with the optimal parameters</strong> is selected.</li>
+    </ul>
+  </li>
+  <li><strong>Best Model Selection</strong>:
+    <ul>
+      <li><strong>Grid Search</strong> selects the <strong>best-performing model</strong> from all evaluated models (i.e., the one with the best hyperparameters).</li>
+      <li>The <strong>best parameters</strong> found by Grid Search are used to retrain the model on the entire training dataset.</li>
+    </ul>
+  </li>
+  <li><strong>Final Model</strong>:
+    <ul>
+      <li>The final model, with the <strong>best hyperparameters</strong>, is returned as the result.</li>
+      <li>This model is now ready for further evaluation or deployment.</li>
+    </ul>
+  </li>
+</ol>
 
-2. **Model Initialization**:
-   - The **model** to be optimized (e.g., **Linear Regression**, **RandomForest**, **XGBoost**, etc.) is selected.
-   - A **base model** is created using the chosen hyperparameters, which is the starting point for the search.
+<h5>🧑‍🔬 <strong>Why Use Grid Search?</strong></h5>
+<ul>
+  <li><strong>Exhaustive Search</strong>: Unlike random search methods, Grid Search checks <strong>every possible combination</strong> of hyperparameters, ensuring that the best option is found (although this can be computationally expensive).</li>
+  <li><strong>Improved Model</strong>: By fine-tuning the hyperparameters, Grid Search helps to <strong>optimize model performance</strong> and increase accuracy.</li>
+  <li><strong>Scalability</strong>: Grid Search is scalable, meaning it can handle multiple hyperparameters and their respective value ranges.</li>
+</ul>
 
-3. **Exhaustive Search**:
-   - Grid Search **iterates over all combinations** of the specified hyperparameters in the grid.
-     - For example, if you're tuning 2 hyperparameters with 3 possible values each, Grid Search will evaluate **3 × 3 = 9 combinations**.
-   - It **fits the model** on the training data for each combination of hyperparameters and **evaluates performance** using cross-validation (CV).
-     - **Cross-validation** splits the training data into multiple folds, training the model on some folds and validating on the others, to reduce the risk of overfitting.
-   - The **performance** is measured using a **scoring metric** (like **R²**, **MSE**, or **accuracy** depending on the task). The **score** is calculated for each combination.
-
-4. **Model Evaluation**:
-   - After fitting and evaluating all possible combinations, Grid Search identifies the **combination of hyperparameters** that results in the best performance (e.g., highest **R²** or lowest **MSE**).
-   - This step ensures that the **model with the optimal parameters** is selected.
-
-5. **Best Model Selection**:
-   - **Grid Search** selects the **best-performing model** from all evaluated models (i.e., the one with the best hyperparameters).
-   - The **best parameters** found by Grid Search are used to retrain the model on the entire training dataset.
-
-6. **Final Model**:
-   - The final model, with the **best hyperparameters**, is returned as the result.
-   - This model is now ready for further evaluation or deployment.
-
-##### 🧑‍🔬 **Why Use Grid Search?**
-- **Exhaustive Search**: Unlike random search methods, Grid Search checks **every possible combination** of hyperparameters, ensuring that the best option is found (although this can be computationally expensive).
-- **Improved Model**: By fine-tuning the hyperparameters, Grid Search helps to **optimize model performance** and increase accuracy.
-- **Scalability**: Grid Search is scalable, meaning it can handle multiple hyperparameters and their respective value ranges.
-
-##### ⚠️ **Limitations**:
-- **Computation Time**: The main downside of Grid Search is its **computational cost**, especially if the grid is large or the model is slow to train.
-- **Overfitting Risk**: While Grid Search helps optimize the model, it can lead to **overfitting** if not carefully managed (especially when tuning on the test data).
+<h5>⚠️ <strong>Limitations</strong>:</h5>
+<ul>
+  <li><strong>Computation Time</strong>: The main downside of Grid Search is its <strong>computational cost</strong>, especially if the grid is large or the model is slow to train.</li>
+  <li><strong>Overfitting Risk</strong>: While Grid Search helps optimize the model, it can lead to <strong>overfitting</strong> if not carefully managed (especially when tuning on the test data).</li>
+</ul>
 
 </details>
 </div>
@@ -21200,37 +21484,54 @@ MSE: 0.22 → Mean squared error
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### What is Random Search?
-Random Search is a hyperparameter optimization technique that randomly samples combinations of hyperparameters from a predefined search space. Unlike Grid Search, which tests all possible combinations exhaustively, Random Search tests a **fixed number of random combinations**.
+<h5>What is Random Search?</h5>
+<p>Random Search is a hyperparameter optimization technique that randomly samples combinations of hyperparameters from a predefined search space. Unlike Grid Search, which tests all possible combinations exhaustively, Random Search tests a <strong>fixed number of random combinations</strong>.</p>
 
-##### How Does Random Search Work?
-1. **Define Hyperparameter Space**:
-   - A **search space** is defined for each hyperparameter. This space can include **continuous** values (e.g., learning rate from 0.001 to 0.1) or **discrete** choices (e.g., the number of estimators: 100, 200, 300).
-   - Unlike Grid Search, **Random Search doesn’t test all combinations**. Instead, it samples from the space **randomly**.
+<h5>How Does Random Search Work?</h5>
+<ol>
+  <li><strong>Define Hyperparameter Space</strong>:
+    <ul>
+      <li>A <strong>search space</strong> is defined for each hyperparameter. This space can include <strong>continuous</strong> values (e.g., learning rate from 0.001 to 0.1) or <strong>discrete</strong> choices (e.g., the number of estimators: 100, 200, 300).</li>
+      <li>Unlike Grid Search, <strong>Random Search doesn’t test all combinations</strong>. Instead, it samples from the space <strong>randomly</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Random Sampling</strong>:
+    <ul>
+      <li>Random Search samples <strong>n_iter</strong> (the number of iterations you define) random combinations of hyperparameters from the predefined search space.</li>
+      <li>For each iteration, it randomly selects a combination of hyperparameter values and uses them to train the model.</li>
+    </ul>
+  </li>
+  <li><strong>Model Training and Evaluation</strong>:
+    <ul>
+      <li>For each random combination of hyperparameters, the model is trained on the training data and evaluated using <strong>cross-validation</strong> or a specified metric (e.g., <strong>R²</strong>, <strong>MSE</strong>, etc.).</li>
+      <li>The evaluation of the model’s performance helps determine how well the chosen hyperparameters work.</li>
+    </ul>
+  </li>
+  <li><strong>Best Hyperparameter Selection</strong>:
+    <ul>
+      <li>After testing a predefined number of random combinations, <strong>Random Search selects the best combination</strong> based on the evaluation metric.</li>
+      <li>It returns the <strong>best performing hyperparameter set</strong>, along with the trained model that achieved the best performance.</li>
+    </ul>
+  </li>
+  <li><strong>Retraining with Best Parameters</strong>:
+    <ul>
+      <li>The model is retrained using the <strong>best hyperparameters</strong> found during the random search on the entire training data.</li>
+    </ul>
+  </li>
+</ol>
 
-2. **Random Sampling**:
-   - Random Search samples **n_iter** (the number of iterations you define) random combinations of hyperparameters from the predefined search space.
-   - For each iteration, it randomly selects a combination of hyperparameter values and uses them to train the model.
+<h5>Why Use Random Search?</h5>
+<ul>
+  <li><strong>Faster</strong>: Since it doesn't exhaustively search the entire hyperparameter space like Grid Search, it can be much <strong>faster</strong>, especially when the hyperparameter space is large.</li>
+  <li><strong>Better Coverage</strong>: It’s useful for exploring large hyperparameter spaces without needing to test every single combination.</li>
+  <li><strong>Computationally Efficient</strong>: Random Search can be more <strong>computationally efficient</strong> compared to Grid Search, as it doesn’t test all combinations.</li>
+</ul>
 
-3. **Model Training and Evaluation**:
-   - For each random combination of hyperparameters, the model is trained on the training data and evaluated using **cross-validation** or a specified metric (e.g., **R²**, **MSE**, etc.).
-   - The evaluation of the model’s performance helps determine how well the chosen hyperparameters work.
-
-4. **Best Hyperparameter Selection**:
-   - After testing a predefined number of random combinations, **Random Search selects the best combination** based on the evaluation metric.
-   - It returns the **best performing hyperparameter set**, along with the trained model that achieved the best performance.
-
-5. **Retraining with Best Parameters**:
-   - The model is retrained using the **best hyperparameters** found during the random search on the entire training data.
-
-##### Why Use Random Search?
-- **Faster**: Since it doesn't exhaustively search the entire hyperparameter space like Grid Search, it can be much **faster**, especially when the hyperparameter space is large.
-- **Better Coverage**: It’s useful for exploring large hyperparameter spaces without needing to test every single combination.
-- **Computationally Efficient**: Random Search can be more **computationally efficient** compared to Grid Search, as it doesn’t test all combinations.
-
-##### Limitations:
-- **Doesn’t guarantee optimal solution**: Random Search may **miss the optimal combination** because it doesn't explore all possible options.
-- **Fixed number of iterations**: The performance can depend on the number of iterations; too few iterations might lead to suboptimal results.
+<h5>Limitations:</h5>
+<ul>
+  <li><strong>Doesn’t guarantee optimal solution</strong>: Random Search may <strong>miss the optimal combination</strong> because it doesn't explore all possible options.</li>
+  <li><strong>Fixed number of iterations</strong>: The performance can depend on the number of iterations; too few iterations might lead to suboptimal results.</li>
+</ul>
 
 </details>
 </div>
@@ -21360,31 +21661,46 @@ Random Search is a hyperparameter optimization technique that randomly samples c
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-- **Ensemble methods** combine multiple models to make more robust and accurate predictions than any single model could alone.
+<ul>
+  <li><strong>Ensemble methods</strong> combine multiple models to make more robust and accurate predictions than any single model could alone.</li>
+</ul>
 
-##### 💡 Why ensemble?
-- Single models can be biased, noisy, or fragile.
-- Ensembling reduces variance, balances out individual model weaknesses, and improves generalization.
+<h5>💡 <strong>Why ensemble?</strong></h5>
+<ul>
+  <li>Single models can be biased, noisy, or fragile.</li>
+  <li>Ensembling reduces variance, balances out individual model weaknesses, and improves generalization.</li>
+</ul>
 
-##### 🧰 Types of Ensembling:
+<h5>🧰 <strong>Types of Ensembling:</strong></h5>
 
-1. **Bagging (Bootstrap Aggregating):**
-   - Trains multiple models on different random subsets of the data.
-   - Predictions are averaged (for regression) or voted (for classification).
-   - **Example**: Random Forest.
+<ol>
+  <li><strong>Bagging (Bootstrap Aggregating):</strong>
+    <ul>
+      <li>Trains multiple models on different random subsets of the data.</li>
+      <li>Predictions are averaged (for regression) or voted (for classification).</li>
+      <li><strong>Example</strong>: Random Forest.</li>
+    </ul>
+  </li>
+  <li><strong>Boosting:</strong>
+    <ul>
+      <li>Trains models <strong>sequentially</strong>, where each new model tries to fix the errors of the previous ones.</li>
+      <li>Final prediction is a weighted sum of all models.</li>
+      <li><strong>Examples</strong>: AdaBoost, Gradient Boosting, XGBoost.</li>
+    </ul>
+  </li>
+  <li><strong>Stacking:</strong>
+    <ul>
+      <li>Trains multiple different models and combines their outputs using a <strong>meta-model</strong>.</li>
+      <li>The meta-model learns to weigh or blend base model predictions.</li>
+      <li>Often more powerful, but also more complex.</li>
+    </ul>
+  </li>
+</ol>
 
-2. **Boosting:**
-   - Trains models **sequentially**, where each new model tries to fix the errors of the previous ones.
-   - Final prediction is a weighted sum of all models.
-   - **Examples**: AdaBoost, Gradient Boosting, XGBoost.
-
-3. **Stacking:**
-   - Trains multiple different models and combines their outputs using a **meta-model**.
-   - The meta-model learns to weigh or blend base model predictions.
-   - Often more powerful, but also more complex.
-
-##### 📈 Bottom Line:
-> Ensemble models trade off interpretability for performance — they usually win on accuracy.
+<h5>📈 <strong>Bottom Line:</strong></h5>
+<blockquote>
+  Ensemble models trade off interpretability for performance — they usually win on accuracy.
+</blockquote>
 
 </details>
 </div>
@@ -21411,51 +21727,54 @@ Random Search is a hyperparameter optimization technique that randomly samples c
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔍 What is Bagging?
+<h5>🔍 <strong>What is Bagging?</strong></h5>
+<ul>
+  <li><strong>Bagging</strong> (Bootstrap Aggregating) is an ensemble method that trains multiple models on random subsets of the data (with replacement).</li>
+  <li>Each model is trained independently.</li>
+  <li>The final prediction is the <strong>average</strong> of all predictions (for regression).</li>
+</ul>
 
-- **Bagging** (Bootstrap Aggregating) is an ensemble method that trains multiple models on random subsets of the data (with replacement).
-- Each model is trained independently.
-- The final prediction is the **average** of all predictions (for regression).
+<h5>🧠 <strong>Why use it?</strong></h5>
+<ul>
+  <li>Bagging reduces <strong>variance</strong> by averaging out model noise.</li>
+  <li>It helps stabilize models that tend to overfit — like decision trees.</li>
+</ul>
 
-##### 🧠 Why use it?
+<h5>✅ <strong>Good candidates for base models</strong></h5>
+<p>Bagging works with <strong>any regression model</strong> that supports <code>.fit(X, y)</code> and <code>.predict(X)</code>. Common choices include:</p>
 
-- Bagging reduces **variance** by averaging out model noise.
-- It helps stabilize models that tend to overfit — like decision trees.
+<ul>
+  <li><strong>DecisionTreeRegressor</strong>  
+    High variance → Bagging helps stabilize it.</li>
+  <li><strong>KNeighborsRegressor</strong>  
+    Very sensitive to noise and local patterns — Bagging improves robustness.</li>
+  <li><strong>LinearRegression</strong>  
+    Works, but since it's low variance already, Bagging often adds little.</li>
+  <li><strong>SVR (Support Vector Regressor)</strong>  
+    Can be used if tuned well. Bagging may reduce sensitivity to outliers.</li>
+  <li><strong>Ridge / Lasso / BayesianRidge</strong>  
+    Technically allowed, but already regularized — Bagging rarely adds value.</li>
+  <li><strong>MLPRegressor (Neural Networks)</strong>  
+    Possible but computationally heavy. Use with caution.</li>
+</ul>
 
-##### ✅ Good candidates for base models
+<h5>🌲 <strong>Random Forest as an Example</strong></h5>
+<ul>
+  <li>A <strong>Random Forest Regressor</strong> is a specific type of bagging:
+    <ul>
+      <li>Uses decision trees as base models</li>
+      <li>Adds extra randomness by selecting a random subset of features at each split</li>
+    </ul>
+  </li>
+  <li>But bagging isn’t limited to trees — it can be applied to any model type.</li>
+</ul>
 
-Bagging works with **any regression model** that supports `.fit(X, y)` and `.predict(X)`. Common choices include:
-
-- **DecisionTreeRegressor**  
-  High variance → Bagging helps stabilize it.
-
-- **KNeighborsRegressor**  
-  Very sensitive to noise and local patterns — Bagging improves robustness.
-
-- **LinearRegression**  
-  Works, but since it's low variance already, Bagging often adds little.
-
-- **SVR (Support Vector Regressor)**  
-  Can be used if tuned well. Bagging may reduce sensitivity to outliers.
-
-- **Ridge / Lasso / BayesianRidge**  
-  Technically allowed, but already regularized — Bagging rarely adds value.
-
-- **MLPRegressor (Neural Networks)**  
-  Possible but computationally heavy. Use with caution.
-
-##### 🌲 Random Forest as an Example
-
-- A **Random Forest Regressor** is a specific type of bagging:
-  - Uses decision trees as base models
-  - Adds extra randomness by selecting a random subset of features at each split
-- But bagging isn’t limited to trees — it can be applied to any model type.
-
-##### ✅ Benefits
-
-- More stable than a single model
-- Less sensitive to noise and overfitting
-- Easy to parallelize
+<h5>✅ <strong>Benefits</strong></h5>
+<ul>
+  <li>More stable than a single model</li>
+  <li>Less sensitive to noise and overfitting</li>
+  <li>Easy to parallelize</li>
+</ul>
 
 </details>
 </div>
@@ -21517,36 +21836,41 @@ Bagging works with **any regression model** that supports `.fit(X, y)` and `.pre
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🚀 What is Boosting?
+<h5>🚀 <strong>What is Boosting?</strong></h5>
+<ul>
+  <li><strong>Boosting</strong> builds models <strong>sequentially</strong>, not in parallel like Bagging.</li>
+  <li>Each new model is trained to fix the <strong>mistakes</strong> made by the previous model.</li>
+  <li>The final prediction is a <strong>weighted sum</strong> of all the individual models.</li>
+</ul>
 
-- **Boosting** builds models **sequentially**, not in parallel like Bagging.
-- Each new model is trained to fix the **mistakes** made by the previous model.
-- The final prediction is a **weighted sum** of all the individual models.
+<h5>🔁 <strong>How it works (simplified):</strong></h5>
+<ol>
+  <li>Train the first model on the data.</li>
+  <li>Look at where it did poorly.</li>
+  <li>Train the second model to focus more on those mistakes.</li>
+  <li>Repeat for several rounds.</li>
+  <li>Combine all models (usually by weighted average).</li>
+</ol>
 
-##### 🔁 How it works (simplified):
+<h5>🧠 <strong>Why Boosting Works</strong></h5>
+<ul>
+  <li>It focuses model capacity on the <strong>hardest-to-predict cases</strong>.</li>
+  <li>Often gives better performance than bagging, especially on structured/tabular data.</li>
+  <li>Reduces both <strong>bias</strong> and <strong>variance</strong>.</li>
+</ul>
 
-1. Train the first model on the data.
-2. Look at where it did poorly.
-3. Train the second model to focus more on those mistakes.
-4. Repeat for several rounds.
-5. Combine all models (usually by weighted average).
+<h5>🔧 <strong>Popular Boosting Algorithms</strong></h5>
+<ul>
+  <li><strong>AdaBoost</strong>: Adjusts weights of training points.</li>
+  <li><strong>Gradient Boosting</strong>: Fits on the residuals (errors) of the previous model.</li>
+  <li><strong>XGBoost / LightGBM / CatBoost</strong>: Faster, more scalable variants of gradient boosting.</li>
+</ul>
 
-##### 🧠 Why Boosting Works
-
-- It focuses model capacity on the **hardest-to-predict cases**.
-- Often gives better performance than bagging, especially on structured/tabular data.
-- Reduces both bias and variance.
-
-##### 🔧 Popular Boosting Algorithms
-
-- **AdaBoost**: Adjusts weights of training points.
-- **Gradient Boosting**: Fits on the residuals (errors) of the previous model.
-- **XGBoost / LightGBM / CatBoost**: Faster, more scalable variants of gradient boosting.
-
-##### ⚠️ Caution
-
-- Boosting is powerful but more prone to overfitting if not tuned carefully.
-- Models are sequential — slower to train and harder to parallelize than Bagging.
+<h5>⚠️ <strong>Caution</strong></h5>
+<ul>
+  <li>Boosting is powerful but more prone to <strong>overfitting</strong> if not tuned carefully.</li>
+  <li>Models are sequential — slower to train and harder to parallelize than Bagging.</li>
+</ul>
 
 </details>
 </div>
@@ -21604,29 +21928,35 @@ Bagging works with **any regression model** that supports `.fit(X, y)` and `.pre
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🔁 How it works:
-- **Stacking** combines multiple models by training a **meta-model** to learn how to best combine their predictions.
-- Instead of averaging like Bagging or Boosting, it lets a new model decide **how much to trust each base model**.
+<h5>🔁 <strong>How it works:</strong></h5>
+<ul>
+  <li><strong>Stacking</strong> combines multiple models by training a <strong>meta-model</strong> to learn how to best combine their predictions.</li>
+  <li>Instead of averaging like Bagging or Boosting, it lets a new model decide <strong>how much to trust each base model</strong>.</li>
+</ul>
 
+<ol>
+  <li>Train several base models (e.g., linear regression, tree, SVR).</li>
+  <li>Use their predictions as <strong>features</strong> to train a new model (the "meta-model").</li>
+  <li>The meta-model learns patterns in the predictions — which base models work better under which conditions.</li>
+</ol>
 
-1. Train several base models (e.g., linear regression, tree, SVR).
-2. Use their predictions as **features** to train a new model (the "meta-model").
-3. The meta-model learns patterns in the predictions — which base models work better under which conditions.
+<h5>🧩 <strong>Why use Stacking?</strong></h5>
+<ul>
+  <li>Leverages strengths of diverse models (e.g., tree + linear + neighbors).</li>
+  <li>Usually outperforms any single base model — especially when the base models have <strong>different biases</strong>.</li>
+</ul>
 
-##### 🧩 Why use Stacking?
+<h5>📌 <strong>Key Points:</strong></h5>
+<ul>
+  <li>Base models should be <strong>diverse</strong> — combining 3 similar models adds little.</li>
+  <li>Cross-validation is usually needed to avoid overfitting from using predicted outputs during training.</li>
+  <li>Common meta-models: LinearRegression, Ridge, LogisticRegression (for classification), GradientBoosting.</li>
+</ul>
 
-- Leverages strengths of diverse models (e.g., tree + linear + neighbors).
-- Usually outperforms any single base model — especially when the base models have **different biases**.
-
-##### 📌 Key Points:
-
-- Base models should be **diverse** — combining 3 similar models adds little.
-- Cross-validation is usually needed to avoid overfitting from using predicted outputs during training.
-- Common meta-models: LinearRegression, Ridge, LogisticRegression (for classification), GradientBoosting.
-
-##### ⚠️ Tradeoff:
-
-> High performance, but slower, harder to debug, and trickier to tune than Bagging/Boosting.
+<h5>⚠️ <strong>Tradeoff:</strong></h5>
+<blockquote>
+  High performance, but slower, harder to debug, and trickier to tune than Bagging/Boosting.
+</blockquote>
 
 </details>
 </div>
