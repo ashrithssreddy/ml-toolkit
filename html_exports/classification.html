@@ -8547,10 +8547,10 @@ weighted avg       0.49      0.70      0.58       200
 <p>The confusion matrix is a NxN table that helps us visualize the performance of a classification model.</p>
 <p>📖 <strong>Confusion Matrix Terminology:</strong></p>
 <ul>
-<li><strong>True Positive (TP)</strong>: Actual = Positive, Predicted = True-ly</li>
-<li><strong>False Positive (FP)</strong>: Actual = Negative, Predicted = False-ly</li>
-<li><strong>True Negative (TN)</strong>: Actual = Negative, Predicted = True-ly</li>
-<li><strong>False Negative (FN)</strong>: Actual = Positive, Predicted = False-ly</li>
+<li><strong>True Positive (TP)</strong>: Prediction = Positive, Predicted = True-ly</li>
+<li><strong>False Positive (FP)</strong>: Prediction = Positive, Predicted = False-ly</li>
+<li><strong>True Negative (TN)</strong>: Prediction = Negative, Predicted = True-ly</li>
+<li><strong>False Negative (FN)</strong>: Prediction = Negative, Predicted = False-ly</li>
 </ul>
 <pre>
                   Predicted
@@ -9757,7 +9757,149 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
+<details><summary><strong>📖 Click to Expand - Model Choice </strong></summary>
+<h5 id="%F0%9F%A7%A0-Model-Selection-Table-(Based-on-Data-Characteristics)">🧠 Model Selection Table (Based on Data Characteristics)<a class="anchor-link" href="#%F0%9F%A7%A0-Model-Selection-Table-(Based-on-Data-Characteristics)">¶</a></h5><table>
+<thead>
+<tr>
+<th>Target Type</th>
+<th>Linearly Separable</th>
+<th>Correlation</th>
+<th>Imbalance</th>
+<th>Recommended Models</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary</td>
+<td>✅ True</td>
+<td>Low</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Random Forest</td>
+<td>Use tree-based models with class weights or resampling.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>✅ True</td>
+<td>Low</td>
+<td>❌ False</td>
+<td>Logistic Regression &gt; SVM</td>
+<td>Start with simple linear models. Use as benchmark.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>✅ True</td>
+<td>High</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Random Forest</td>
+<td>Use tree-based models with class weights or resampling.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>✅ True</td>
+<td>High</td>
+<td>❌ False</td>
+<td>Logistic Regression &gt; SVM</td>
+<td>Start with simple linear models. Use as benchmark.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>❌ False</td>
+<td>Low</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Random Forest</td>
+<td>Boosting or RF with class weights to handle imbalance + complexity.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>❌ False</td>
+<td>Low</td>
+<td>❌ False</td>
+<td>Random Forest &gt; Decision Tree</td>
+<td>Simple non-linear trees likely sufficient. Avoid tuning-heavy models.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>❌ False</td>
+<td>High</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Random Forest</td>
+<td>Boosting or RF with class weights to handle imbalance + complexity.</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>❌ False</td>
+<td>High</td>
+<td>❌ False</td>
+<td>Random Forest &gt; Decision Tree</td>
+<td>Simple non-linear trees likely sufficient. Avoid tuning-heavy models.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>✅ True</td>
+<td>Low</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Logistic Regression</td>
+<td>Use OvR strategy with LR/XGB. Watch for class separation.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>✅ True</td>
+<td>Low</td>
+<td>❌ False</td>
+<td>XGBoost &gt; Logistic Regression</td>
+<td>Use OvR strategy with LR/XGB. Watch for class separation.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>✅ True</td>
+<td>High</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Logistic Regression</td>
+<td>Use OvR strategy with LR/XGB. Watch for class separation.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>✅ True</td>
+<td>High</td>
+<td>❌ False</td>
+<td>XGBoost &gt; Logistic Regression</td>
+<td>Use OvR strategy with LR/XGB. Watch for class separation.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>❌ False</td>
+<td>Low</td>
+<td>✅ True</td>
+<td>Neural Network &gt; KNN</td>
+<td>Use Neural Net or KNN. Prioritize decision boundary complexity.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>❌ False</td>
+<td>Low</td>
+<td>❌ False</td>
+<td>Neural Network &gt; KNN</td>
+<td>Use Neural Net or KNN. Prioritize decision boundary complexity.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>❌ False</td>
+<td>High</td>
+<td>✅ True</td>
+<td>XGBoost &gt; Random Forest</td>
+<td>Tree-based models preferred. Skip preprocessing of collinear features.</td>
+</tr>
+<tr>
+<td>Multiclass</td>
+<td>❌ False</td>
+<td>High</td>
+<td>❌ False</td>
+<td>XGBoost &gt; Random Forest</td>
+<td>Tree-based models preferred. Skip preprocessing of collinear features.</td>
+</tr>
+</tbody>
+</table>
 </details>
 </div>
 </div>
