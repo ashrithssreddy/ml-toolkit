@@ -16121,6 +16121,160 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
+
+##### 🧠 Model Selection Table (Based on Data Characteristics)
+
+| Target Type | Linearly Separable | Correlation | Imbalance | Recommended Models                  | Notes                                                              |
+|-------------|---------------------|-------------|-----------|-------------------------------------|---------------------------------------------------------------------|
+| Binary      | ✅ True             | Low         | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
+| Binary      | ✅ True             | Low         | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
+| Binary      | ✅ True             | High        | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
+| Binary      | ✅ True             | High        | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
+| Binary      | ❌ False            | Low         | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
+| Binary      | ❌ False            | Low         | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
+| Binary      | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
+| Binary      | ❌ False            | High        | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
+| Multiclass  | ✅ True             | Low         | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
+| Multiclass  | ✅ True             | Low         | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
+| Multiclass  | ✅ True             | High        | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
+| Multiclass  | ✅ True             | High        | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
+| Multiclass  | ❌ False            | Low         | ✅ True   | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
+| Multiclass  | ❌ False            | Low         | ❌ False  | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
+| Multiclass  | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
+| Multiclass  | ❌ False            | High        | ❌ False  | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand</strong></summary>
+
+🧠 **Model Selection Flowchart (Based on Data Characteristics)**
+
+<pre>
+🎯 Target Type = Binary?
+  ├── ✅ Yes
+  │   ├── 📈 Linearly Separable?
+  │   │   ├── ✅ Yes
+  │   │   │   ├── 🧬 Feature Type = Categorical?
+  │   │   │   │   ├── ✅ ------------------------------------------> 🌲 Random Forest > 🚀 XGBoost
+  │   │   │   │   └── ❌ → 📉 Correlation = High?
+  │   │   │   │         ├── ✅ ------------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │   │   │   │         └── ❌ → ⚠️ Missing Data?
+  │   │   │   │               ├── ✅ ------------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │   │   │   │               └── ❌ ⚠️ Outliers Present?
+  │   │   │   │                     ├── ✅ → ⚖️ Imbalanced?
+  │   │   │   │                     │   ├── ✅ --------------------> 🚀 XGBoost > 🌲 Random Forest
+  │   │   │   │                     │   └── ❌ --------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │   │   │   │                     └── ❌ ------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │   │   │   └── ❌ → 📉 Correlation = High?
+  │   │   │         ├── ✅ ----------------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │   │   │         └── ❌ → ⚠️ Missing Data?
+  │   │   │               ├── ✅ ----------------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │   │   │               └── ❌ → ⚠️ Outliers Present?
+  │   │   │                     ├── ✅ → ⚖️ Imbalanced?
+  │   │   │                     │   ├── ✅ ------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │   │   │                     │   └── ❌ ------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │   │   │                     └── ❌ ----------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │   │   └── ❌ → ⚠️ Missing Data?
+  │   │         ├── ✅ --------------------------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │   │         └── ❌ → ⚠️ Outliers Present?
+  │   │               ├── ✅ → ⚖️ Imbalanced?
+  │   │               │   ├── ✅ ----------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │   │               │   └── ❌ ----------------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │   │               └── ❌ --------------------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │   └── ❌ No (Multiclass)
+  │         ├── 📈 Linearly Separable?
+  │         │   ├── ✅ Yes
+  │         │   │   ├── 🧬 Feature Type = Categorical?
+  │         │   │   │   ├── ✅ ------------------------------------> 🌲 Random Forest > 🚀 XGBoost
+  │         │   │   │   └── ❌ → 📉 Correlation = High?
+  │         │   │   │         ├── ✅ ------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │         │   │   │         └── ❌ → ⚠️ Missing Data?
+  │         │   │   │               ├── ✅ ------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │         │   │   │               └── ❌ → ⚠️ Outliers Present?
+  │         │   │   │                     ├── ✅ → ⚖️ Imbalanced?
+  │         │   │   │                     │   ├── ✅ --------------> 🚀 XGBoost > 🌲 Random Forest
+  │         │   │   │                     │   └── ❌ --------------> 🌲 Random Forest > 🌳 Decision Tree
+  │         │   │   │                     └── ❌ ------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │         │   │   └── ❌ → 📉 Correlation = High?
+  │         │   │         ├── ✅ ----------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │         │   │         └── ❌ → ⚠️ Missing Data?
+  │         │   │               ├── ✅ ----------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │         │   │               └── ❌ → ⚠️ Outliers Present?
+  │         │   │                     ├── ✅ → ⚖️ Imbalanced?
+  │         │   │                     │   ├── ✅ ------------------> 🚀 XGBoost > 🌲 Random Forest
+  │         │   │                     │   └── ❌ ------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │         │   │                     └── ❌ ----------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │         │   └── ❌ → 📉 Correlation = High?
+  │         │         ├── ✅ → ------------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │         │         └── ❌ → ⚠️ Missing Data?
+  │         │               ├── ✅ --------------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │         │               └── ❌ → ⚠️ Outliers Present?
+  │         │                     ├── ✅ → ⚖️ Imbalanced?
+  │         │                     │   ├── ✅ ----------------------> 🚀 XGBoost > 🌲 Random Forest
+  │         │                     │   └── ❌ ----------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │         │                     └── ❌ --------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │         └── ❌ 🧬 Feature Type = Categorical?
+  │               ├── ✅ ------------------------------------------> 🌲 Random Forest > 🚀 XGBoost
+  │               └── ❌ → 📉 Correlation = High?
+  │                     ├── ✅ ------------------------------------> 🚀 XGBoost > 🌲 Random Forest
+  │                     └── ❌ → ⚠️ Missing Data?
+  │                           ├── ✅ ------------------------------> 🚀 XGBoost > 🧠 Neural Network
+  │                           └── ❌ → ⚠️ Outliers Present?
+  │                                 ├── ✅ → ⚖️ Imbalanced?
+  │                                 │   ├── ✅ --------------------> 🚀 XGBoost > 🌲 Random Forest
+  │                                 │   └── ❌ --------------------> 🌲 Random Forest > 🌳 Decision Tree
+  │                                 └── ❌ ------------------------> 🌲 Random Forest > 🌳 Decision Tree
+  └── End
+</pre>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+
+🧠 <strong>Model Selection Flowchart (Simplified)</strong><br><br>
+
+Start → 🎯 Target = Binary?<br>
+├── ✅ Yes → 📈 Linearly Separable?<br>
+│   ├── ✅ Yes → 🧬 Features Categorical?<br>
+│   │   ├── ✅ → 🌲 Random Forest / 🚀 XGBoost<br>
+│   │   └── ❌ → 📉 Correlation High?<br>
+│   │       ├── ✅ → 🚀 XGBoost / 🌲 Random Forest<br>
+│   │       └── ❌ → ⚠️ Missing Data?<br>
+│   │           ├── ✅ → 🚀 XGBoost / 🧠 NN<br>
+│   │           └── ❌ → ⚠️ Outliers?<br>
+│   │               ├── ✅ → 🚀 XGBoost / 🌲 RF<br>
+│   │               └── ❌ → 🌲 RF / 🌳 DT<br>
+└── ❌ No → Multiclass? → (and so on...)
+
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="logistic-regression"></a></p>
 <h4 id="%F0%9F%93%8A-Logistic-Regression">&#128202; Logistic Regression<a class="anchor-link" href="#%F0%9F%93%8A-Logistic-Regression">&#182;</a></h4>
 </div>
@@ -16250,35 +16404,6 @@ Even though the dataset doesn't contain any column called <code>z</code> (the lo
 <h5>✅ Convergence Goal</h5>
 
 <p>The model searches for the <strong>final coefficients</strong> (<code>w*, b*</code>) that <strong>minimize total log loss</strong> across all rows. This is the training objective.</p>
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ✅ Excellent – coefficients are directly interpretable |
-| **Linearity Expectation**      | ⚠️ Yes – assumes linear relationship between features and log-odds |
-| **High dimensionality**        | ✅ Good – performs well with many features (with regularization) |
-| **Handling of multicollinearity** | ❌ Needs treatment – regularization helps, but still sensitive |
-| **Handling of categorical features** | ❌ Needs preprocessing – requires one-hot or ordinal encoding |
-| **Handling of outliers**       | ❌ Sensitive – can distort coefficients significantly |
-| **Handling of missing values** | ❌ Not supported – requires imputation |
-| **Scaling of features needed** | ⚠️ Yes – especially important when using regularization |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – use `class_weight='balanced'` or resampling |
-| **Handling of sparseness in data** | ✅ Works fine – especially with L1 regularization for feature selection |
-
-- **General comment on accuracy**: Moderate – often outperformed by tree-based models for complex, non-linear patterns.
-- **General comment on training speed**: ✅ Fast – very efficient even on large datasets.
 
 </details>
 </div>
@@ -16825,35 +16950,6 @@ It assumes that all features are <strong>independent</strong> of each other — 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ✅ Good – conditional probabilities are intuitive |
-| **Linearity Expectation**      | ⚠️ Assumes feature independence → not truly linear or interactive |
-| **High dimensionality**        | ✅ Very good – handles high-dimensional sparse data well |
-| **Handling of multicollinearity** | ❌ Poor – assumes feature independence; correlated features hurt performance |
-| **Handling of categorical features** | ⚠️ Needs preprocessing – requires encoding, but categorical NB variants exist |
-| **Handling of outliers**       | ❌ Very sensitive – assumes Gaussian or other strict distributional forms |
-| **Handling of missing values** | ❌ Not supported – requires imputation |
-| **Scaling of features needed** | ⚠️ Sometimes – required if Gaussian NB is used (assumes normal distribution) |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – priors can be tuned or class weights applied manually |
-| **Handling of sparseness in data** | ✅ Excellent – especially performant in text classification or bag-of-words models |
-
-- **General comment on accuracy**: Surprisingly strong baseline for some problems (e.g., NLP); weak when feature independence assumption breaks.
-- **General comment on training speed**: ✅ Extremely fast – almost instantaneous to train.
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="decision-tree"></a></p>
 <h4 id="%F0%9F%8C%B3-Decision-Tree">&#127795; Decision Tree<a class="anchor-link" href="#%F0%9F%8C%B3-Decision-Tree">&#182;</a></h4>
 </div>
@@ -16922,35 +17018,6 @@ The result is a set of human-readable rules — like:<br>
   <li><strong>Hack</strong>: Use as a weak learner inside ensembles (like Random Forest or XGBoost) to improve performance.</li>
   <li><strong>Tip</strong>: Use feature importance from trees to guide feature selection for other models.</li>
 </ul>
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ✅ Very good – rules and splits are easily visualized and explained |
-| **Linearity Expectation**      | ✅ No – naturally captures non-linear relationships |
-| **High dimensionality**        | ⚠️ Moderate – can overfit with too many features unless pruned |
-| **Handling of multicollinearity** | ✅ Handles it – but may create instability in splits |
-| **Handling of categorical features** | ⚠️ Partial – numerical encoding needed; some implementations support direct handling |
-| **Handling of outliers**       | ✅ Robust – splits are based on thresholds, not sensitive to extreme values |
-| **Handling of missing values** | ⚠️ Limited – some implementations handle missing splits, others need imputation |
-| **Scaling of features needed** | ✅ Not needed – uses raw feature values for splitting |
-| **Class Imbalance problem**    | ❌ Poor – biased toward majority class unless adjusted with `class_weight` or sampling |
-| **Handling of sparseness in data** | ⚠️ Depends – not ideal for extremely sparse datasets (e.g., text data) |
-
-- **General comment on accuracy**: Prone to overfitting if unpruned; weak alone but powerful as base learners in ensembles.
-- **General comment on training speed**: ✅ Fast – quick to train on moderate-sized datasets.
 
 </details>
 </div>
@@ -17033,35 +17100,6 @@ Each tree sees a random subset of the data and features, making the forest <stro
   <li><strong>Hack</strong>: Use <code>feature_importances_</code> to find influential variables</li>
   <li><strong>Tip</strong>: Avoid one-hot encoding with high-cardinality features — use label encoding instead</li>
 </ul>
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ❌ Low – individual trees interpretable, but ensemble is a black box |
-| **Linearity Expectation**      | ✅ No – captures complex non-linear relationships |
-| **High dimensionality**        | ✅ Good – handles many features well via feature bagging |
-| **Handling of multicollinearity** | ✅ Handles it – less sensitive due to random feature selection per tree |
-| **Handling of categorical features** | ⚠️ Requires encoding – label or one-hot encoding typically needed |
-| **Handling of outliers**       | ✅ Robust – not sensitive due to median-based splits and ensembling |
-| **Handling of missing values** | ⚠️ Some support – not native in all implementations; imputation often needed |
-| **Scaling of features needed** | ✅ Not needed – tree splits are scale-invariant |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – use `class_weight='balanced'` or stratified sampling |
-| **Handling of sparseness in data** | ⚠️ Moderate – not ideal for extreme sparsity (e.g., NLP bag-of-words) |
-
-- **General comment on accuracy**: ✅ Strong – robust out-of-the-box performance with low overfitting risk.
-- **General comment on training speed**: ⚠️ Slower than single models – parallelizable but can be compute-heavy.
 
 </details>
 </div>
@@ -17158,35 +17196,6 @@ At prediction time, it looks at the <strong>K most similar observations</strong>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ⚠️ Moderate – intuitive idea, but no explicit model or coefficients |
-| **Linearity Expectation**      | ✅ No – captures non-linear patterns based on local neighborhoods |
-| **High dimensionality**        | ❌ Poor – suffers from the curse of dimensionality; distances become less meaningful |
-| **Handling of multicollinearity** | ❌ Problematic – redundant features distort distance metrics |
-| **Handling of categorical features** | ❌ Not natively supported – requires careful encoding and distance handling |
-| **Handling of outliers**       | ❌ Sensitive – local distance-based voting easily skewed by outliers |
-| **Handling of missing values** | ❌ Not supported – requires complete-case or imputation preprocessing |
-| **Scaling of features needed** | ✅ Yes – essential, as distance calculations are affected by feature magnitudes |
-| **Class Imbalance problem**    | ❌ Poor – biased toward majority class due to majority voting |
-| **Handling of sparseness in data** | ❌ Weak – sparse vectors make distance metrics ineffective |
-
-- **General comment on accuracy**: ⚠️ Highly data-dependent – can perform well with clean, balanced, low-dimensional data.
-- **General comment on training speed**: ✅ Fast training, ❌ Slow inference – lazy learner, evaluates at prediction time.
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="svm"></a></p>
 <h4 id="%F0%9F%93%88-SVM-(Support-Vector-Machines)">&#128200; SVM (Support Vector Machines)<a class="anchor-link" href="#%F0%9F%93%88-SVM-(Support-Vector-Machines)">&#182;</a></h4>
 </div>
@@ -17269,35 +17278,6 @@ SVM focuses on <strong>support vectors</strong> — the critical data points clo
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ⚠️ Moderate – support vectors and margins can be visualized in 2D, but overall less intuitive |
-| **Linearity Expectation**      | ⚠️ Depends – linear SVM assumes linear separability; kernel SVM handles non-linear |
-| **High dimensionality**        | ✅ Very good – especially effective in high-dimensional spaces (e.g., text data) |
-| **Handling of multicollinearity** | ⚠️ Can be sensitive – especially in linear SVM; use regularization |
-| **Handling of categorical features** | ❌ Not supported – requires one-hot or other encoding |
-| **Handling of outliers**       | ❌ Sensitive – margin-based optimization gets distorted by outliers |
-| **Handling of missing values** | ❌ Not supported – must impute before training |
-| **Scaling of features needed** | ✅ Yes – essential due to reliance on distance and dot products |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – use `class_weight='balanced'` or tune `C` and margins |
-| **Handling of sparseness in data** | ✅ Good – works well in high-dimensional sparse spaces (esp. linear SVM) |
-
-- **General comment on accuracy**: ✅ High – strong performance on well-separated data, especially with good kernel choice.
-- **General comment on training speed**: ❌ Slow – especially on large datasets or with complex kernels.
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="xgboost"></a></p>
 <h4 id="%F0%9F%9A%80-XGBoost">&#128640; XGBoost<a class="anchor-link" href="#%F0%9F%9A%80-XGBoost">&#182;</a></h4>
 </div>
@@ -17365,35 +17345,6 @@ XGBoost is known for its <strong>speed, accuracy, and efficiency</strong>, makin
   <li><strong>Hack</strong>: Use <code>early_stopping_rounds</code> during training to auto-pick optimal iteration</li>
   <li><strong>Tip</strong>: Start with basic settings and use <code>GridSearchCV</code> or <code>Optuna</code> for tuning</li>
 </ul>
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ❌ Low – complex ensemble; partial plots or SHAP values needed for insight |
-| **Linearity Expectation**      | ✅ No – naturally models complex non-linear relationships |
-| **High dimensionality**        | ✅ Excellent – handles many features via regularization and feature importance |
-| **Handling of multicollinearity** | ✅ Handles well – trees split on the most useful among correlated features |
-| **Handling of categorical features** | ⚠️ Needs encoding – label encoding typically used; native support improving |
-| **Handling of outliers**       | ✅ Robust – trees are insensitive to extreme values |
-| **Handling of missing values** | ✅ Built-in – learns optimal path for missing values during tree construction |
-| **Scaling of features needed** | ✅ Not needed – tree-based, scale-invariant |
-| **Class Imbalance problem**    | ✅ Handled – use `scale_pos_weight`, custom loss, or sampling |
-| **Handling of sparseness in data** | ✅ Excellent – designed to handle sparse matrices natively |
-
-- **General comment on accuracy**: ✅ Top-tier – one of the most accurate out-of-the-box models for tabular data.
-- **General comment on training speed**: ⚠️ Slower – faster than many ensembles, but heavier than single models; GPU support helps.
 
 </details>
 </div>
@@ -17488,35 +17439,6 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
-
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ❌ Very low – acts as a black box unless aided by techniques like SHAP, LIME |
-| **Linearity Expectation**      | ✅ No – inherently models non-linear and complex interactions |
-| **High dimensionality**        | ✅ Excellent – scales well with many features and large data |
-| **Handling of multicollinearity** | ✅ Handles – internal weights adjust during training, but correlated inputs may slow convergence |
-| **Handling of categorical features** | ❌ Not native – requires one-hot encoding or embeddings |
-| **Handling of outliers**       | ❌ Sensitive – can destabilize training; often mitigated with preprocessing |
-| **Handling of missing values** | ❌ Not supported – must be imputed before training |
-| **Scaling of features needed** | ✅ Yes – critical for stable and fast convergence (e.g., standardization or normalization) |
-| **Class Imbalance problem**    | ⚠️ Needs care – custom loss functions, class weights, or resampling required |
-| **Handling of sparseness in data** | ⚠️ Depends – not ideal unless using sparse-aware architectures or embedding layers |
-
-- **General comment on accuracy**: ✅ High – can outperform other models with enough data and tuning, especially on non-tabular data.
-- **General comment on training speed**: ❌ Slow – resource-intensive; requires tuning and hardware for best performance.
-
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="#table-of-contents">Back to the top</a></p>
 <hr>
 
@@ -17532,131 +17454,6 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="model-exploration"></a></p>
 <h1 id="%F0%9F%93%8A-Model-Selection">&#128202; Model Selection<a class="anchor-link" href="#%F0%9F%93%8A-Model-Selection">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
-
-##### 🧠 Model Selection Table (Based on Data Characteristics)
-
-| Target Type | Linearly Separable | Correlation | Imbalance | Recommended Models                  | Notes                                                              |
-|-------------|---------------------|-------------|-----------|-------------------------------------|---------------------------------------------------------------------|
-| Binary      | ✅ True             | Low         | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
-| Binary      | ✅ True             | Low         | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
-| Binary      | ✅ True             | High        | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
-| Binary      | ✅ True             | High        | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
-| Binary      | ❌ False            | Low         | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
-| Binary      | ❌ False            | Low         | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
-| Binary      | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
-| Binary      | ❌ False            | High        | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
-| Multiclass  | ✅ True             | Low         | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | Low         | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | High        | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | High        | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ❌ False            | Low         | ✅ True   | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
-| Multiclass  | ❌ False            | Low         | ❌ False  | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
-| Multiclass  | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
-| Multiclass  | ❌ False            | High        | ❌ False  | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
-</details>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand</strong></summary>
-
-🧠 **Model Selection Flowchart (Based on Data Characteristics)**
-
-<pre>
-🎯 Target Type = Binary?
-  ├── ✅ Yes
-  │   ├── 📈 Linearly Separable?
-  │   │   ├── ✅ Yes
-  │   │   │   ├── 🧬 Feature Type = Categorical?
-  │   │   │   │   ├── ✅ ------------------------------------------> 🌲 Random Forest > 🚀 XGBoost
-  │   │   │   │   └── ❌ → 📉 Correlation = High?
-  │   │   │   │         ├── ✅ ------------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │   │   │   │         └── ❌ → ⚠️ Missing Data?
-  │   │   │   │               ├── ✅ ------------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │   │   │   │               └── ❌ ⚠️ Outliers Present?
-  │   │   │   │                     ├── ✅ → ⚖️ Imbalanced?
-  │   │   │   │                     │   ├── ✅ --------------------> 🚀 XGBoost > 🌲 Random Forest
-  │   │   │   │                     │   └── ❌ --------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │   │   │   │                     └── ❌ ------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │   │   │   └── ❌ → 📉 Correlation = High?
-  │   │   │         ├── ✅ ----------------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │   │   │         └── ❌ → ⚠️ Missing Data?
-  │   │   │               ├── ✅ ----------------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │   │   │               └── ❌ → ⚠️ Outliers Present?
-  │   │   │                     ├── ✅ → ⚖️ Imbalanced?
-  │   │   │                     │   ├── ✅ ------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │   │   │                     │   └── ❌ ------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │   │   │                     └── ❌ ----------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │   │   └── ❌ → ⚠️ Missing Data?
-  │   │         ├── ✅ --------------------------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │   │         └── ❌ → ⚠️ Outliers Present?
-  │   │               ├── ✅ → ⚖️ Imbalanced?
-  │   │               │   ├── ✅ ----------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │   │               │   └── ❌ ----------------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │   │               └── ❌ --------------------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │   └── ❌ No (Multiclass)
-  │         ├── 📈 Linearly Separable?
-  │         │   ├── ✅ Yes
-  │         │   │   ├── 🧬 Feature Type = Categorical?
-  │         │   │   │   ├── ✅ ------------------------------------> 🌲 Random Forest > 🚀 XGBoost
-  │         │   │   │   └── ❌ → 📉 Correlation = High?
-  │         │   │   │         ├── ✅ ------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │         │   │   │         └── ❌ → ⚠️ Missing Data?
-  │         │   │   │               ├── ✅ ------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │         │   │   │               └── ❌ → ⚠️ Outliers Present?
-  │         │   │   │                     ├── ✅ → ⚖️ Imbalanced?
-  │         │   │   │                     │   ├── ✅ --------------> 🚀 XGBoost > 🌲 Random Forest
-  │         │   │   │                     │   └── ❌ --------------> 🌲 Random Forest > 🌳 Decision Tree
-  │         │   │   │                     └── ❌ ------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │         │   │   └── ❌ → 📉 Correlation = High?
-  │         │   │         ├── ✅ ----------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │         │   │         └── ❌ → ⚠️ Missing Data?
-  │         │   │               ├── ✅ ----------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │         │   │               └── ❌ → ⚠️ Outliers Present?
-  │         │   │                     ├── ✅ → ⚖️ Imbalanced?
-  │         │   │                     │   ├── ✅ ------------------> 🚀 XGBoost > 🌲 Random Forest
-  │         │   │                     │   └── ❌ ------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │         │   │                     └── ❌ ----------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │         │   └── ❌ → 📉 Correlation = High?
-  │         │         ├── ✅ → ------------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │         │         └── ❌ → ⚠️ Missing Data?
-  │         │               ├── ✅ --------------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │         │               └── ❌ → ⚠️ Outliers Present?
-  │         │                     ├── ✅ → ⚖️ Imbalanced?
-  │         │                     │   ├── ✅ ----------------------> 🚀 XGBoost > 🌲 Random Forest
-  │         │                     │   └── ❌ ----------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │         │                     └── ❌ --------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │         └── ❌ 🧬 Feature Type = Categorical?
-  │               ├── ✅ ------------------------------------------> 🌲 Random Forest > 🚀 XGBoost
-  │               └── ❌ → 📉 Correlation = High?
-  │                     ├── ✅ ------------------------------------> 🚀 XGBoost > 🌲 Random Forest
-  │                     └── ❌ → ⚠️ Missing Data?
-  │                           ├── ✅ ------------------------------> 🚀 XGBoost > 🧠 Neural Network
-  │                           └── ❌ → ⚠️ Outliers Present?
-  │                                 ├── ✅ → ⚖️ Imbalanced?
-  │                                 │   ├── ✅ --------------------> 🚀 XGBoost > 🌲 Random Forest
-  │                                 │   └── ❌ --------------------> 🌲 Random Forest > 🌳 Decision Tree
-  │                                 └── ❌ ------------------------> 🌲 Random Forest > 🌳 Decision Tree
-  └── End
-</pre>
-</details>
 </div>
 </div>
 </div>
