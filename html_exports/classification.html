@@ -16329,21 +16329,29 @@ Even though the dataset doesn't contain any column called <code>z</code> (the lo
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ✅ Excellent – coefficients are directly interpretable |
-| **Linearity Expectation**      | ⚠️ Yes – assumes linear relationship between features and log-odds |
-| **High dimensionality**        | ✅ Good – performs well with many features (with regularization) |
-| **Handling of multicollinearity** | ❌ Needs treatment – regularization helps, but still sensitive |
-| **Handling of categorical features** | ❌ Needs preprocessing – requires one-hot or ordinal encoding |
-| **Handling of outliers**       | ❌ Sensitive – can distort coefficients significantly |
-| **Handling of missing values** | ❌ Not supported – requires imputation |
-| **Scaling of features needed** | ⚠️ Yes – especially important when using regularization |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – use `class_weight='balanced'` or resampling |
-| **Handling of sparseness in data** | ✅ Works fine – especially with L1 regularization for feature selection |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>✅ Excellent – coefficients are directly interpretable</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>⚠️ Yes – assumes linear relationship between features and log-odds</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>✅ Good – performs well with many features (with regularization)</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>❌ Needs treatment – regularization helps, but still sensitive</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>❌ Needs preprocessing – requires one-hot or ordinal encoding</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>❌ Sensitive – can distort coefficients significantly</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>❌ Not supported – requires imputation</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>⚠️ Yes – especially important when using regularization</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>⚠️ Needs adjustment – use <code>class_weight='balanced'</code> or resampling</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>✅ Works fine – especially with L1 regularization for feature selection</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: Moderate – often outperformed by tree-based models for complex, non-linear patterns.
-- **General comment on training speed**: ✅ Fast – very efficient even on large datasets.
+<p><strong>General comment on accuracy</strong>: Moderate – often outperformed by tree-based models for complex, non-linear patterns.</p>
+<p><strong>General comment on training speed</strong>: ✅ Fast – very efficient even on large datasets.</p>
 
 </details>
 </div>
@@ -16892,21 +16900,29 @@ It assumes that all features are <strong>independent</strong> of each other — 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ✅ Good – conditional probabilities are intuitive |
-| **Linearity Expectation**      | ⚠️ Assumes feature independence → not truly linear or interactive |
-| **High dimensionality**        | ✅ Very good – handles high-dimensional sparse data well |
-| **Handling of multicollinearity** | ❌ Poor – assumes feature independence; correlated features hurt performance |
-| **Handling of categorical features** | ⚠️ Needs preprocessing – requires encoding, but categorical NB variants exist |
-| **Handling of outliers**       | ❌ Very sensitive – assumes Gaussian or other strict distributional forms |
-| **Handling of missing values** | ❌ Not supported – requires imputation |
-| **Scaling of features needed** | ⚠️ Sometimes – required if Gaussian NB is used (assumes normal distribution) |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – priors can be tuned or class weights applied manually |
-| **Handling of sparseness in data** | ✅ Excellent – especially performant in text classification or bag-of-words models |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>✅ Good – conditional probabilities are intuitive</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>⚠️ Assumes feature independence → not truly linear or interactive</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>✅ Very good – handles high-dimensional sparse data well</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>❌ Poor – assumes feature independence; correlated features hurt performance</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>⚠️ Needs preprocessing – requires encoding, but categorical NB variants exist</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>❌ Very sensitive – assumes Gaussian or other strict distributional forms</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>❌ Not supported – requires imputation</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>⚠️ Sometimes – required if Gaussian NB is used (assumes normal distribution)</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>⚠️ Needs adjustment – priors can be tuned or class weights applied manually</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>✅ Excellent – especially performant in text classification or bag-of-words models</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: Surprisingly strong baseline for some problems (e.g., NLP); weak when feature independence assumption breaks.
-- **General comment on training speed**: ✅ Extremely fast – almost instantaneous to train.
+<p><strong>General comment on accuracy</strong>: Surprisingly strong baseline for some problems (e.g., NLP); weak when feature independence assumption breaks.</p>
+<p><strong>General comment on training speed</strong>: ✅ Extremely fast – almost instantaneous to train.</p>
 
 </details>
 </div>
@@ -17001,21 +17017,29 @@ The result is a set of human-readable rules — like:<br>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ✅ Very good – rules and splits are easily visualized and explained |
-| **Linearity Expectation**      | ✅ No – naturally captures non-linear relationships |
-| **High dimensionality**        | ⚠️ Moderate – can overfit with too many features unless pruned |
-| **Handling of multicollinearity** | ✅ Handles it – but may create instability in splits |
-| **Handling of categorical features** | ⚠️ Partial – numerical encoding needed; some implementations support direct handling |
-| **Handling of outliers**       | ✅ Robust – splits are based on thresholds, not sensitive to extreme values |
-| **Handling of missing values** | ⚠️ Limited – some implementations handle missing splits, others need imputation |
-| **Scaling of features needed** | ✅ Not needed – uses raw feature values for splitting |
-| **Class Imbalance problem**    | ❌ Poor – biased toward majority class unless adjusted with `class_weight` or sampling |
-| **Handling of sparseness in data** | ⚠️ Depends – not ideal for extremely sparse datasets (e.g., text data) |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>✅ Very good – rules and splits are easily visualized and explained</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>✅ No – naturally captures non-linear relationships</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>⚠️ Moderate – can overfit with too many features unless pruned</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>✅ Handles it – but may create instability in splits</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>⚠️ Partial – numerical encoding needed; some implementations support direct handling</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>✅ Robust – splits are based on thresholds, not sensitive to extreme values</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>⚠️ Limited – some implementations handle missing splits, others need imputation</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>✅ Not needed – uses raw feature values for splitting</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>❌ Poor – biased toward majority class unless adjusted with <code>class_weight</code> or sampling</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>⚠️ Depends – not ideal for extremely sparse datasets (e.g., text data)</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: Prone to overfitting if unpruned; weak alone but powerful as base learners in ensembles.
-- **General comment on training speed**: ✅ Fast – quick to train on moderate-sized datasets.
+<p><strong>General comment on accuracy</strong>: Prone to overfitting if unpruned; weak alone but powerful as base learners in ensembles.</p>
+<p><strong>General comment on training speed</strong>: ✅ Fast – quick to train on moderate-sized datasets.</p>
 
 </details>
 </div>
@@ -17112,21 +17136,29 @@ Each tree sees a random subset of the data and features, making the forest <stro
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ❌ Low – individual trees interpretable, but ensemble is a black box |
-| **Linearity Expectation**      | ✅ No – captures complex non-linear relationships |
-| **High dimensionality**        | ✅ Good – handles many features well via feature bagging |
-| **Handling of multicollinearity** | ✅ Handles it – less sensitive due to random feature selection per tree |
-| **Handling of categorical features** | ⚠️ Requires encoding – label or one-hot encoding typically needed |
-| **Handling of outliers**       | ✅ Robust – not sensitive due to median-based splits and ensembling |
-| **Handling of missing values** | ⚠️ Some support – not native in all implementations; imputation often needed |
-| **Scaling of features needed** | ✅ Not needed – tree splits are scale-invariant |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – use `class_weight='balanced'` or stratified sampling |
-| **Handling of sparseness in data** | ⚠️ Moderate – not ideal for extreme sparsity (e.g., NLP bag-of-words) |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>❌ Low – individual trees interpretable, but ensemble is a black box</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>✅ No – captures complex non-linear relationships</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>✅ Good – handles many features well via feature bagging</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>✅ Handles it – less sensitive due to random feature selection per tree</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>⚠️ Requires encoding – label or one-hot encoding typically needed</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>✅ Robust – not sensitive due to median-based splits and ensembling</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>⚠️ Some support – not native in all implementations; imputation often needed</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>✅ Not needed – tree splits are scale-invariant</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>⚠️ Needs adjustment – use <code>class_weight='balanced'</code> or stratified sampling</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>⚠️ Moderate – not ideal for extreme sparsity (e.g., NLP bag-of-words)</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: ✅ Strong – robust out-of-the-box performance with low overfitting risk.
-- **General comment on training speed**: ⚠️ Slower than single models – parallelizable but can be compute-heavy.
+<p><strong>General comment on accuracy</strong>: ✅ Strong – robust out-of-the-box performance with low overfitting risk.</p>
+<p><strong>General comment on training speed</strong>: ⚠️ Slower than single models – parallelizable but can be compute-heavy.</p>
 
 </details>
 </div>
@@ -17225,21 +17257,29 @@ At prediction time, it looks at the <strong>K most similar observations</strong>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ⚠️ Moderate – intuitive idea, but no explicit model or coefficients |
-| **Linearity Expectation**      | ✅ No – captures non-linear patterns based on local neighborhoods |
-| **High dimensionality**        | ❌ Poor – suffers from the curse of dimensionality; distances become less meaningful |
-| **Handling of multicollinearity** | ❌ Problematic – redundant features distort distance metrics |
-| **Handling of categorical features** | ❌ Not natively supported – requires careful encoding and distance handling |
-| **Handling of outliers**       | ❌ Sensitive – local distance-based voting easily skewed by outliers |
-| **Handling of missing values** | ❌ Not supported – requires complete-case or imputation preprocessing |
-| **Scaling of features needed** | ✅ Yes – essential, as distance calculations are affected by feature magnitudes |
-| **Class Imbalance problem**    | ❌ Poor – biased toward majority class due to majority voting |
-| **Handling of sparseness in data** | ❌ Weak – sparse vectors make distance metrics ineffective |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>⚠️ Moderate – intuitive idea, but no explicit model or coefficients</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>✅ No – captures non-linear patterns based on local neighborhoods</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>❌ Poor – suffers from the curse of dimensionality; distances become less meaningful</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>❌ Problematic – redundant features distort distance metrics</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>❌ Not natively supported – requires careful encoding and distance handling</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>❌ Sensitive – local distance-based voting easily skewed by outliers</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>❌ Not supported – requires complete-case or imputation preprocessing</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>✅ Yes – essential, as distance calculations are affected by feature magnitudes</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>❌ Poor – biased toward majority class due to majority voting</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>❌ Weak – sparse vectors make distance metrics ineffective</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: ⚠️ Highly data-dependent – can perform well with clean, balanced, low-dimensional data.
-- **General comment on training speed**: ✅ Fast training, ❌ Slow inference – lazy learner, evaluates at prediction time.
+<p><strong>General comment on accuracy</strong>: ⚠️ Highly data-dependent – can perform well with clean, balanced, low-dimensional data.</p>
+<p><strong>General comment on training speed</strong>: ✅ Fast training, ❌ Slow inference – lazy learner, evaluates at prediction time.</p>
 
 </details>
 </div>
@@ -17336,21 +17376,29 @@ SVM focuses on <strong>support vectors</strong> — the critical data points clo
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ⚠️ Moderate – support vectors and margins can be visualized in 2D, but overall less intuitive |
-| **Linearity Expectation**      | ⚠️ Depends – linear SVM assumes linear separability; kernel SVM handles non-linear |
-| **High dimensionality**        | ✅ Very good – especially effective in high-dimensional spaces (e.g., text data) |
-| **Handling of multicollinearity** | ⚠️ Can be sensitive – especially in linear SVM; use regularization |
-| **Handling of categorical features** | ❌ Not supported – requires one-hot or other encoding |
-| **Handling of outliers**       | ❌ Sensitive – margin-based optimization gets distorted by outliers |
-| **Handling of missing values** | ❌ Not supported – must impute before training |
-| **Scaling of features needed** | ✅ Yes – essential due to reliance on distance and dot products |
-| **Class Imbalance problem**    | ⚠️ Needs adjustment – use `class_weight='balanced'` or tune `C` and margins |
-| **Handling of sparseness in data** | ✅ Good – works well in high-dimensional sparse spaces (esp. linear SVM) |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>⚠️ Moderate – support vectors and margins can be visualized in 2D, but overall less intuitive</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>⚠️ Depends – linear SVM assumes linear separability; kernel SVM handles non-linear</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>✅ Very good – especially effective in high-dimensional spaces (e.g., text data)</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>⚠️ Can be sensitive – especially in linear SVM; use regularization</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>❌ Not supported – requires one-hot or other encoding</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>❌ Sensitive – margin-based optimization gets distorted by outliers</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>❌ Not supported – must impute before training</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>✅ Yes – essential due to reliance on distance and dot products</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>⚠️ Needs adjustment – use <code>class_weight='balanced'</code> or tune <code>C</code> and margins</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>✅ Good – works well in high-dimensional sparse spaces (esp. linear SVM)</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: ✅ High – strong performance on well-separated data, especially with good kernel choice.
-- **General comment on training speed**: ❌ Slow – especially on large datasets or with complex kernels.
+<p><strong>General comment on accuracy</strong>: ✅ High – strong performance on well-separated data, especially with good kernel choice.</p>
+<p><strong>General comment on training speed</strong>: ❌ Slow – especially on large datasets or with complex kernels.</p>
 
 </details>
 </div>
@@ -17444,21 +17492,29 @@ XGBoost is known for its <strong>speed, accuracy, and efficiency</strong>, makin
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ❌ Low – complex ensemble; partial plots or SHAP values needed for insight |
-| **Linearity Expectation**      | ✅ No – naturally models complex non-linear relationships |
-| **High dimensionality**        | ✅ Excellent – handles many features via regularization and feature importance |
-| **Handling of multicollinearity** | ✅ Handles well – trees split on the most useful among correlated features |
-| **Handling of categorical features** | ⚠️ Needs encoding – label encoding typically used; native support improving |
-| **Handling of outliers**       | ✅ Robust – trees are insensitive to extreme values |
-| **Handling of missing values** | ✅ Built-in – learns optimal path for missing values during tree construction |
-| **Scaling of features needed** | ✅ Not needed – tree-based, scale-invariant |
-| **Class Imbalance problem**    | ✅ Handled – use `scale_pos_weight`, custom loss, or sampling |
-| **Handling of sparseness in data** | ✅ Excellent – designed to handle sparse matrices natively |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>❌ Low – complex ensemble; partial plots or SHAP values needed for insight</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>✅ No – naturally models complex non-linear relationships</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>✅ Excellent – handles many features via regularization and feature importance</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>✅ Handles well – trees split on the most useful among correlated features</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>⚠️ Needs encoding – label encoding typically used; native support improving</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>✅ Robust – trees are insensitive to extreme values</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>✅ Built-in – learns optimal path for missing values during tree construction</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>✅ Not needed – tree-based, scale-invariant</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>✅ Handled – use <code>scale_pos_weight</code>, custom loss, or sampling</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>✅ Excellent – designed to handle sparse matrices natively</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: ✅ Top-tier – one of the most accurate out-of-the-box models for tabular data.
-- **General comment on training speed**: ⚠️ Slower – faster than many ensembles, but heavier than single models; GPU support helps.
+<p><strong>General comment on accuracy</strong>: ✅ Top-tier – one of the most accurate out-of-the-box models for tabular data.</p>
+<p><strong>General comment on training speed</strong>: ⚠️ Slower – faster than many ensembles, but heavier than single models; GPU support helps.</p>
 
 </details>
 </div>
@@ -17555,21 +17611,29 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Suitability Checklist</strong></summary>
 
-| Criterion                       | Comment |
-|--------------------------------|---------|
-| **Interpretability**           | ❌ Very low – acts as a black box unless aided by techniques like SHAP, LIME |
-| **Linearity Expectation**      | ✅ No – inherently models non-linear and complex interactions |
-| **High dimensionality**        | ✅ Excellent – scales well with many features and large data |
-| **Handling of multicollinearity** | ✅ Handles – internal weights adjust during training, but correlated inputs may slow convergence |
-| **Handling of categorical features** | ❌ Not native – requires one-hot encoding or embeddings |
-| **Handling of outliers**       | ❌ Sensitive – can destabilize training; often mitigated with preprocessing |
-| **Handling of missing values** | ❌ Not supported – must be imputed before training |
-| **Scaling of features needed** | ✅ Yes – critical for stable and fast convergence (e.g., standardization or normalization) |
-| **Class Imbalance problem**    | ⚠️ Needs care – custom loss functions, class weights, or resampling required |
-| **Handling of sparseness in data** | ⚠️ Depends – not ideal unless using sparse-aware architectures or embedding layers |
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Interpretability</strong></td><td>❌ Very low – acts as a black box unless aided by techniques like SHAP, LIME</td></tr>
+    <tr><td><strong>Linearity Expectation</strong></td><td>✅ No – inherently models non-linear and complex interactions</td></tr>
+    <tr><td><strong>High dimensionality</strong></td><td>✅ Excellent – scales well with many features and large data</td></tr>
+    <tr><td><strong>Handling of multicollinearity</strong></td><td>✅ Handles – internal weights adjust during training, but correlated inputs may slow convergence</td></tr>
+    <tr><td><strong>Handling of categorical features</strong></td><td>❌ Not native – requires one-hot encoding or embeddings</td></tr>
+    <tr><td><strong>Handling of outliers</strong></td><td>❌ Sensitive – can destabilize training; often mitigated with preprocessing</td></tr>
+    <tr><td><strong>Handling of missing values</strong></td><td>❌ Not supported – must be imputed before training</td></tr>
+    <tr><td><strong>Scaling of features needed</strong></td><td>✅ Yes – critical for stable and fast convergence (e.g., standardization or normalization)</td></tr>
+    <tr><td><strong>Class Imbalance problem</strong></td><td>⚠️ Needs care – custom loss functions, class weights, or resampling required</td></tr>
+    <tr><td><strong>Handling of sparseness in data</strong></td><td>⚠️ Depends – not ideal unless using sparse-aware architectures or embedding layers</td></tr>
+  </tbody>
+</table>
 
-- **General comment on accuracy**: ✅ High – can outperform other models with enough data and tuning, especially on non-tabular data.
-- **General comment on training speed**: ❌ Slow – resource-intensive; requires tuning and hardware for best performance.
+<p><strong>General comment on accuracy</strong>: ✅ High – can outperform other models with enough data and tuning, especially on non-tabular data.</p>
+<p><strong>General comment on training speed</strong>: ❌ Slow – resource-intensive; requires tuning and hardware for best performance.</p>
 
 </details>
 </div>
@@ -17609,26 +17673,39 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand</strong></summary>
 
-##### 🧠 Model Selection Table (Based on Data Characteristics)
+<h5>🧠 Model Selection Table (Based on Data Characteristics)</h5>
 
-| Target Type | Linearly Separable | Correlation | Imbalance | Recommended Models                  | Notes                                                              |
-|-------------|---------------------|-------------|-----------|-------------------------------------|---------------------------------------------------------------------|
-| Binary      | ✅ True             | Low         | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
-| Binary      | ✅ True             | Low         | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
-| Binary      | ✅ True             | High        | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
-| Binary      | ✅ True             | High        | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
-| Binary      | ❌ False            | Low         | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
-| Binary      | ❌ False            | Low         | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
-| Binary      | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
-| Binary      | ❌ False            | High        | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
-| Multiclass  | ✅ True             | Low         | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | Low         | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | High        | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | High        | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ❌ False            | Low         | ✅ True   | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
-| Multiclass  | ❌ False            | Low         | ❌ False  | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
-| Multiclass  | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
-| Multiclass  | ❌ False            | High        | ❌ False  | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
+<table>
+  <thead>
+    <tr>
+      <th>Target Type</th>
+      <th>Linearly Separable</th>
+      <th>Correlation</th>
+      <th>Imbalance</th>
+      <th>Recommended Models</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Binary</td><td>✅ True</td><td>Low</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Use tree-based models with class weights or resampling.</td></tr>
+    <tr><td>Binary</td><td>✅ True</td><td>Low</td><td>❌ False</td><td>Logistic Regression &gt; SVM</td><td>Start with simple linear models. Use as benchmark.</td></tr>
+    <tr><td>Binary</td><td>✅ True</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Use tree-based models with class weights or resampling.</td></tr>
+    <tr><td>Binary</td><td>✅ True</td><td>High</td><td>❌ False</td><td>Logistic Regression &gt; SVM</td><td>Start with simple linear models. Use as benchmark.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>Low</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Boosting or RF with class weights to handle imbalance + complexity.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>Low</td><td>❌ False</td><td>Random Forest &gt; Decision Tree</td><td>Simple non-linear trees likely sufficient. Avoid tuning-heavy models.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Boosting or RF with class weights to handle imbalance + complexity.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>High</td><td>❌ False</td><td>Random Forest &gt; Decision Tree</td><td>Simple non-linear trees likely sufficient. Avoid tuning-heavy models.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>Low</td><td>✅ True</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>Low</td><td>❌ False</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>High</td><td>❌ False</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>Low</td><td>✅ True</td><td>Neural Network &gt; KNN</td><td>Use Neural Net or KNN. Prioritize decision boundary complexity.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>Low</td><td>❌ False</td><td>Neural Network &gt; KNN</td><td>Use Neural Net or KNN. Prioritize decision boundary complexity.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Tree-based models preferred. Skip preprocessing of collinear features.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>High</td><td>❌ False</td><td>XGBoost &gt; Random Forest</td><td>Tree-based models preferred. Skip preprocessing of collinear features.</td></tr>
+  </tbody>
+</table>
+
 </details>
 </div>
 </div>
@@ -17734,26 +17811,39 @@ Each neuron applies a weighted transformation followed by a non-linear activatio
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <details><summary><strong>📖 Click to Expand - Model Choice </strong></summary>
 
-##### 🧠 Model Selection Table (Based on Data Characteristics)
+<h5>🧠 Model Selection Table (Based on Data Characteristics)</h5>
 
-| Target Type | Linearly Separable | Correlation | Imbalance | Recommended Models                  | Notes                                                              |
-|-------------|---------------------|-------------|-----------|-------------------------------------|---------------------------------------------------------------------|
-| Binary      | ✅ True             | Low         | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
-| Binary      | ✅ True             | Low         | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
-| Binary      | ✅ True             | High        | ✅ True   | XGBoost > Random Forest            | Use tree-based models with class weights or resampling.             |
-| Binary      | ✅ True             | High        | ❌ False  | Logistic Regression > SVM          | Start with simple linear models. Use as benchmark.                 |
-| Binary      | ❌ False            | Low         | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
-| Binary      | ❌ False            | Low         | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
-| Binary      | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Boosting or RF with class weights to handle imbalance + complexity. |
-| Binary      | ❌ False            | High        | ❌ False  | Random Forest > Decision Tree      | Simple non-linear trees likely sufficient. Avoid tuning-heavy models. |
-| Multiclass  | ✅ True             | Low         | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | Low         | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | High        | ✅ True   | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ✅ True             | High        | ❌ False  | XGBoost > Logistic Regression      | Use OvR strategy with LR/XGB. Watch for class separation.           |
-| Multiclass  | ❌ False            | Low         | ✅ True   | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
-| Multiclass  | ❌ False            | Low         | ❌ False  | Neural Network > KNN               | Use Neural Net or KNN. Prioritize decision boundary complexity.     |
-| Multiclass  | ❌ False            | High        | ✅ True   | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
-| Multiclass  | ❌ False            | High        | ❌ False  | XGBoost > Random Forest            | Tree-based models preferred. Skip preprocessing of collinear features. |
+<table>
+  <thead>
+    <tr>
+      <th>Target Type</th>
+      <th>Linearly Separable</th>
+      <th>Correlation</th>
+      <th>Imbalance</th>
+      <th>Recommended Models</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Binary</td><td>✅ True</td><td>Low</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Use tree-based models with class weights or resampling.</td></tr>
+    <tr><td>Binary</td><td>✅ True</td><td>Low</td><td>❌ False</td><td>Logistic Regression &gt; SVM</td><td>Start with simple linear models. Use as benchmark.</td></tr>
+    <tr><td>Binary</td><td>✅ True</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Use tree-based models with class weights or resampling.</td></tr>
+    <tr><td>Binary</td><td>✅ True</td><td>High</td><td>❌ False</td><td>Logistic Regression &gt; SVM</td><td>Start with simple linear models. Use as benchmark.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>Low</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Boosting or RF with class weights to handle imbalance + complexity.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>Low</td><td>❌ False</td><td>Random Forest &gt; Decision Tree</td><td>Simple non-linear trees likely sufficient. Avoid tuning-heavy models.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Boosting or RF with class weights to handle imbalance + complexity.</td></tr>
+    <tr><td>Binary</td><td>❌ False</td><td>High</td><td>❌ False</td><td>Random Forest &gt; Decision Tree</td><td>Simple non-linear trees likely sufficient. Avoid tuning-heavy models.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>Low</td><td>✅ True</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>Low</td><td>❌ False</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>✅ True</td><td>High</td><td>❌ False</td><td>XGBoost &gt; Logistic Regression</td><td>Use OvR strategy with LR/XGB. Watch for class separation.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>Low</td><td>✅ True</td><td>Neural Network &gt; KNN</td><td>Use Neural Net or KNN. Prioritize decision boundary complexity.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>Low</td><td>❌ False</td><td>Neural Network &gt; KNN</td><td>Use Neural Net or KNN. Prioritize decision boundary complexity.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>High</td><td>✅ True</td><td>XGBoost &gt; Random Forest</td><td>Tree-based models preferred. Skip preprocessing of collinear features.</td></tr>
+    <tr><td>Multiclass</td><td>❌ False</td><td>High</td><td>❌ False</td><td>XGBoost &gt; Random Forest</td><td>Tree-based models preferred. Skip preprocessing of collinear features.</td></tr>
+  </tbody>
+</table>
+
 </details>
 </div>
 </div>
