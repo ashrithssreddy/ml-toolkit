@@ -16186,6 +16186,169 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand - Suitability Checklist (All Models)</strong></summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>📊 Logistic Regression</th>
+      <th>🧮 Naive Bayes</th>
+      <th>🌳 Decision Tree</th>
+      <th>🌲 Random Forest</th>
+      <th>🎯 KNN (K-Nearest Neighbors)</th>
+      <th>📈 SVM (Support Vector Machines)</th>
+      <th>🚀 XGBoost</th>
+      <th>🧠 Neural Network</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Interpretability</strong></td>
+      <td>✅ Excellent – coefficients are directly interpretable</td>
+      <td>✅ Good – conditional probabilities are intuitive</td>
+      <td>✅ Very good – rules and splits are easily visualized and explained</td>
+      <td>❌ Low – individual trees interpretable, but ensemble is a black box</td>
+      <td>⚠️ Moderate – intuitive idea, but no explicit model or coefficients</td>
+      <td>⚠️ Moderate – support vectors and margins can be visualized in 2D, but overall less intuitive</td>
+      <td>❌ Low – complex ensemble; partial plots or SHAP values needed for insight</td>
+      <td>❌ Very low – acts as a black box unless aided by techniques like SHAP, LIME</td>
+    </tr>
+    <tr>
+      <td><strong>Linearity Expectation</strong></td>
+      <td>⚠️ Yes – assumes linear relationship between features and log-odds</td>
+      <td>⚠️ Assumes feature independence → not truly linear or interactive</td>
+      <td>✅ No – naturally captures non-linear relationships</td>
+      <td>✅ No – captures complex non-linear relationships</td>
+      <td>✅ No – captures non-linear patterns based on local neighborhoods</td>
+      <td>⚠️ Depends – linear SVM assumes linear separability; kernel SVM handles non-linear</td>
+      <td>✅ No – naturally models complex non-linear relationships</td>
+      <td>✅ No – inherently models non-linear and complex interactions</td>
+    </tr>
+    <tr>
+      <td><strong>High dimensionality</strong></td>
+      <td>✅ Good – performs well with many features (with regularization)</td>
+      <td>✅ Very good – handles high-dimensional sparse data well</td>
+      <td>⚠️ Moderate – can overfit with too many features unless pruned</td>
+      <td>✅ Good – handles many features well via feature bagging</td>
+      <td>❌ Poor – suffers from the curse of dimensionality; distances become less meaningful</td>
+      <td>✅ Very good – especially effective in high-dimensional spaces (e.g., text data)</td>
+      <td>✅ Excellent – handles many features via regularization and feature importance</td>
+      <td>✅ Excellent – scales well with many features and large data</td>
+    </tr>
+    <tr>
+      <td><strong>Handling of multicollinearity</strong></td>
+      <td>❌ Needs treatment – regularization helps, but still sensitive</td>
+      <td>❌ Poor – assumes feature independence; correlated features hurt performance</td>
+      <td>✅ Handles it – but may create instability in splits</td>
+      <td>✅ Handles it – less sensitive due to random feature selection per tree</td>
+      <td>❌ Problematic – redundant features distort distance metrics</td>
+      <td>⚠️ Can be sensitive – especially in linear SVM; use regularization</td>
+      <td>✅ Handles well – trees split on the most useful among correlated features</td>
+      <td>✅ Handles – internal weights adjust during training, but correlated inputs may slow convergence</td>
+    </tr>
+    <tr>
+      <td><strong>Handling of categorical features</strong></td>
+      <td>❌ Needs preprocessing – requires one-hot or ordinal encoding</td>
+      <td>⚠️ Needs preprocessing – requires encoding, but categorical NB variants exist</td>
+      <td>⚠️ Partial – numerical encoding needed; some implementations support direct handling</td>
+      <td>⚠️ Requires encoding – label or one-hot encoding typically needed</td>
+      <td>❌ Not natively supported – requires careful encoding and distance handling</td>
+      <td>❌ Not supported – requires one-hot or other encoding</td>
+      <td>⚠️ Needs encoding – label encoding typically used; native support improving</td>
+      <td>❌ Not native – requires one-hot encoding or embeddings</td>
+    </tr>
+    <tr>
+      <td><strong>Handling of outliers</strong></td>
+      <td>❌ Sensitive – can distort coefficients significantly</td>
+      <td>❌ Very sensitive – assumes Gaussian or other strict distributional forms</td>
+      <td>✅ Robust – splits are based on thresholds, not sensitive to extreme values</td>
+      <td>✅ Robust – not sensitive due to median-based splits and ensembling</td>
+      <td>❌ Sensitive – local distance-based voting easily skewed by outliers</td>
+      <td>❌ Sensitive – margin-based optimization gets distorted by outliers</td>
+      <td>✅ Robust – trees are insensitive to extreme values</td>
+      <td>❌ Sensitive – can destabilize training; often mitigated with preprocessing</td>
+    </tr>
+    <tr>
+      <td><strong>Handling of missing values</strong></td>
+      <td>❌ Not supported – requires imputation</td>
+      <td>❌ Not supported – requires imputation</td>
+      <td>⚠️ Limited – some implementations handle missing splits, others need imputation</td>
+      <td>⚠️ Some support – not native in all implementations; imputation often needed</td>
+      <td>❌ Not supported – requires complete-case or imputation preprocessing</td>
+      <td>❌ Not supported – must impute before training</td>
+      <td>✅ Built-in – learns optimal path for missing values during tree construction</td>
+      <td>❌ Not supported – must be imputed before training</td>
+    </tr>
+    <tr>
+      <td><strong>Scaling of features needed</strong></td>
+      <td>⚠️ Yes – especially important when using regularization</td>
+      <td>⚠️ Sometimes – required if Gaussian NB is used (assumes normal distribution)</td>
+      <td>✅ Not needed – uses raw feature values for splitting</td>
+      <td>✅ Not needed – tree splits are scale-invariant</td>
+      <td>✅ Yes – essential, as distance calculations are affected by feature magnitudes</td>
+      <td>✅ Yes – essential due to reliance on distance and dot products</td>
+      <td>✅ Not needed – tree-based, scale-invariant</td>
+      <td>✅ Yes – critical for stable and fast convergence (e.g., standardization or normalization)</td>
+    </tr>
+    <tr>
+      <td><strong>Class Imbalance problem</strong></td>
+      <td>⚠️ Needs adjustment – use class_weight='balanced' or resampling</td>
+      <td>⚠️ Needs adjustment – priors can be tuned or class weights applied manually</td>
+      <td>❌ Poor – biased toward majority class unless adjusted with class_weight or sampling</td>
+      <td>⚠️ Needs adjustment – use class_weight='balanced' or stratified sampling</td>
+      <td>❌ Poor – biased toward majority class due to majority voting</td>
+      <td>⚠️ Needs adjustment – use class_weight='balanced' or tune C and margins</td>
+      <td>✅ Handled – use scale_pos_weight, custom loss, or sampling</td>
+      <td>⚠️ Needs care – custom loss functions, class weights, or resampling required</td>
+    </tr>
+    <tr>
+      <td><strong>Handling of sparseness in data</strong></td>
+      <td>✅ Works fine – especially with L1 regularization for feature selection</td>
+      <td>✅ Excellent – especially performant in text classification or bag-of-words models</td>
+      <td>⚠️ Depends – not ideal for extremely sparse datasets (e.g., text data)</td>
+      <td>⚠️ Moderate – not ideal for extreme sparsity (e.g., NLP bag-of-words)</td>
+      <td>❌ Weak – sparse vectors make distance metrics ineffective</td>
+      <td>✅ Good – works well in high-dimensional sparse spaces (esp. linear SVM)</td>
+      <td>✅ Excellent – designed to handle sparse matrices natively</td>
+      <td>⚠️ Depends – not ideal unless using sparse-aware architectures or embedding layers</td>
+    </tr>
+    <tr>
+      <td><strong>Accuracy</strong></td>
+      <td>Moderate – often outperformed by tree-based models for complex, non-linear patterns.</td>
+      <td>Surprisingly strong baseline for some problems (e.g., NLP); weak when feature independence assumption breaks.</td>
+      <td>Prone to overfitting if unpruned; weak alone but powerful as base learners in ensembles.</td>
+      <td>✅ Strong – robust out-of-the-box performance with low overfitting risk.</td>
+      <td>⚠️ Highly data-dependent – can perform well with clean, balanced, low-dimensional data.</td>
+      <td>✅ High – strong performance on well-separated data, especially with good kernel choice.</td>
+      <td>✅ Top-tier – one of the most accurate out-of-the-box models for tabular data.</td>
+      <td>✅ High – can outperform other models with enough data and tuning, especially on non-tabular data.</td>
+    </tr>
+    <tr>
+      <td><strong>Training speed</strong></td>
+      <td>✅ Fast – very efficient even on large datasets.</td>
+      <td>✅ Extremely fast – almost instantaneous to train.</td>
+      <td>✅ Fast – quick to train on moderate-sized datasets.</td>
+      <td>⚠️ Slower than single models – parallelizable but can be compute-heavy.</td>
+      <td>✅ Fast training, ❌ Slow inference – lazy learner, evaluates at prediction time.</td>
+      <td>❌ Slow – especially on large datasets or with complex kernels.</td>
+      <td>⚠️ Slower – faster than many ensembles, but heavier than single models; GPU support helps.</td>
+      <td>❌ Slow – resource-intensive; requires tuning and hardware for best performance.</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="logistic-regression"></a></p>
 <h4 id="%F0%9F%93%8A-Logistic-Regression">&#128202; Logistic Regression<a class="anchor-link" href="#%F0%9F%93%8A-Logistic-Regression">&#182;</a></h4>
 </div>

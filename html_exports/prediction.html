@@ -9548,6 +9548,192 @@ MSE: 1.31 → Mean squared error
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details><summary><strong>📖 Click to Expand - Suitability Checklist (All Models)</strong></summary>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>⚙️ Linear Regression</th>
+<th>🧊 Ridge Regression</th>
+<th>🔥 Lasso Regression</th>
+<th>🧃 ElasticNet</th>
+<th>🌳 Decision Trees</th>
+<th>🪵 Random Forests</th>
+<th>🚀 Gradient Boosting (XGBoost, LightGBM)</th>
+<th>⚙️ Support Vector Machines (SVR)</th>
+<th>🧠 K-Nearest Neighbors (KNN)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interpretability</strong></td>
+<td>✅ Excellent – coefficients are directly interpretable</td>
+<td>⚠️ Moderate – coefficients interpretable, but shrunk due to L2 penalty</td>
+<td>⚠️ Moderate – less interpretable due to variable shrinkage, but aids feature selection</td>
+<td>⚠️ Moderate – coefficients are shrunk and partially zeroed; harder to interpret</td>
+<td>✅ Good – tree structure is easy to visualize and explain</td>
+<td>❌ Low – individual trees are interpretable, but the ensemble is not</td>
+<td>❌ Low – ensembles are complex; interpretability requires SHAP or similar tools</td>
+<td>❌ Low – lacks clear coefficients or rule-based structure</td>
+<td>⚠️ Moderate – intuitive to explain, but no learned model or coefficients</td>
+</tr>
+<tr>
+<td><strong>Linearity Expectation</strong></td>
+<td>✅ Yes – assumes a linear relationship between features and target</td>
+<td>✅ Yes – assumes linear relationship between features and target</td>
+<td>✅ Yes – assumes linear relationship between features and target</td>
+<td>✅ Yes – assumes linear relationship between features and target</td>
+<td>✅ No – captures complex non-linear relationships naturally</td>
+<td>✅ No – models complex non-linear relationships naturally</td>
+<td>✅ No – captures highly non-linear relationships</td>
+<td>⚠️ Depends – linear SVR assumes linearity; kernel SVR handles non-linear patterns</td>
+<td>✅ No – models non-linear patterns based on local neighborhoods</td>
+</tr>
+<tr>
+<td><strong>High dimensionality</strong></td>
+<td>⚠️ Moderate – can overfit without regularization (use Ridge/Lasso)</td>
+<td>✅ Good – handles many features with L2 regularization</td>
+<td>✅ Very good – performs implicit feature selection via L1 penalty</td>
+<td>✅ Excellent – handles many features well, especially when correlated</td>
+<td>⚠️ Moderate – prone to overfitting with many features unless pruned</td>
+<td>✅ Good – handles many features well via random feature selection</td>
+<td>✅ Excellent – handles large feature sets with built-in feature importance and regularization</td>
+<td>✅ Very good – effective in high-dimensional spaces, especially with appropriate kernels</td>
+<td>❌ Poor – suffers from the curse of dimensionality; distance metrics lose meaning</td>
+</tr>
+<tr>
+<td><strong>Handling of multicollinearity</strong></td>
+<td>❌ Poor – highly sensitive unless regularized</td>
+<td>✅ Good – L2 penalty reduces impact of correlated features</td>
+<td>⚠️ Partial – tends to pick one feature among correlated ones</td>
+<td>✅ Better than Lasso – distributes weight across correlated features</td>
+<td>✅ Handles – splits on strongest feature; ignores others</td>
+<td>✅ Handles – less sensitive due to randomized feature selection in each tree</td>
+<td>✅ Robust – tends to pick one feature among correlated ones; not harmed significantly</td>
+<td>⚠️ Somewhat handles – regularization helps, but not designed to resolve multicollinearity explicitly</td>
+<td>❌ Problematic – redundant features distort distance-based similarity</td>
+</tr>
+<tr>
+<td><strong>Handling of categorical features</strong></td>
+<td>❌ Not supported natively – requires one-hot or ordinal encoding</td>
+<td>❌ Requires encoding – use one-hot or ordinal encoding</td>
+<td>❌ Requires encoding – one-hot or ordinal encoding needed</td>
+<td>❌ Requires encoding – one-hot or ordinal encoding needed</td>
+<td>⚠️ Requires encoding – label encoding preferred; not ideal with high-cardinality</td>
+<td>⚠️ Requires encoding – typically label encoding; not optimal with high-cardinality</td>
+<td>⚠️ Requires encoding – label encoding usually sufficient; LightGBM supports native categorical handling</td>
+<td>❌ Not supported natively – requires proper encoding and kernel compatibility</td>
+<td>❌ Not natively supported – requires encoding and careful distance handling</td>
+</tr>
+<tr>
+<td><strong>Handling of outliers</strong></td>
+<td>❌ Sensitive – predictions and coefficients can be skewed</td>
+<td>❌ Sensitive – does not explicitly handle outliers</td>
+<td>❌ Sensitive – does not explicitly handle outliers</td>
+<td>❌ Sensitive – still affected by extreme values</td>
+<td>✅ Robust – splits based on thresholds, not influenced by extreme values</td>
+<td>✅ Robust – ensemble effect reduces outlier influence</td>
+<td>✅ Robust – tree splits reduce outlier influence significantly</td>
+<td>❌ Sensitive – margin-based loss can be distorted by outliers</td>
+<td>❌ Sensitive – local predictions easily skewed by nearby outliers</td>
+</tr>
+<tr>
+<td><strong>Handling of missing values</strong></td>
+<td>❌ Not supported – needs imputation before modeling</td>
+<td>❌ Not supported – requires imputation</td>
+<td>❌ Not supported – requires imputation</td>
+<td>❌ Not supported – requires imputation</td>
+<td>⚠️ Partial – some implementations handle them natively, others require imputation</td>
+<td>⚠️ Partial – some implementations support it; others need imputation</td>
+<td>✅ Supported – both XGBoost and LightGBM handle missing values natively during tree construction</td>
+<td>❌ Not supported – must impute missing data beforehand</td>
+<td>❌ Not supported – requires complete cases or imputation beforehand</td>
+</tr>
+<tr>
+<td><strong>Scaling of features needed</strong></td>
+<td>⚠️ Sometimes – needed with regularization or interaction terms</td>
+<td>✅ Yes – regularization depends on feature magnitude</td>
+<td>✅ Yes – essential due to L1 penalty sensitivity</td>
+<td>✅ Yes – critical due to combined penalties</td>
+<td>✅ Not needed – trees are scale-invariant</td>
+<td>✅ Not needed – tree-based and scale-invariant</td>
+<td>✅ Not needed – models are scale-invariant</td>
+<td>✅ Yes – essential for stable and effective optimization (especially with RBF kernel)</td>
+<td>✅ Yes – crucial, since all predictions are based on distance</td>
+</tr>
+<tr>
+<td><strong>Handling of sparseness in data</strong></td>
+<td>⚠️ Limited – better with regularization and preprocessing</td>
+<td>⚠️ Moderate – doesn't zero out coefficients, better with dense data</td>
+<td>✅ Good – promotes sparsity in coefficients, useful for sparse signals</td>
+<td>✅ Good – promotes sparsity but more stable than Lasso alone</td>
+<td>⚠️ Limited – not ideal for very sparse matrices like bag-of-words</td>
+<td>⚠️ Moderate – performs okay, but not best for highly sparse data</td>
+<td>✅ Excellent – built-in support for sparse data (e.g., in XGBoost and LightGBM)</td>
+<td>✅ Good – works well in sparse high-dimensional cases (e.g., text with linear kernel)</td>
+<td>❌ Poor – sparse vectors make nearest neighbor distances unreliable</td>
+</tr>
+<tr>
+<td><strong>Skewed target distribution</strong></td>
+<td>⚠️ Assumes homoscedasticity – may underperform on skewed targets</td>
+<td>⚠️ Assumes homoscedasticity – performance may drop on skewed targets</td>
+<td>⚠️ Assumes homoscedasticity – not ideal for highly skewed targets</td>
+<td>⚠️ Assumes homoscedasticity – not ideal for skewed distributions</td>
+<td>✅ Handles well – no distributional assumptions</td>
+<td>✅ Handles – no assumption about target distribution</td>
+<td>✅ Handles well – flexible enough to model skewed targets without assumptions</td>
+<td>⚠️ Handles better than OLS, but predictions are bounded by ε-margin; tuning required</td>
+<td>⚠️ Affected – highly skewed targets can lead to biased local averages</td>
+</tr>
+<tr>
+<td><strong>Assumes normality of residuals?</strong></td>
+<td>✅ Yes – important for inference and prediction intervals</td>
+<td>✅ Yes – for valid inference and confidence intervals</td>
+<td>✅ Yes – for statistical inference, if needed post-selection</td>
+<td>✅ Yes – standard inference assumptions apply post-selection</td>
+<td>❌ No – non-parametric, no residual distribution assumption</td>
+<td>❌ No – fully non-parametric model</td>
+<td>❌ No – fully non-parametric, no assumptions on residual distribution</td>
+<td>❌ No – non-parametric and does not rely on residual distribution assumptions</td>
+<td>❌ No – non-parametric, no assumptions on residuals or distributions</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>✅ Strong when assumptions hold; good as a baseline</td>
+<td>✅ Often better than linear regression when multicollinearity is present</td>
+<td>✅ Strong when only a subset of features are useful; acts as model + selector</td>
+<td>✅ Flexible – performs well when features are correlated and some sparsity is expected</td>
+<td>⚠️ Can overfit – strong on small to medium data, weaker alone on complex patterns</td>
+<td>✅ Strong – often top-tier performance on structured/tabular data</td>
+<td>✅ Top-tier – often best-in-class for structured/tabular regression problems</td>
+<td>✅ High – strong performance with well-tuned kernel and hyperparameters</td>
+<td>⚠️ Variable – performs well with clean, low-dimensional, dense data; poor elsewhere</td>
+</tr>
+<tr>
+<td><strong>Training speed</strong></td>
+<td>✅ Very fast – efficient even on large datasets</td>
+<td>✅ Fast – nearly as efficient as linear regression</td>
+<td>✅ Fast for small to medium datasets; slower with very high dimensionality</td>
+<td>⚠️ Slower than Ridge/Lasso – due to tuning two hyperparameters (`alpha`, `l1_ratio`)</td>
+<td>✅ Fast – efficient even on large datasets with moderate depth</td>
+<td>⚠️ Slower than single models – but parallelizable and scalable</td>
+<td>⚠️ Slower than simpler models – but optimized and scalable (especially with LightGBM and GPU support)</td>
+<td>❌ Slow – especially with large datasets or non-linear kernels</td>
+<td>✅ Fast training (lazy learner), ❌ Slow inference – computes distances at prediction time</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="linear-regression"></a></p>
 <h3 id="%E2%9A%99%EF%B8%8F-Algorithms---Linear-Regression">⚙️ Algorithms - Linear Regression<a class="anchor-link" href="#%E2%9A%99%EF%B8%8F-Algorithms---Linear-Regression">¶</a></h3>
 </div>
