@@ -8900,53 +8900,56 @@ Name: MedHouseVal, Length: 4128, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<details><summary><strong>📖 Click to Expand - Success Metric </strong></summary>
-<p>Metric to decide which model is "best"</p>
-<ul>
-<li><strong>Common choices (ranked by practical usage):</strong></li>
-<ul>
-<li><strong>"r2"</strong> → R² score (higher is better, reflects model fit)
-      <ul>
-<li><strong>When to use</strong>: Use when you want to understand how well the model explains the variance in the target variable.</li>
-<li><strong>Example</strong>: Predicting house prices where you want to know how well the features explain the price variance.</li>
-</ul>
-</li>
-<pre><code>&lt;li&gt;&lt;strong&gt;"adjusted_r2"&lt;/strong&gt; → Adjusted R² (corrects R² for number of predictors in model)
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;When to use&lt;/strong&gt;: When you have many predictors and want to compare models while accounting for model complexity.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: Real estate pricing models where you have multiple features (square footage, neighborhood, etc.).&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;"mape"&lt;/strong&gt; → Mean Absolute Percentage Error (lower is better, interpretable as % error)
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;When to use&lt;/strong&gt;: When you need a metric that expresses errors as a percentage, useful in business applications.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: Forecasting sales where a 5% error is meaningful for decision-makers.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;"rmse"&lt;/strong&gt; → Root Mean Squared Error (lower is better, penalizes large errors)
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;When to use&lt;/strong&gt;: When large errors are costly and need to be penalized more heavily than small errors.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: Energy consumption forecasting, where large deviations are more problematic than small ones.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;"mse"&lt;/strong&gt; → Mean Squared Error (lower is better, penalizes large errors)
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;When to use&lt;/strong&gt;: Similar to RMSE but less interpretable. Use when you want to focus on reducing all errors.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: Stock price prediction where any large error is undesirable.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;"mae"&lt;/strong&gt; → Mean Absolute Error (lower is better, easier to interpret)
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;When to use&lt;/strong&gt;: When you need an error metric in the same units as the target and want something easy to understand.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: Predicting monthly household spending where the error needs to be understood in the same unit (e.g., dollars).&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/li&gt;</code></pre>
-<p></p></ul>
-</ul>
+<details><summary><strong>📖 Click to Expand - Success Metric</strong></summary>
+<p><strong>Metric to decide which model is "best"</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+<th>When to Use</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>r2</strong></td>
+<td>R² score (higher is better, reflects model fit)</td>
+<td>Understand how well the model explains the variance in the target variable</td>
+<td>Predicting house prices where you want to know how well the features explain the price variance</td>
+</tr>
+<tr>
+<td><strong>adjusted_r2</strong></td>
+<td>Adjusted R² (corrects R² for number of predictors in model)</td>
+<td>Compare models while accounting for model complexity</td>
+<td>Real estate pricing models with multiple features (e.g., square footage, neighborhood)</td>
+</tr>
+<tr>
+<td><strong>mape</strong></td>
+<td>Mean Absolute Percentage Error (lower is better, interpretable as % error)</td>
+<td>When % error is meaningful and easy to communicate</td>
+<td>Forecasting sales where a 5% error matters for decision-making</td>
+</tr>
+<tr>
+<td><strong>rmse</strong></td>
+<td>Root Mean Squared Error (lower is better, penalizes large errors)</td>
+<td>When large errors are especially costly and need stronger penalty</td>
+<td>Energy consumption forecasting where spikes matter more than small fluctuations</td>
+</tr>
+<tr>
+<td><strong>mse</strong></td>
+<td>Mean Squared Error (lower is better, penalizes large errors)</td>
+<td>Focus on reducing all squared errors, though less interpretable</td>
+<td>Stock price prediction where minimizing overall error magnitude is critical</td>
+</tr>
+<tr>
+<td><strong>mae</strong></td>
+<td>Mean Absolute Error (lower is better, interpretable in original units)</td>
+<td>When you want error in same units as target and easy to explain</td>
+<td>Predicting monthly household spending (e.g., error in dollars)</td>
+</tr>
+</tbody>
+</table>
 </details>
 </div>
 </div>
@@ -10432,7 +10435,46 @@ Each feature has a consistent “price tag” — the model tells you how much a
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
+<details><summary><strong>📖 Click to Expand</strong></summary>
+<h5 id="%F0%9F%93%90-What-is-VIF?">📐 What is VIF?<a class="anchor-link" href="#%F0%9F%93%90-What-is-VIF?">¶</a></h5><ul>
+<li><strong>Variance Inflation Factor (VIF)</strong> quantifies how much the <strong>variance of a regression coefficient</strong> is inflated due to <strong>multicollinearity</strong> among the independent variables.</li>
+<li>It helps detect <strong>redundant features</strong> in a linear regression model.</li>
+</ul>
+<h5 id="%F0%9F%A7%AE-Mathematical-Formula">🧮 Mathematical Formula<a class="anchor-link" href="#%F0%9F%A7%AE-Mathematical-Formula">¶</a></h5><p>For a given feature ( X_j ):</p>
+<p>[
+\text{VIF}(X_j) = \frac{1}{1 - R_j^2}
+]</p>
+<p>Where:</p>
+<ul>
+<li>( R_j^2 ) is the coefficient of determination obtained by regressing ( X_j ) on all the other predictors.</li>
+</ul>
+<h5 id="%F0%9F%94%8D-Interpretation">🔍 Interpretation<a class="anchor-link" href="#%F0%9F%94%8D-Interpretation">¶</a></h5><table>
+<thead>
+<tr>
+<th>VIF Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>No multicollinearity</td>
+</tr>
+<tr>
+<td>1 – 5</td>
+<td>Moderate multicollinearity (usually fine)</td>
+</tr>
+<tr>
+<td>&gt; 5</td>
+<td>Concerning – consider dropping or combining features</td>
+</tr>
+<tr>
+<td>&gt; 10</td>
+<td>Problematic – strong multicollinearity</td>
+</tr>
+</tbody>
+</table>
+</details></div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
