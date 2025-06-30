@@ -47,10 +47,18 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
         <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/06_Class_Imbalance.html">Class Imbalance</a>
       </td>
     </tr>    
-  </tbody>
+    <tr>
+      <td><strong>ML Ops</strong></td>
+      <td>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/01_Basics.html">Basics</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/02_Model_Packaging.html">Model Packaging</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/03_Pipeline_Automation.html">Pipeline Automation</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Deployment.html">Deployment</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/05_Monitoring_and_CI.html">Monitoring & CI</a>
+      </td>
+    </tr>      
+</tbody>
 </table>
-
-
 <!-- <h2>🛠️ Design Principles</h2>
 <ul>
   <li><strong>Minimal magic</strong>: Code-first approach with visible logic</li>
