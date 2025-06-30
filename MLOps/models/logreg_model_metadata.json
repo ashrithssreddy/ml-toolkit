@@ -1,0 +1,12 @@
+{
+  "model_version": "v1.0",
+  "git_commit": "a1b2c3d",
+  "trained_on": "2025-06-29",
+  "features": [
+    "sepal_length",
+    "sepal_width",
+    "petal_length",
+    "petal_width"
+  ],
+  "accuracy": 0.96
+}
