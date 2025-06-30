@@ -1,0 +1,10 @@
+artifact_location: file:///Users/ashrithreddy/MEGA/zz_github/ml-toolkit/MLOps/mlruns/0/models/m-6339d8bc6ff341b3b01572c7706a7135/artifacts
+creation_timestamp: 1751315117695
+experiment_id: '0'
+last_updated_timestamp: 1751315119595
+model_id: m-6339d8bc6ff341b3b01572c7706a7135
+model_type: null
+name: model
+source_run_id: abeb36f51faf47d991ea865eed0dd217
+status: 2
+status_message: null
