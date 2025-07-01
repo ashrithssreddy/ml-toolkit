@@ -7539,7 +7539,14 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="goal"></a></p>
-<h1 id="%F0%9F%8E%AF-Goal-of-This-Notebook">🎯 Goal of This Notebook<a class="anchor-link" href="#%F0%9F%8E%AF-Goal-of-This-Notebook">¶</a></h1>
+<h1 id="%F0%9F%8E%AF-Goal-of-This-Notebook">🎯 Goal of This Notebook<a class="anchor-link" href="#%F0%9F%8E%AF-Goal-of-This-Notebook">¶</a></h1><p>This notebook covers the final phase of the MLOps cycle: <strong>post-deployment monitoring and continuous integration (CI)</strong>. Our focus is on:</p>
+<ul>
+<li>Capturing real-world <strong>model behavior in production</strong></li>
+<li>Setting up <strong>automated tests</strong> and <strong>alerts</strong></li>
+<li>Addressing <strong>model degradation</strong> due to data or concept drift</li>
+<li>Enabling <strong>rollback, hotfixes, and safe deployments</strong></li>
+</ul>
+<p>These practices ensure your deployed models remain <strong>trustworthy, maintainable, and auditable</strong> over time.</p>
 </div>
 </div>
 </div>
@@ -7579,6 +7586,30 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2cc4d5dc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To monitor live behavior, log the <strong>inputs</strong> received and the <strong>predictions</strong> returned by your model.</p>
+<p>Logging should include:</p>
+<ul>
+<li>Timestamp of request</li>
+<li>Input features</li>
+<li>Model version used</li>
+<li>Prediction output</li>
+</ul>
+<p>These logs can be pushed to:</p>
+<ul>
+<li>Cloud-native logging services (e.g., GCP Cloud Logging, AWS CloudWatch, Azure Monitor)</li>
+<li>File-based or database storage for post-hoc analysis</li>
+</ul>
+<p>Avoid logging personally identifiable information (PII).</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d570e182">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7586,6 +7617,31 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%A7%BE-Store-Metadata-for-Each-Call">🧾 Store Metadata for Each Call<a class="anchor-link" href="#%F0%9F%A7%BE-Store-Metadata-for-Each-Call">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eee4ef96">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In addition to prediction outputs, capture contextual metadata for each inference:</p>
+<ul>
+<li>Request ID or session ID</li>
+<li>User ID (if applicable)</li>
+<li>Inference latency</li>
+<li>Model version</li>
+<li>Upstream/downstream service info</li>
+</ul>
+<p>Metadata is essential for:</p>
+<ul>
+<li>Debugging failed predictions</li>
+<li>Monitoring system health</li>
+<li>Investigating performance regressions</li>
+</ul>
+<p>Cloud-friendly formats: JSON logs, structured logging, or schema-enforced event pipelines.</p>
 </div>
 </div>
 </div>
@@ -7620,7 +7676,19 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="%F0%9F%93%89-Data-Drift-Detection-(e.g.,-PSI,-KS-tests)">📉 Data Drift Detection (e.g., PSI, KS tests)<a class="anchor-link" href="#%F0%9F%93%89-Data-Drift-Detection-(e.g.,-PSI,-KS-tests)">¶</a></h4>
+<h4 id="%F0%9F%93%89-Data-Drift-Detection-(e.g.,-PSI,-KS-tests)">📉 Data Drift Detection (e.g., PSI, KS tests)<a class="anchor-link" href="#%F0%9F%93%89-Data-Drift-Detection-(e.g.,-PSI,-KS-tests)">¶</a></h4><p><strong>Data drift</strong> occurs when the distribution of incoming features diverges from the training data.</p>
+<p>Common drift detection techniques:</p>
+<ul>
+<li><strong>PSI (Population Stability Index)</strong> for continuous variables</li>
+<li><strong>KS test (Kolmogorov–Smirnov)</strong> to compare distributions</li>
+<li><strong>Jensen–Shannon Divergence</strong>, <strong>Hellinger Distance</strong>, etc.</li>
+</ul>
+<p>Where to use:</p>
+<ul>
+<li>Periodic batch jobs (e.g., daily PSI computation)</li>
+<li>Real-time windowed monitoring (e.g., 24-hour input window vs. training baseline)</li>
+</ul>
+<p>Cloud tools: AWS SageMaker Model Monitor, GCP Vertex AI Model Monitoring, Azure Data Drift Monitor</p>
 </div>
 </div>
 </div>
@@ -7631,7 +7699,19 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="%F0%9F%A7%A0-Concept-Drift:-Label-Distribution-Shifts">🧠 Concept Drift: Label Distribution Shifts<a class="anchor-link" href="#%F0%9F%A7%A0-Concept-Drift:-Label-Distribution-Shifts">¶</a></h4>
+<h4 id="%F0%9F%A7%A0-Concept-Drift:-Label-Distribution-Shifts">🧠 Concept Drift: Label Distribution Shifts<a class="anchor-link" href="#%F0%9F%A7%A0-Concept-Drift:-Label-Distribution-Shifts">¶</a></h4><p><strong>Concept drift</strong> refers to changes in the relationship between inputs and labels over time.</p>
+<p>Symptoms include:</p>
+<ul>
+<li>Stable input distributions, but prediction accuracy drops</li>
+<li>Change in target label distributions (e.g., fraud patterns shift)</li>
+</ul>
+<p>Detection methods:</p>
+<ul>
+<li>Performance degradation alerts (if labels available)</li>
+<li>Monitoring class balance over time</li>
+<li>Manual reviews or business feedback loops</li>
+</ul>
+<p>Harder to detect than data drift, especially in delayed-feedback or label-scarce environments.</p>
 </div>
 </div>
 </div>
@@ -7655,7 +7735,15 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="model-health"></a></p>
-<h1 id="%F0%9F%A7%AA-Model-Health-Signals">🧪 Model Health Signals<a class="anchor-link" href="#%F0%9F%A7%AA-Model-Health-Signals">¶</a></h1>
+<h1 id="%F0%9F%A7%AA-Model-Health-Signals">🧪 Model Health Signals<a class="anchor-link" href="#%F0%9F%A7%AA-Model-Health-Signals">¶</a></h1><p>This section outlines key indicators to monitor your model’s performance in production.</p>
+<p>Unlike offline metrics, production health signals help identify real-time issues such as:</p>
+<ul>
+<li>Unusual prediction patterns</li>
+<li>Degrading confidence</li>
+<li>Invalid input rates</li>
+<li>Post-deployment accuracy decay</li>
+</ul>
+<p>These indicators help trigger alerts, re-training, or rollback workflows.</p>
 </div>
 </div>
 </div>
@@ -7671,6 +7759,28 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d99cd9d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Track the model’s prediction confidence over time to detect:</p>
+<ul>
+<li><strong>Overconfident wrong predictions</strong></li>
+<li><strong>Increased uncertainty</strong>, which might signal drift or unfamiliar inputs</li>
+</ul>
+<p>Common metrics:</p>
+<ul>
+<li>Mean confidence per class</li>
+<li>Distribution of prediction probabilities</li>
+<li>Entropy of output distribution</li>
+</ul>
+<p>Helpful for early warning systems in classification tasks.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a48e124f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7682,6 +7792,24 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5afc418c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Monitor the percentage of requests that fail due to:</p>
+<ul>
+<li>Malformed or missing input fields</li>
+<li>Schema mismatches</li>
+<li>Data type errors</li>
+<li>Preprocessing failures</li>
+</ul>
+<p>Helps detect upstream pipeline issues or external API shifts.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f7ab9fd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7689,6 +7817,24 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%93%89-Accuracy-Decay-Over-Time">📉 Accuracy Decay Over Time<a class="anchor-link" href="#%F0%9F%93%89-Accuracy-Decay-Over-Time">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10f64911">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Compare the model’s <strong>actual performance</strong> (if ground truth is available) over time.</p>
+<p>Key metrics:</p>
+<ul>
+<li>Accuracy, AUC, precision/recall trends</li>
+<li>Deviation from expected performance bounds</li>
+<li>Error rate spikes after code or data changes</li>
+</ul>
+<p>Requires a <strong>feedback loop</strong> where true labels arrive with some delay.</p>
 </div>
 </div>
 </div>
@@ -7728,13 +7874,64 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29b67b73">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In production environments, raw logs from your ML service can be aggregated and queried using:</p>
+<ul>
+<li><strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana): Powerful for full-text log search and dashboarding.</li>
+<li><strong>Prometheus + Grafana</strong>: Time-series monitoring, often used with Kubernetes. Tracks metrics like latency, error rate, request volume.</li>
+<li><strong>Fluentd + CloudWatch</strong>: Common in AWS stacks for unified logging.</li>
+</ul>
+<p>These tools help centralize logs from multiple containers/services into a single searchable interface.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ba0f275">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="%F0%9F%93%AC-Trigger-Threshold-Based-Alerts">📬 Trigger Threshold-Based Alerts<a class="anchor-link" href="#%F0%9F%93%AC-Trigger-Threshold-Based-Alerts">¶</a></h4><p><a href="#table-of-contents">Back to the top</a></p>
+<h4 id="%F0%9F%93%AC-Trigger-Threshold-Based-Alerts">📬 Trigger Threshold-Based Alerts<a class="anchor-link" href="#%F0%9F%93%AC-Trigger-Threshold-Based-Alerts">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e836ba9a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Alerts notify teams when monitored signals breach thresholds. Example cases:</p>
+<ul>
+<li>Drop in prediction confidence below a set limit</li>
+<li>Spike in input errors</li>
+<li>Sustained accuracy drop from post-deployment validation</li>
+</ul>
+<p>Popular tools:</p>
+<ul>
+<li><strong>PagerDuty</strong> or <strong>Opsgenie</strong> for alert delivery</li>
+<li><strong>Grafana alerting</strong> for visual thresholds</li>
+<li>Cloud-native alerts: <strong>CloudWatch Alarms (AWS)</strong>, <strong>Google Cloud Monitoring</strong></li>
+</ul>
+<p>Good practice: start with low-noise alerts and tune thresholds iteratively.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2112d720">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="#table-of-contents">Back to the top</a></p>
 <hr/>
 </div>
 </div>
@@ -7763,6 +7960,23 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fa54d0f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>CI (Continuous Integration) ensures that every code commit triggers a test suite, reducing regressions.</p>
+<ul>
+<li>Use tools like <strong>GitHub Actions</strong>, <strong>GitLab CI</strong>, or <strong>CircleCI</strong> to automate test execution.</li>
+<li>Include unit tests for preprocessing, model logic, and utility functions.</li>
+<li>Example trigger: <code>on: [push, pull_request]</code> in a <code>.github/workflows/ci.yml</code>.</li>
+</ul>
+<p>This protects against breaking the training/inference flow inadvertently.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fd3f172">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7770,6 +7984,24 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%93%A6-Build-+-Lint-+-Validate-Artifacts">📦 Build + Lint + Validate Artifacts<a class="anchor-link" href="#%F0%9F%93%A6-Build-+-Lint-+-Validate-Artifacts">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0866185e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Along with tests, your CI should also:</p>
+<ul>
+<li><strong>Build model packaging scripts</strong> or Docker images</li>
+<li><strong>Run linters</strong> like <code>flake8</code>, <code>black</code>, or <code>pylint</code> for clean code</li>
+<li><strong>Validate metadata</strong>: schema, versioning, file paths</li>
+<li><strong>Check serialized model integrity</strong> (e.g., load with <code>joblib</code>)</li>
+</ul>
+<p>These steps ensure consistent, production-ready deliverables from every push.</p>
 </div>
 </div>
 </div>
@@ -7798,6 +8030,26 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6bffc917">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>GitHub Actions is a popular CI/CD tool natively integrated into GitHub.</p>
+<p>It allows you to automate steps like testing, linting, and deployment by writing simple YAML files inside <code>.github/workflows/</code>.</p>
+<p>For ML projects, common use cases include:</p>
+<ul>
+<li>Running unit tests when code is pushed</li>
+<li>Validating model artifact integrity</li>
+<li>Notifying Slack/email if tests fail</li>
+<li>Automating Docker image builds or cloud deployments</li>
+</ul>
+<p>You can trigger actions on events like <code>push</code>, <code>pull_request</code>, or <code>schedule</code> (for cron jobs).</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d257ec5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7809,6 +8061,26 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33ba788a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To automate tests and packaging, add a <code>.github/workflows/ci.yml</code> file.</p>
+<p>Key sections:</p>
+<ul>
+<li><code>name</code>: Name of the workflow</li>
+<li><code>on</code>: Trigger events like <code>push</code> or <code>pull_request</code></li>
+<li><code>jobs</code>: Define one or more jobs (e.g., testing, linting)</li>
+<li><code>runs-on</code>: OS environment (e.g., <code>ubuntu-latest</code>)</li>
+<li><code>steps</code>: Checkout code, set up Python, install deps, run commands</li>
+</ul>
+<p>This sets the foundation for reproducible CI.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89f5f00f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7816,6 +8088,26 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%A7%AA-Testing-&amp;-Notification-Workflow">🧪 Testing &amp; Notification Workflow<a class="anchor-link" href="#%F0%9F%A7%AA-Testing-&amp;-Notification-Workflow">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6d3930a2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>A complete workflow includes:</p>
+<ul>
+<li><strong>Checkout</strong> code using <code>actions/checkout</code></li>
+<li><strong>Set up Python</strong> with <code>actions/setup-python</code></li>
+<li><strong>Install dependencies</strong> (<code>pip install -r requirements.txt</code>)</li>
+<li><strong>Run unit tests</strong> with <code>pytest</code></li>
+<li><strong>Lint code</strong> with <code>flake8</code>, <code>black</code>, or <code>pylint</code></li>
+<li><strong>Optional:</strong> Send notifications via Slack or email on failure</li>
+</ul>
+<p>This ensures high confidence in every commit to the repo.</p>
 </div>
 </div>
 </div>
@@ -7855,6 +8147,24 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8158758c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Despite best efforts, model failures can occur due to:</p>
+<ul>
+<li>Data drift or concept drift</li>
+<li>Upstream pipeline changes</li>
+<li>Hidden bugs in code</li>
+<li>Latency spikes or unexpected inputs</li>
+</ul>
+<p>It's crucial to detect failures early and have a defined rollback protocol.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7edaeeb3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7862,6 +8172,24 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%94%81-Safe-Fallback-+-Version-Control">🔁 Safe Fallback + Version Control<a class="anchor-link" href="#%F0%9F%94%81-Safe-Fallback-+-Version-Control">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6ff261b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Strategies to reduce blast radius:</p>
+<ul>
+<li><strong>Always keep a known-good model version</strong> registered (e.g., “Production” stage in MLflow)</li>
+<li><strong>Version all model artifacts</strong> and configs in a registry or Git</li>
+<li>Implement a <strong>fallback rule</strong> (e.g., revert to previous model if accuracy drops below threshold)</li>
+<li>Rollback should be <strong>automated via CI/CD</strong>, not manual</li>
+</ul>
+<p>Versioning + automation = safer hotfixes.</p>
 </div>
 </div>
 </div>
