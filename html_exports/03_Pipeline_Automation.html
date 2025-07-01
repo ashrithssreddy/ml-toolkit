@@ -14580,7 +14580,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><img src="https://img.shields.io/badge/status-pending%20migration-orange" alt="Status: Pending Migration"></p>
+<p><img src="https://img.shields.io/badge/status-complete-brightgreen" alt="Status: Complete">
+<img src="https://img.shields.io/badge/python-3.10-blue" alt="Python">
+<img src="https://img.shields.io/badge/coverage-85%25-green" alt="Coverage">
+<img src="https://img.shields.io/badge/license-MIT-green" alt="License"></p>
 <p><a id="table-of-contents"></a></p>
 <h1 id="%F0%9F%93%96--Pipeline-Automation">&#128214;  Pipeline Automation<a class="anchor-link" href="#%F0%9F%93%96--Pipeline-Automation">&#182;</a></h1><p><a href="#goal">🎯 Goal of This Notebook</a><br>
 <a href="#sklearn-pipelines">🔁 Sklearn Pipelines</a><br>
@@ -14895,111 +14898,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>mlflow
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: mlflow in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (3.1.1)
-Requirement already satisfied: mlflow-skinny==3.1.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (3.1.1)
-Requirement already satisfied: Flask&lt;4 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (2.2.2)
-Requirement already satisfied: alembic!=1.10.0,&lt;2 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (1.16.2)
-Requirement already satisfied: docker&lt;8,&gt;=4.0.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (7.1.0)
-Requirement already satisfied: graphene&lt;4 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (3.4.3)
-Requirement already satisfied: gunicorn&lt;24 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (23.0.0)
-Requirement already satisfied: matplotlib&lt;4 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (3.7.1)
-Requirement already satisfied: numpy&lt;3 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (1.26.4)
-Requirement already satisfied: pandas&lt;3 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (1.5.3)
-Requirement already satisfied: pyarrow&lt;21,&gt;=4.0.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (11.0.0)
-Requirement already satisfied: scikit-learn&lt;2 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (1.2.2)
-Requirement already satisfied: scipy&lt;2 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (1.10.1)
-Requirement already satisfied: sqlalchemy&lt;3,&gt;=1.4.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow) (1.4.39)
-Requirement already satisfied: cachetools&lt;7,&gt;=5.0.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (5.5.2)
-Requirement already satisfied: click&lt;9,&gt;=7.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (8.0.4)
-Requirement already satisfied: cloudpickle&lt;4 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (2.2.1)
-Requirement already satisfied: databricks-sdk&lt;1,&gt;=0.20.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (0.57.0)
-Requirement already satisfied: fastapi&lt;1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (0.115.14)
-Requirement already satisfied: gitpython&lt;4,&gt;=3.1.9 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (3.1.44)
-Requirement already satisfied: importlib_metadata!=4.7.0,&lt;9,&gt;=3.7.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (6.0.0)
-Requirement already satisfied: opentelemetry-api&lt;3,&gt;=1.9.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (1.34.1)
-Requirement already satisfied: opentelemetry-sdk&lt;3,&gt;=1.9.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (1.34.1)
-Requirement already satisfied: packaging&lt;26 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (23.0)
-Requirement already satisfied: protobuf&lt;7,&gt;=3.12.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (4.25.3)
-Requirement already satisfied: pydantic&lt;3,&gt;=1.10.8 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (2.6.0)
-Requirement already satisfied: pyyaml&lt;7,&gt;=5.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (6.0)
-Requirement already satisfied: requests&lt;3,&gt;=2.17.3 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (2.29.0)
-Requirement already satisfied: sqlparse&lt;1,&gt;=0.4.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (0.5.3)
-Requirement already satisfied: typing-extensions&lt;5,&gt;=4.0.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (4.14.0)
-Requirement already satisfied: uvicorn&lt;1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from mlflow-skinny==3.1.1-&gt;mlflow) (0.35.0)
-Requirement already satisfied: Mako in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from alembic!=1.10.0,&lt;2-&gt;mlflow) (1.3.10)
-Requirement already satisfied: urllib3&gt;=1.26.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from docker&lt;8,&gt;=4.0.0-&gt;mlflow) (1.26.16)
-Requirement already satisfied: Werkzeug&gt;=2.2.2 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from Flask&lt;4-&gt;mlflow) (2.2.3)
-Requirement already satisfied: Jinja2&gt;=3.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from Flask&lt;4-&gt;mlflow) (3.1.2)
-Requirement already satisfied: itsdangerous&gt;=2.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from Flask&lt;4-&gt;mlflow) (2.0.1)
-Requirement already satisfied: graphql-core&lt;3.3,&gt;=3.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from graphene&lt;4-&gt;mlflow) (3.2.6)
-Requirement already satisfied: graphql-relay&lt;3.3,&gt;=3.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from graphene&lt;4-&gt;mlflow) (3.2.0)
-Requirement already satisfied: python-dateutil&lt;3,&gt;=2.7.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from graphene&lt;4-&gt;mlflow) (2.8.2)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from matplotlib&lt;4-&gt;mlflow) (1.0.5)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from matplotlib&lt;4-&gt;mlflow) (0.11.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from matplotlib&lt;4-&gt;mlflow) (4.25.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from matplotlib&lt;4-&gt;mlflow) (1.4.4)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from matplotlib&lt;4-&gt;mlflow) (9.4.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from matplotlib&lt;4-&gt;mlflow) (3.2.3)
-Requirement already satisfied: pytz&gt;=2020.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from pandas&lt;3-&gt;mlflow) (2022.7)
-Requirement already satisfied: joblib&gt;=1.1.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from scikit-learn&lt;2-&gt;mlflow) (1.2.0)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from scikit-learn&lt;2-&gt;mlflow) (3.6.0)
-Requirement already satisfied: google-auth~=2.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (2.40.3)
-Requirement already satisfied: starlette&lt;0.47.0,&gt;=0.40.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from fastapi&lt;1-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (0.46.2)
-Requirement already satisfied: gitdb&lt;5,&gt;=4.0.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from gitpython&lt;4,&gt;=3.1.9-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (4.0.12)
-Requirement already satisfied: zipp&gt;=0.5 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from importlib_metadata!=4.7.0,&lt;9,&gt;=3.7.0-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (3.11.0)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from Jinja2&gt;=3.0-&gt;Flask&lt;4-&gt;mlflow) (2.1.1)
-Requirement already satisfied: opentelemetry-semantic-conventions==0.55b1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from opentelemetry-sdk&lt;3,&gt;=1.9.0-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (0.55b1)
-Requirement already satisfied: annotated-types&gt;=0.4.0 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from pydantic&lt;3,&gt;=1.10.8-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (0.6.0)
-Requirement already satisfied: pydantic-core==2.16.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from pydantic&lt;3,&gt;=1.10.8-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (2.16.1)
-Requirement already satisfied: six&gt;=1.5 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from python-dateutil&lt;3,&gt;=2.7.0-&gt;graphene&lt;4-&gt;mlflow) (1.16.0)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from requests&lt;3,&gt;=2.17.3-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from requests&lt;3,&gt;=2.17.3-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (3.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from requests&lt;3,&gt;=2.17.3-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (2025.1.31)
-Requirement already satisfied: h11&gt;=0.8 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from uvicorn&lt;1-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (0.14.0)
-Requirement already satisfied: smmap&lt;6,&gt;=3.0.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from gitdb&lt;5,&gt;=4.0.1-&gt;gitpython&lt;4,&gt;=3.1.9-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (5.0.2)
-Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from google-auth~=2.0-&gt;databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (0.2.8)
-Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from google-auth~=2.0-&gt;databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (4.9.1)
-Requirement already satisfied: anyio&lt;5,&gt;=3.6.2 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from starlette&lt;0.47.0,&gt;=0.40.0-&gt;fastapi&lt;1-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (4.9.0)
-Requirement already satisfied: sniffio&gt;=1.1 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from anyio&lt;5,&gt;=3.6.2-&gt;starlette&lt;0.47.0,&gt;=0.40.0-&gt;fastapi&lt;1-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (1.3.0)
-Requirement already satisfied: pyasn1&lt;0.5.0,&gt;=0.4.6 in /Users/ashrithreddy/anaconda3/lib/python3.11/site-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth~=2.0-&gt;databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==3.1.1-&gt;mlflow) (0.4.8)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
