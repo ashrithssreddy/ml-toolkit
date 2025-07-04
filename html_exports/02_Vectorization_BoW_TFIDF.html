@@ -7546,6 +7546,40 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57c450d8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<h5 id="%F0%9F%93%84-Introduction">📄 Introduction<a class="anchor-link" href="#%F0%9F%93%84-Introduction">¶</a></h5><p>In Natural Language Processing (NLP), machines must convert raw text into a format they can understand — numbers. This process is called <strong>vectorization</strong>, where we represent words, phrases, or documents as numerical vectors.</p>
+<p>This notebook explores two foundational vectorization techniques:</p>
+<ol>
+<li><strong>Bag of Words (BoW)</strong> – represents text using raw word counts.</li>
+<li><strong>TF-IDF (Term Frequency–Inverse Document Frequency)</strong> – adjusts raw counts by penalizing common words and rewarding unique ones.</li>
+</ol>
+<p>These techniques are:</p>
+<ul>
+<li>Simple yet powerful</li>
+<li>Widely used in baseline models</li>
+<li>Often used as inputs to traditional ML algorithms like Logistic Regression or Naive Bayes</li>
+</ul>
+<p>We’ll cover:</p>
+<ul>
+<li>How these methods work internally</li>
+<li>How to implement them with <code>sklearn</code></li>
+<li>Practical considerations like vocabulary pruning, stopwords, and n-gram handling</li>
+</ul>
+<blockquote>
+<p>This is your first step from “text” to “features” in any NLP pipeline.</p>
+</blockquote>
+</details>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0711538d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7581,6 +7615,137 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f069edc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>The <strong>CountVectorizer</strong> in <code>sklearn</code> transforms a corpus into a document-term matrix using raw word counts.</p>
+<ul>
+<li>Each row = a document</li>
+<li>Each column = a unique token</li>
+<li>Each cell = how often the token appears in that document</li>
+</ul>
+<p>No weighting, no normalization — just raw frequency counts.</p>
+<p>Common parameters:</p>
+<ul>
+<li><code>stop_words='english'</code>: removes common English stopwords</li>
+<li><code>max_features=1000</code>: restricts vocabulary to top 1,000 terms by frequency</li>
+<li><code>min_df=2</code>: ignores words that appear in only 1 doc</li>
+<li><code>ngram_range=(1,2)</code>: includes unigrams and bigrams</li>
+</ul>
+<p>This forms the backbone of the <strong>BoW model</strong>, which is simple, interpretable, and fast — ideal for quick baselines.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=80cf681e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Sample corpus</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"The cat sat on the mat."</span><span class="p">,</span>
+    <span class="s2">"The dog chased the cat."</span><span class="p">,</span>
+    <span class="s2">"The cat climbed the tree."</span>
+<span class="p">]</span>
+
+<span class="c1"># Initialize CountVectorizer</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+
+<span class="c1"># Fit-transform</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="c1"># View as DataFrame</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>chased</th>
+<th>climbed</th>
+<th>dog</th>
+<th>mat</th>
+<th>sat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=456fa54c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7588,6 +7753,137 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%94%A2-N-grams">🔢 N-grams<a class="anchor-link" href="#%F0%9F%94%A2-N-grams">¶</a></h4><p><a id="ngrams"></a></p>
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p><strong>N-grams</strong> are contiguous sequences of <em>n</em> items (usually words) from text.<br/>
+Instead of representing only individual words (<em>unigrams</em>), we can also capture <em>bigrams</em>, <em>trigrams</em>, etc.</p>
+<p>Why use them?</p>
+<ul>
+<li>Capture word context: <code>"New York"</code> ≠ <code>"New"</code> + <code>"York"</code></li>
+<li>Improve model accuracy, especially for short texts</li>
+</ul>
+<p>Tradeoffs:</p>
+<ul>
+<li>Increase dimensionality exponentially</li>
+<li>Need to manage sparsity and overfitting</li>
+</ul>
+<p>Use <code>ngram_range=(1,2)</code> to include unigrams and bigrams.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6cfe6c1f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bigrams + unigrams</span>
+<span class="n">vectorizer_ngram</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+<span class="n">X_ngram</span> <span class="o">=</span> <span class="n">vectorizer_ngram</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="c1"># View result</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_ngram</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer_ngram</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>cat climbed</th>
+<th>cat sat</th>
+<th>chased</th>
+<th>chased cat</th>
+<th>climbed</th>
+<th>climbed tree</th>
+<th>dog</th>
+<th>dog chased</th>
+<th>mat</th>
+<th>sat</th>
+<th>sat mat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7599,6 +7895,117 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%94%A0-Vocabulary-Size-&amp;-Pruning">🔠 Vocabulary Size &amp; Pruning<a class="anchor-link" href="#%F0%9F%94%A0-Vocabulary-Size-&amp;-Pruning">¶</a></h4><p><a id="vocab-pruning"></a></p>
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>Real-world corpora often contain:</p>
+<ul>
+<li><strong>Rare words</strong> (typos, unique names)</li>
+<li><strong>Overly common words</strong> (generic fillers)</li>
+</ul>
+<p>To manage these:</p>
+<ul>
+<li><code>min_df=2</code>: removes words that appear in fewer than 2 documents</li>
+<li><code>max_df=0.9</code>: removes words that appear in more than 90% of documents</li>
+<li><code>max_features=1000</code>: keeps only the top 1,000 frequent terms</li>
+</ul>
+<p>This reduces noise, speeds up training, and improves generalization.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9040678d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Loosen pruning thresholds for toy data</span>
+<span class="n">vectorizer_pruned</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+    <span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">,</span>
+    <span class="n">min_df</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>       <span class="c1"># allow terms in at least 1 doc</span>
+    <span class="n">max_df</span><span class="o">=</span><span class="mf">1.0</span>      <span class="c1"># allow all terms</span>
+<span class="p">)</span>
+
+<span class="n">X_pruned</span> <span class="o">=</span> <span class="n">vectorizer_pruned</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="c1"># View result</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_pruned</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer_pruned</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>chased</th>
+<th>climbed</th>
+<th>dog</th>
+<th>mat</th>
+<th>sat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7634,6 +8041,22 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%93%9A-What-is-TF-IDF?">📚 What is TF-IDF?<a class="anchor-link" href="#%F0%9F%93%9A-What-is-TF-IDF?">¶</a></h4><p><a id="tfidf-concept"></a></p>
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<h5 id=""><a class="anchor-link" href="#">¶</a></h5><p><strong>TF-IDF</strong> stands for <strong>Term Frequency–Inverse Document Frequency</strong>. It improves upon raw word counts by down-weighting frequent terms and up-weighting rare but informative ones.</p>
+<p>Formula:</p>
+<ul>
+<li><strong>TF(t, d)</strong>: frequency of term <em>t</em> in document <em>d</em></li>
+<li><strong>IDF(t)</strong>: inverse document frequency = <code>log(N / df_t)</code><br/>
+where <code>N = total docs</code>, <code>df_t = #docs containing term t</code></li>
+</ul>
+<p>Final score: $ \text{TF-IDF}(t, d) = \text{TF}(t, d) \times \text{IDF}(t) $</p>
+<p>Why use it?</p>
+<ul>
+<li>Common words like "the", "is" appear everywhere → low IDF → lower weight</li>
+<li>Rare but specific words get boosted → better features for classification</li>
+</ul>
+</details>
 </div>
 </div>
 </div>
@@ -7644,7 +8067,125 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="%F0%9F%94%A7-TfidfVectorizer-Implementation">🔧 TfidfVectorizer Implementation<a class="anchor-link" href="#%F0%9F%94%A7-TfidfVectorizer-Implementation">¶</a></h4><p><a id="tfidfvectorizer"></a></p>
+<h4 id="%F0%9F%94%A7-Tfidf-Vectorizer-Implementation">🔧 Tfidf Vectorizer Implementation<a class="anchor-link" href="#%F0%9F%94%A7-Tfidf-Vectorizer-Implementation">¶</a></h4><p><a id="tfidfvectorizer"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5cf3572e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p><code>TfidfVectorizer</code> in <code>sklearn</code> combines:</p>
+<ol>
+<li><strong>Tokenization</strong> and <strong>preprocessing</strong> (like CountVectorizer)</li>
+<li><strong>TF-IDF weight calculation</strong></li>
+</ol>
+<p>By default:</p>
+<ul>
+<li><code>use_idf=True</code>: enable IDF scaling</li>
+<li><code>smooth_idf=True</code>: adds 1 to <code>df</code> to prevent divide-by-zero</li>
+<li><code>sublinear_tf=False</code>: raw count used instead of log-scaling</li>
+</ul>
+<p>It’s the most common feature generator for classic ML pipelines in NLP.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=572e1c66">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="c1"># TF-IDF with defaults</span>
+<span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="c1"># View as DataFrame</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_tfidf</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>chased</th>
+<th>climbed</th>
+<th>dog</th>
+<th>mat</th>
+<th>sat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0.385372</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.652491</td>
+<td>0.652491</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>1</th>
+<td>0.385372</td>
+<td>0.652491</td>
+<td>0.000000</td>
+<td>0.652491</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>2</th>
+<td>0.385372</td>
+<td>0.000000</td>
+<td>0.652491</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.652491</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7656,6 +8197,120 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%8E%9B%EF%B8%8F-Adjusting-TF/IDF-Weights">🎛️ Adjusting TF/IDF Weights<a class="anchor-link" href="#%F0%9F%8E%9B%EF%B8%8F-Adjusting-TF/IDF-Weights">¶</a></h4><p><a id="tfidf-weights"></a></p>
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>You can customize how TF and IDF are calculated in <code>TfidfVectorizer</code>:</p>
+<ul>
+<li><code>sublinear_tf=True</code>: apply log(1 + tf) scaling</li>
+<li><code>smooth_idf=False</code>: disables IDF smoothing</li>
+<li><code>norm=None</code>: disables vector normalization</li>
+<li><code>max_df</code>, <code>min_df</code>: prune common or rare terms</li>
+<li><code>ngram_range</code>: apply TF-IDF over bigrams/trigrams</li>
+</ul>
+<p>These adjustments can drastically change model performance.</p>
+<blockquote>
+<p>For sparse or noisy datasets, tuning <code>min_df</code>, <code>max_df</code>, and <code>sublinear_tf</code> is often crucial.</p>
+</blockquote>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=856f21b9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Custom TF-IDF settings</span>
+<span class="n">tfidf_custom</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span>
+    <span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">,</span>
+    <span class="n">sublinear_tf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">smooth_idf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">min_df</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">max_df</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="p">)</span>
+
+<span class="n">X_tfidf_custom</span> <span class="o">=</span> <span class="n">tfidf_custom</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="c1"># View results</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_tfidf_custom</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">tfidf_custom</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>chased</th>
+<th>climbed</th>
+<th>dog</th>
+<th>mat</th>
+<th>sat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1.0</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2.098612</td>
+<td>2.098612</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1.0</td>
+<td>2.098612</td>
+<td>0.000000</td>
+<td>2.098612</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1.0</td>
+<td>0.000000</td>
+<td>2.098612</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2.098612</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7691,6 +8346,112 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%94%A4-Lowercasing,-Strip-Accents,-Token-Patterns">🔤 Lowercasing, Strip Accents, Token Patterns<a class="anchor-link" href="#%F0%9F%94%A4-Lowercasing,-Strip-Accents,-Token-Patterns">¶</a></h4><p><a id="preprocessing-options"></a></p>
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>Both <code>CountVectorizer</code> and <code>TfidfVectorizer</code> offer options to control how raw text is preprocessed before vectorization.</p>
+<p>Key arguments:</p>
+<ul>
+<li><code>lowercase=True</code>: convert all text to lowercase (default)</li>
+<li><code>strip_accents='unicode'</code>: remove accents like "é" → "e"</li>
+<li><code>token_pattern=r'\b\w\w+\b'</code>: regex pattern to match tokens (e.g., words with 2+ chars)</li>
+</ul>
+<p>These help normalize text and reduce vocabulary noise.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e0332494">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">vectorizer_clean</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+    <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">strip_accents</span><span class="o">=</span><span class="s1">'unicode'</span><span class="p">,</span>
+    <span class="n">token_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s1">'\b\w\w+\b'</span><span class="p">,</span>  <span class="c1"># removes single-letter tokens</span>
+    <span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span>
+<span class="p">)</span>
+
+<span class="n">X_clean</span> <span class="o">=</span> <span class="n">vectorizer_clean</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_clean</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer_clean</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>chased</th>
+<th>climbed</th>
+<th>dog</th>
+<th>mat</th>
+<th>sat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7702,6 +8463,133 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%A7%B0-Custom-Tokenizer-/-Analyzer">🧰 Custom Tokenizer / Analyzer<a class="anchor-link" href="#%F0%9F%A7%B0-Custom-Tokenizer-/-Analyzer">¶</a></h4><p><a id="custom-tokenizer"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=75b120ab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>You can override <code>CountVectorizer</code>’s default tokenizer with a <strong>custom function</strong>.</p>
+<ul>
+<li><code>tokenizer=...</code>: custom token splitting logic</li>
+<li><code>analyzer=...</code>: full custom analyzer pipeline (tokenize + process)</li>
+<li><code>preprocessor=...</code>: raw string manipulation before tokenization</li>
+</ul>
+<p>Useful for:</p>
+<ul>
+<li>Lemmatization or stemming</li>
+<li>Regex-based token splitting</li>
+<li>Handling emojis, hashtags, etc.</li>
+</ul>
+<p>You must set <code>token_pattern=None</code> when using a custom tokenizer.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=978e12e7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="c1"># Custom tokenizer: split by words and keep hashtags</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">custom_tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">'#?\b\w\w+\b'</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="n">custom_vec</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span>
+    <span class="n">tokenizer</span><span class="o">=</span><span class="n">custom_tokenizer</span><span class="p">,</span>
+    <span class="n">token_pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>       <span class="c1"># must be None when using custom tokenizer</span>
+    <span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span>
+<span class="p">)</span>
+
+<span class="n">X_custom</span> <span class="o">=</span> <span class="n">custom_vec</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_custom</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">custom_vec</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>cat</th>
+<th>chased</th>
+<th>climbed</th>
+<th>dog</th>
+<th>mat</th>
+<th>sat</th>
+<th>tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7737,6 +8625,60 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%A7%AE-Memory-vs-Interpretability">🧮 Memory vs Interpretability<a class="anchor-link" href="#%F0%9F%A7%AE-Memory-vs-Interpretability">¶</a></h4><p><a id="memory-tradeoff"></a></p>
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>Text vectorization often results in <strong>very large sparse matrices</strong>, especially with BoW or TF-IDF on real-world corpora.</p>
+<ul>
+<li>Thousands of features</li>
+<li>95%+ zero entries</li>
+</ul>
+<p>🧠 Tradeoff:</p>
+<ul>
+<li>Sparse matrices = memory-efficient, but hard to interpret directly</li>
+<li>Dense matrices = intuitive but expensive</li>
+</ul>
+<p>Scikit-learn returns <code>scipy.sparse.csr_matrix</code> by default. You can:</p>
+<ul>
+<li>Use <code>.shape</code>, <code>.nnz</code> for size/stats</li>
+<li>Use <code>.toarray()</code> to convert to dense (careful with large data)</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fd471ad1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+<span class="n">X_sparse</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape:"</span><span class="p">,</span> <span class="n">X_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Non-zero entries:"</span><span class="p">,</span> <span class="n">X_sparse</span><span class="o">.</span><span class="n">nnz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sparsity: </span><span class="si">{:.2f}</span><span class="s2">%"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X_sparse</span><span class="o">.</span><span class="n">nnz</span> <span class="o">/</span> <span class="p">(</span><span class="n">X_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">X_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Shape: (3, 7)
+Non-zero entries: 9
+Sparsity: 57.14%
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7748,6 +8690,109 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%A7%B9-Dimensionality-Reduction-(optional-preview)">🧹 Dimensionality Reduction (optional preview)<a class="anchor-link" href="#%F0%9F%A7%B9-Dimensionality-Reduction-(optional-preview)">¶</a></h4><p><a id="dim-reduction-preview"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ead3a24c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+<p>Sparse matrices from BoW/TF-IDF are often:</p>
+<ul>
+<li>High-dimensional</li>
+<li>Noisy</li>
+<li>Hard for downstream models to interpret</li>
+</ul>
+<p>You can reduce dimensionality with:</p>
+<ul>
+<li><strong>TruncatedSVD</strong>: great for sparse input (LSA-style)</li>
+<li><strong>PCA</strong>: works only with dense input</li>
+<li><strong>UMAP / t-SNE</strong>: for visualization, not modeling</li>
+</ul>
+<p>This step is <strong>optional</strong>, but useful when:</p>
+<ul>
+<li>You want to visualize text clusters</li>
+<li>You want to feed reduced features into ML models</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3b976c0a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
+
+<span class="c1"># Apply SVD to TF-IDF vectors</span>
+<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_reduced</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">)</span>
+
+<span class="c1"># View as DataFrame</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_reduced</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'svd_1'</span><span class="p">,</span> <span class="s1">'svd_2'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>svd_1</th>
+<th>svd_2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0.657526</td>
+<td>-1.687260e-17</td>
+</tr>
+<tr>
+<th>1</th>
+<td>0.657526</td>
+<td>-6.524909e-01</td>
+</tr>
+<tr>
+<th>2</th>
+<td>0.657526</td>
+<td>6.524909e-01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -7787,6 +8832,92 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=663b7336">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+In classification tasks, analyzing the most frequent or distinctive words per class helps uncover patterns in the data.
+
+<p>Common techniques:</p>
+<ul>
+<li>Use <code>CountVectorizer</code> or <code>TfidfVectorizer</code> with <code>fit_transform(X_train)</code></li>
+<li>Split the data by class</li>
+<li>Sum the word counts within each class and sort</li>
+</ul>
+<p>This gives insight into:</p>
+<ul>
+<li>Class-specific jargon</li>
+<li>Topic-related words</li>
+<li>Potential bias or leakage</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3740f266">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Fake labeled data for demo</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"great movie and fantastic acting"</span><span class="p">,</span>
+    <span class="s2">"boring plot and bad acting"</span><span class="p">,</span>
+    <span class="s2">"what a wonderful film"</span><span class="p">,</span>
+    <span class="s2">"awful and dull"</span><span class="p">,</span>
+    <span class="s2">"loved it, great performance"</span><span class="p">,</span>
+    <span class="s2">"hated it, terrible movie"</span>
+<span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># 1 = positive, 0 = negative</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+
+<span class="c1"># Separate by class</span>
+<span class="n">pos_rows</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">neg_rows</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Sum term frequencies by class</span>
+<span class="n">pos_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pos_rows</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">neg_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">neg_rows</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Top 5 per class</span>
+<span class="n">top_pos</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">pos_freq</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]]</span>
+<span class="n">top_neg</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">neg_freq</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Top words in positive class:"</span><span class="p">,</span> <span class="n">top_pos</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Top words in negative class:"</span><span class="p">,</span> <span class="n">top_neg</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Top words in positive class: ['great' 'wonderful' 'performance' 'movie' 'loved']
+Top words in negative class: ['terrible' 'plot' 'movie' 'hated' 'dull']
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e70a7d06">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7794,6 +8925,78 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="%F0%9F%8E%AF-Important-Features-in-Classification">🎯 Important Features in Classification<a class="anchor-link" href="#%F0%9F%8E%AF-Important-Features-in-Classification">¶</a></h4><p><a id="feature-importance"></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=545bacff">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<details>
+<summary><strong>📖 Click to Expand</strong></summary>
+After training a linear model like Logistic Regression, we can inspect feature weights to understand which words push predictions toward a class.
+
+<p>High-weighted positive features = strong predictors for that class.<br/>
+This is useful for:</p>
+<ul>
+<li>Model explainability</li>
+<li>Debugging data leakage</li>
+<li>Extracting interpretable rules</li>
+</ul>
+<p>Works best with:</p>
+<ul>
+<li>TF-IDF inputs</li>
+<li>Linear models (LogisticRegression, SGDClassifier)</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b1bcec02">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="c1"># Use TF-IDF for modeling</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">'english'</span><span class="p">)</span>
+<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># Get feature weights</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+<span class="n">coefs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">top_pos_coef</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">coefs</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]]</span>
+<span class="n">top_neg_coef</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">coefs</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Most positive influence:"</span><span class="p">,</span> <span class="n">top_pos_coef</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Most negative influence:"</span><span class="p">,</span> <span class="n">top_neg_coef</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Most positive influence: ['great' 'wonderful' 'film' 'fantastic' 'performance']
+Most negative influence: ['awful' 'dull' 'hated' 'terrible' 'bad']
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7833,13 +9036,57 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99c5bd36">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e96a3094">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="%F0%9F%A7%BC-Cleaning-Before-Vectorizing">🧼 Cleaning Before Vectorizing<a class="anchor-link" href="#%F0%9F%A7%BC-Cleaning-Before-Vectorizing">¶</a></h4><p><a id="clean-before-vectorize"></a></p>
+<details> <summary><strong>📖 Click to Expand</strong></summary>
+When the vocabulary is large and most documents are short, vectorized matrices become extremely sparse — mostly zeros.
+
+<p>Pitfalls:</p>
+<ul>
+<li>Models may overfit noise</li>
+<li>Similarity scores (e.g. cosine) become unstable</li>
+<li>Distance-based models like KNN perform poorly</li>
+</ul>
+<p>Tips:</p>
+<ul>
+<li>Use <code>max_features</code>, <code>min_df</code> to limit vocabulary</li>
+<li>Try <code>TruncatedSVD</code> or <code>SelectKBest</code> for dimensionality reduction</li>
+<li>Prefer models that handle sparsity well (e.g., Logistic Regression, Naive Bayes)</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=564bcb66">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Shape:"</span><span class="p">,</span> <span class="n">X_tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sparsity: </span><span class="si">{:.2f}</span><span class="s2">%"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X_tfidf</span><span class="o">.</span><span class="n">nnz</span> <span class="o">/</span> <span class="p">(</span><span class="n">X_tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">X_tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Shape: (6, 15)
+Sparsity: 80.00%
+</pre>
+</div>
 </div>
 </div>
 </div>
