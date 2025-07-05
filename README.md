@@ -46,6 +46,15 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
         <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Scaling_Data.html">Scaling</a>,
         <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/06_Class_Imbalance.html">Class Imbalance</a>
       </td>
+    </tr>  
+    <tr>
+      <td><strong>NLP</strong></td>
+      <td>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/01_Text_Cleaning_and_Parsing.html">Text_Cleaning</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/02_Vectorization_BoW_TFIDF.html">Vectorization</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Topic_Modeling_LDA_NMF.html">Topic Modeling</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/05_Embeddings_and_Similarity.html">Embeddings</a>        
+      </td>
     </tr>    
     <tr>
       <td><strong>ML Ops</strong></td>
@@ -59,6 +68,8 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
     </tr>      
 </tbody>
 </table>
+
+
 <!-- <h2>🛠️ Design Principles</h2>
 <ul>
   <li><strong>Minimal magic</strong>: Code-first approach with visible logic</li>
