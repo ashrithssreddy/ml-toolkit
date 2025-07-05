@@ -15,6 +15,16 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
   </thead>
   <tbody>
     <tr>
+      <td><strong>Preprocessing</strong></td>
+      <td>
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/01_Categorical_Features.html">Categorical Features</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/02_Outliers.html">Outliers</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/03_Missing_Values.html">Missing Values</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Scaling_Data.html">Scaling</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/06_Class_Imbalance.html">Class Imbalance</a>
+      </td>
+    </tr>      
+    <tr>
       <td><strong>Supervised Learning</strong></td>
       <td>
         <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/classification.html">Classification</a>,
@@ -37,16 +47,6 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
         <a href="https://ashrithssreddy.github.io/ml-toolkit/Semi_Supervised_Learning/html_exports/pseudo_labeling.html">Pseudo Labeling</a>
       </td>
     </tr> -->
-    <tr>
-      <td><strong>Preprocessing</strong></td>
-      <td>
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/01_Categorical_Features.html">Categorical Features</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/02_Outliers.html">Outliers</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/03_Missing_Values.html">Missing Values</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Scaling_Data.html">Scaling</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/06_Class_Imbalance.html">Class Imbalance</a>
-      </td>
-    </tr>  
     <tr>
       <td><strong>NLP</strong></td>
       <td>
