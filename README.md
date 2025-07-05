@@ -52,8 +52,8 @@ A curated, **hands-on collection of Machine Learning methods** with clear explan
       <td>
         <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/01_Text_Cleaning_and_Parsing.html">Text_Cleaning</a>,
         <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/02_Vectorization_BoW_TFIDF.html">Vectorization</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Topic_Modeling_LDA_NMF.html">Topic Modeling</a>,
-        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/05_Embeddings_and_Similarity.html">Embeddings</a>        
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/03_Topic_Modeling_LDA_NMF.html">Topic Modeling</a>,
+        <a href="https://ashrithssreddy.github.io/ml-toolkit/html_exports/04_Embeddings_and_Similarity.html">Embeddings</a>        
       </td>
     </tr>    
     <tr>
