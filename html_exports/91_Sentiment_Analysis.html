@@ -7525,6 +7525,9 @@ a.anchor-link {
 <li><a href="#vectorization">🧮 Vectorization (BoW / TF-IDF)</a></li>
 <li><a href="#model-training">🤖 Model Training (Classification)</a></li>
 <li><a href="#evaluation">📊 Evaluation &amp; Interpretation</a></li>
+<li><a href="#rule-based">🧾 Rule-Based Sentiment Analysis</a></li>
+<li><a href="#lexicon-based">🧮 Lexicon-Based Scoring</a></li>
+<li><a href="#transformer-based">🤖 Transformer-Based Sentiment Analysis</a></li>
 </ul>
 <hr/>
 </div>
@@ -11509,6 +11512,711 @@ Predicted Sentiment: 1
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=029e9792">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="#table-of-contents">Back to the top</a></p>
+<hr/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46cb6bfc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a id="rule-based"></a></p>
+<h1 id="%F0%9F%A7%BE-Rule-Based-Sentiment-Analysis">🧾 Rule-Based Sentiment Analysis<a class="anchor-link" href="#%F0%9F%A7%BE-Rule-Based-Sentiment-Analysis">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=173baef8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%F0%9F%93%95-Using-TextBlob">📕 Using TextBlob<a class="anchor-link" href="#%F0%9F%93%95-Using-TextBlob">¶</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<p>TextBlob is a lightweight NLP tool built on top of NLTK and Pattern. Its sentiment analysis is <strong>rule-based</strong> and uses a <strong>predefined lexicon</strong>.</p>
+<ul>
+<li>Each word in the input is matched against a <strong>sentiment dictionary</strong>.</li>
+<li>Every word is assigned a <strong>polarity</strong> score (between -1 and 1) and <strong>subjectivity</strong> score (between 0 and 1).</li>
+<li>The overall sentence score is computed as a <strong>weighted average</strong> of word polarities.</li>
+</ul>
+<p><strong>Output:</strong></p>
+<ul>
+<li><code>polarity</code>:<ul>
+<li><code>&gt; 0</code> → positive sentiment</li>
+<li><code>&lt; 0</code> → negative sentiment</li>
+<li><code>= 0</code> → neutral</li>
+</ul>
+</li>
+<li><code>subjectivity</code>:<ul>
+<li><code>0</code> = fully objective (e.g. "the sky is blue")</li>
+<li><code>1</code> = fully subjective (e.g. "I love this movie")</li>
+</ul>
+</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Doesn't account for <strong>context or negation</strong> very well</li>
+<li>Works best on <strong>simple, direct English sentences</strong></li>
+<li>Not suited for sarcasm, slang, or domain-specific jargon</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1b290f0f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=75a4b26b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">textblob</span><span class="w"> </span><span class="kn">import</span> <span class="n">TextBlob</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Text'</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Sentiment'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Polarity'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Subjectivity'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">new_texts</span><span class="p">:</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">polarity</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span>
+    <span class="n">subjectivity</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">subjectivity</span>
+    <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">"positive"</span> <span class="k">if</span> <span class="n">polarity</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"negative"</span> <span class="k">if</span> <span class="n">polarity</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"neutral"</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">sentiment</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">polarity</span><span class="si">:</span><span class="s2">&lt;10.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">subjectivity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Text                                                    Sentiment  Polarity   Subjectivity
+------------------------------------------------------------------------------------------
+absolutely love experience would come again             positive   0.50       0.60
+worst service ever not coming back                      negative   -0.50      0.50
+okay not great but not terrible either                  positive   0.20       0.75
+food delicious staff friendly                           positive   0.69       0.75
+wait time long food cold disappointed overall           negative   -0.35      0.54
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2f706bb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%F0%9F%93%8A-Using-VADER-(Valence-Aware-Dictionary)">📊 Using VADER (Valence Aware Dictionary)<a class="anchor-link" href="#%F0%9F%93%8A-Using-VADER-(Valence-Aware-Dictionary)">¶</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<p>VADER (Valence Aware Dictionary and sEntiment Reasoner) is a <strong>lexicon and rule-based sentiment analysis tool</strong> tuned for <strong>social media and short text</strong>.</p>
+<p>It combines:</p>
+<ul>
+<li>A dictionary of <strong>intensity-aware sentiment words</strong></li>
+<li>Rules that capture:<ul>
+<li><strong>Negation</strong> (e.g. "not good")</li>
+<li><strong>Punctuation emphasis</strong> (e.g. "!!!")</li>
+<li><strong>Capitalization</strong> (e.g. "AWESOME")</li>
+<li><strong>Conjunction shifts</strong> (e.g. "but", "however")</li>
+<li><strong>Degree modifiers</strong> (e.g. "very", "slightly")</li>
+</ul>
+</li>
+</ul>
+<p><strong>Output:</strong></p>
+<ul>
+<li><code>compound</code>: a normalized score from -1 (most negative) to +1 (most positive)</li>
+<li><code>pos</code>, <code>neu</code>, <code>neg</code>: individual proportions of each sentiment tone</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li><strong>No training required</strong></li>
+<li>Handles <strong>internet slang</strong>, <strong>emojis</strong>, and <strong>short-form expressions</strong></li>
+<li>Great for tweets, reviews, and other social media texts</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Still rule-based — can misinterpret <strong>sarcasm</strong>, <strong>nuanced context</strong>, or <strong>multi-sentence logic</strong></li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f4fdf3d6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">vaderSentiment.vaderSentiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
+
+<span class="n">analyzer</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Text'</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Sentiment'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Compound'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Pos'</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Neu'</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Neg'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">95</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">new_texts</span><span class="p">:</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">compound</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="s1">'compound'</span><span class="p">]</span>
+    <span class="n">sentiment</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"positive"</span> <span class="k">if</span> <span class="n">compound</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span>
+        <span class="s2">"negative"</span> <span class="k">if</span> <span class="n">compound</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.05</span> <span class="k">else</span>
+        <span class="s2">"neutral"</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">sentiment</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">compound</span><span class="si">:</span><span class="s2">&lt;10.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="s1">'pos'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;6.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="s1">'neu'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;6.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="s1">'neg'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Text                                                    Sentiment  Compound   Pos    Neu    Neg
+-----------------------------------------------------------------------------------------------
+absolutely love experience would come again             positive   0.67       0.47   0.53   0.00
+worst service ever not coming back                      negative   -0.62      0.00   0.55   0.45
+okay not great but not terrible either                  positive   0.39       0.44   0.37   0.20
+food delicious staff friendly                           positive   0.78       0.78   0.23   0.00
+wait time long food cold disappointed overall           negative   -0.48      0.00   0.66   0.34
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6bd1791">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="#table-of-contents">Back to the top</a></p>
+<hr/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6b4adaf6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a id="lexicon-based"></a></p>
+<h1 id="%F0%9F%A7%AE-Lexicon-Based-Scoring">🧮 Lexicon-Based Scoring<a class="anchor-link" href="#%F0%9F%A7%AE-Lexicon-Based-Scoring">¶</a></h1><p>Lexicon-based methods rely on <strong>precompiled sentiment dictionaries</strong> that assign scores to individual words.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b6415f4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%F0%9F%93%9A-Using-AFINN-or-SentiWordNet">📚 Using AFINN or SentiWordNet<a class="anchor-link" href="#%F0%9F%93%9A-Using-AFINN-or-SentiWordNet">¶</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<h5 id="%F0%9F%94%A2-AFINN">🔢 AFINN<a class="anchor-link" href="#%F0%9F%94%A2-AFINN">¶</a></h5><ul>
+<li>AFINN is a list of <strong>~2,500 English words</strong>, each assigned an <strong>integer sentiment score</strong> from -5 (very negative) to +5 (very positive).</li>
+<li>It was designed for <strong>microblogging content</strong> like tweets.</li>
+<li>Sentence-level sentiment is calculated by:<ul>
+<li>Tokenizing the input</li>
+<li>Looking up each word’s score</li>
+<li>Summing or averaging the scores</li>
+</ul>
+</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Very fast, simple to implement</li>
+<li>Suitable for short texts and informal tone</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>No handling of negation, punctuation, or modifiers</li>
+<li>Limited vocabulary (~2,500 words)</li>
+<li>Doesn't account for context or grammar</li>
+</ul>
+<h5 id="%F0%9F%A7%A0-SentiWordNet">🧠 SentiWordNet<a class="anchor-link" href="#%F0%9F%A7%A0-SentiWordNet">¶</a></h5><ul>
+<li>Based on <strong>WordNet</strong>, a lexical database that groups words by meaning (synsets)</li>
+<li>Each synset in SentiWordNet is assigned:<ul>
+<li>A <strong>positivity score</strong></li>
+<li>A <strong>negativity score</strong></li>
+<li>A <strong>neutral/objectivity score</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>You match each word to a synset (often via POS tag)</li>
+<li>Aggregate the sentiment scores across the sentence</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Richer coverage (~100k+ words)</li>
+<li>Fine-grained sentiment for words in context</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Requires accurate POS tagging</li>
+<li>Slower and more complex than AFINN</li>
+<li>Still rule-based, with no handling of sarcasm or subtle nuance</li>
+</ul>
+<p>These methods are useful as <strong>lightweight baselines</strong> or as <strong>features</strong> for downstream ML models — but they generally underperform supervised or transformer-based approaches on real-world data.</p>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=36a93c0e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>afinn
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Collecting afinn
+  Downloading afinn-0.1.tar.gz (52 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: afinn
+  Building wheel for afinn (pyproject.toml) ... done
+  Created wheel for afinn: filename=afinn-0.1-py3-none-any.whl size=53470 sha256=360632a76ccaa0915c9a2414fb5f41d93225b7b875701855a5ade0c2bcfa9a20
+  Stored in directory: /Users/ashrithreddy/Library/Caches/pip/wheels/b0/05/90/43f79196199a138fb486902fceca30a2d1b5228e6d2db8eb90
+Successfully built afinn
+Installing collected packages: afinn
+Successfully installed afinn-0.1
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=decda67c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">afinn</span><span class="w"> </span><span class="kn">import</span> <span class="n">Afinn</span>
+<span class="n">afinn</span> <span class="o">=</span> <span class="n">Afinn</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Text'</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Sentiment'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'AFINN Score'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">new_texts</span><span class="p">:</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">afinn</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">"positive"</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"negative"</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"neutral"</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">sentiment</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Text                                                    Sentiment  AFINN Score
+--------------------------------------------------------------------------------
+absolutely love experience would come again             positive   3.00
+worst service ever not coming back                      negative   -3.00
+okay not great but not terrible either                  neutral    0.00
+food delicious staff friendly                           positive   5.00
+wait time long food cold disappointed overall           negative   -2.00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1621c4b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4bd2a120">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">sentiwordnet</span> <span class="k">as</span> <span class="n">swn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk</span><span class="w"> </span><span class="kn">import</span> <span class="n">pos_tag</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">wordnet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk</span><span class="w"> </span><span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreebankWordTokenizer</span>
+
+<span class="c1"># 📦 Download into known path</span>
+<span class="n">nltk_path</span> <span class="o">=</span> <span class="s2">"/tmp/nltk_data"</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'averaged_perceptron_tagger'</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="n">nltk_path</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'sentiwordnet'</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="n">nltk_path</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'wordnet'</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="n">nltk_path</span><span class="p">)</span>
+
+<span class="c1"># ✅ Skip punkt entirely</span>
+<span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nltk_path</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">TreebankWordTokenizer</span><span class="p">()</span>
+
+<span class="c1"># 🔁 Tag converter</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">penn_to_wn</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'J'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">ADJ</span>
+    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'N'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">NOUN</span>
+    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'R'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">ADV</span>
+    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'V'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">VERB</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># 💡 Use SentiWordNet without sent_tokenize()</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sentiwordnet_score</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">tagged</span> <span class="o">=</span> <span class="n">pos_tag</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="n">pos_score</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">neg_score</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tagged</span><span class="p">:</span>
+        <span class="n">wn_tag</span> <span class="o">=</span> <span class="n">penn_to_wn</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">wn_tag</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">synsets</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">swn</span><span class="o">.</span><span class="n">senti_synsets</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">wn_tag</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">synsets</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">synsets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pos_score</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">pos_score</span><span class="p">()</span>
+        <span class="n">neg_score</span> <span class="o">+=</span> <span class="n">s</span><span class="o">.</span><span class="n">neg_score</span><span class="p">()</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="n">pos_score</span> <span class="o">-</span> <span class="n">neg_score</span>
+
+<span class="c1"># 📝 Run it on cleaned new_texts</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Text'</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Sentiment'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'SentiWordNet Score'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">new_texts</span><span class="p">:</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">sentiwordnet_score</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">sentiment</span> <span class="o">=</span> <span class="s2">"positive"</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"negative"</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"neutral"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">sentiment</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /tmp/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package sentiwordnet to /tmp/nltk_data...
+[nltk_data]   Package sentiwordnet is already up-to-date!
+[nltk_data] Downloading package wordnet to /tmp/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Text                                                    Sentiment  SentiWordNet Score
+------------------------------------------------------------------------------------------
+absolutely love experience would come again             positive   0.500
+worst service ever not coming back                      negative   -1.125
+okay not great but not terrible either                  negative   -1.875
+food delicious staff friendly                           positive   0.750
+wait time long food cold disappointed overall           negative   -0.375
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00544139">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="#table-of-contents">Back to the top</a></p>
+<hr/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d41861c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a id="transformer-based"></a></p>
+<h1 id="%F0%9F%A4%96-Transformer-Based-Sentiment-Analysis">🤖 Transformer-Based Sentiment Analysis<a class="anchor-link" href="#%F0%9F%A4%96-Transformer-Based-Sentiment-Analysis">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=78ab04ab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%F0%9F%A7%A0-Using-Pretrained-Model-(HuggingFace-pipeline)">🧠 Using Pretrained Model (HuggingFace pipeline)<a class="anchor-link" href="#%F0%9F%A7%A0-Using-Pretrained-Model-(HuggingFace-pipeline)">¶</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<h5 id="%F0%9F%A4%96-HuggingFace-Pretrained-Sentiment-Classifier">🤖 HuggingFace Pretrained Sentiment Classifier<a class="anchor-link" href="#%F0%9F%A4%96-HuggingFace-Pretrained-Sentiment-Classifier">¶</a></h5><p>This method uses models like <strong>BERT</strong>, <strong>RoBERTa</strong>, or <strong>DistilBERT</strong> that have been <strong>fine-tuned on sentiment classification tasks</strong>, such as movie reviews, tweets, or product feedback.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Uses a <code>pipeline("sentiment-analysis")</code> from 🤗 Transformers</li>
+<li>Under the hood:<ul>
+<li>Tokenizes the input using a pretrained tokenizer</li>
+<li>Feeds it into a fine-tuned transformer model</li>
+<li>Outputs a label like <code>POSITIVE</code>, <code>NEGATIVE</code>, and a confidence score</li>
+</ul>
+</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>No need to train your own model</li>
+<li>State-of-the-art accuracy on many benchmarks</li>
+<li>Handles word order, context, and negation naturally</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Slower than rule-based methods</li>
+<li>Requires GPU for fast inference on large batches</li>
+<li>Accuracy may drop on <strong>domain shift</strong> (e.g., tweets vs product reviews)</li>
+</ul>
+<p><strong>Example Models:</strong></p>
+<ul>
+<li><code>distilbert-base-uncased-finetuned-sst-2-english</code></li>
+<li><code>cardiffnlp/twitter-roberta-base-sentiment</code></li>
+<li>Custom fine-tuned BERTs from HuggingFace model hub</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=35eaaa23">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="c1"># Load pretrained sentiment classifier</span>
+<span class="n">clf_pipeline</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"sentiment-analysis"</span><span class="p">)</span>
+
+<span class="c1"># Run on new_texts</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Text'</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Predicted Label'</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Confidence'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">85</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">new_texts</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">clf_pipeline</span><span class="p">(</span><span class="n">text</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'score'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>No model was supplied, defaulted to distilbert/distilbert-base-uncased-finetuned-sst-2-english and revision 714eb0f (https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english).
+Using a pipeline without specifying a model name and revision in production is not recommended.
+Device set to use mps:0
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Text                                                    Predicted Label Confidence
+-------------------------------------------------------------------------------------
+absolutely love experience would come again             POSITIVE        1.000
+worst service ever not coming back                      NEGATIVE        1.000
+okay not great but not terrible either                  POSITIVE        0.766
+food delicious staff friendly                           POSITIVE        1.000
+wait time long food cold disappointed overall           NEGATIVE        1.000
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=088d3f35">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%F0%9F%A7%AA-Zero-Shot-Sentiment-Classification">🧪 Zero-Shot Sentiment Classification<a class="anchor-link" href="#%F0%9F%A7%AA-Zero-Shot-Sentiment-Classification">¶</a></h4><details><summary><strong>📖 Click to Expand</strong></summary>
+<h5 id="%F0%9F%A7%AA-Zero-Shot-Sentiment-with-Transformers">🧪 Zero-Shot Sentiment with Transformers<a class="anchor-link" href="#%F0%9F%A7%AA-Zero-Shot-Sentiment-with-Transformers">¶</a></h5><p>This method allows you to perform sentiment classification <strong>without any task-specific training</strong>.</p>
+<p>It uses models like <strong><code>facebook/bart-large-mnli</code></strong> or <strong><code>roberta-large-mnli</code></strong> that have been trained for <strong>natural language inference (NLI)</strong>.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>You give the model:<ul>
+<li>A <strong>text</strong> (e.g. "The service was terrible")</li>
+<li>A set of <strong>candidate labels</strong> (e.g. ["positive", "neutral", "negative"])</li>
+</ul>
+</li>
+<li>The model scores how likely each label <strong>entails</strong> the input text</li>
+<li>The label with the highest entailment score is chosen</li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>No training or fine-tuning required</li>
+<li>Highly flexible — works for any custom labels (e.g. ["angry", "joyful", "sad"])</li>
+<li>Great for multilingual, low-resource, or rapidly evolving domains</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Slower than pre-finetuned pipelines</li>
+<li>Less accurate than supervised approaches <strong>when labeled data is available</strong></li>
+<li>Works best when labels are well-defined and distinct</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3a0e7ba4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="c1"># Load zero-shot classifier</span>
+<span class="n">zero_shot</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"zero-shot-classification"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"facebook/bart-large-mnli"</span><span class="p">)</span>
+
+<span class="c1"># Define candidate sentiment labels</span>
+<span class="n">candidate_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"positive"</span><span class="p">,</span> <span class="s2">"neutral"</span><span class="p">,</span> <span class="s2">"negative"</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Text'</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Predicted'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Scores'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">new_texts</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">zero_shot</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">candidate_labels</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">{</span><span class="n">l</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">"scores"</span><span class="p">])}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">text</span><span class="si">:</span><span class="s2">&lt;55</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">pred</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>Device set to use mps:0
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Text                                                    Predicted  Scores
+------------------------------------------------------------------------------------------
+absolutely love experience would come again             positive   {'positive': '0.93', 'neutral': '0.05', 'negative': '0.02'}
+worst service ever not coming back                      negative   {'negative': '1.00', 'positive': '0.00', 'neutral': '0.00'}
+okay not great but not terrible either                  neutral    {'neutral': '0.83', 'negative': '0.13', 'positive': '0.03'}
+food delicious staff friendly                           positive   {'positive': '0.95', 'neutral': '0.05', 'negative': '0.01'}
+wait time long food cold disappointed overall           negative   {'negative': '0.98', 'neutral': '0.02', 'positive': '0.00'}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3dc25a29">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
